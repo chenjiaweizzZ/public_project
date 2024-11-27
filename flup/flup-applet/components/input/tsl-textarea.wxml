@@ -1,0 +1,12 @@
+<!--component/input/tsl-textarea.wxml-->
+<view class="wrapper" style='background-color:{{bgc}};height:{{height}}rpx'>
+  <textarea disabled="{{disabled}}" name="{{name}}" hidden='{{moduleHidden||hiddenmoment}}' maxlength="{{maxLength}}" placeholder='{{placeholder}}' value='{{inputValue}}'placeholder-class="placeholder"  placeholder-style="color:#B2B2B2" class="textarea" bindinput="input" ></textarea>
+  <view hidden="{{!hiddenmoment}}" class="textarea">
+    <text wx:if="{{inputValue}}">{{inputValue}}</text>
+    <text wx:else style="color:#B2B2B2">{{placeholder}}</text>
+  </view>
+  <view class="count">
+    <text>{{currentLength}}</text>
+    <text>/{{maxLength}}</text>
+  </view>
+</view>

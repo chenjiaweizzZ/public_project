@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-待办事项</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1近期教学讨论" transform="translate(-1126.000000, -163.000000)">
+            <rect id="矩形" fill="#FFFFFF" x="0" y="0" width="1440" height="900"></rect>
+            <g id="待办事项列表" transform="translate(1126.000000, 160.000000)">
+                <g id="icon-待办事项" transform="translate(0.000000, 3.000000)">
+                    <rect id="矩形" fill="#D8D8D8" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                    <g id="编组-54" transform="translate(1.500000, 3.000000)" stroke-linecap="round" stroke-width="1.25176471">
+                        <path d="M1.16,0 L11.84,0 C12.4806503,7.98293402e-16 13,0.51934969 13,1.16 L13,8.47535276 C13,9.11600307 12.4806503,9.63535276 11.84,9.63535276 L8.07177734,9.63535276 L8.07177734,9.63535276 L5.93969727,11.7805176 L4.05297852,9.63535276 L1.16,9.63535276 C0.51934969,9.63535276 2.07286053e-14,9.11600307 0,8.47535276 L0,1.16 C-3.0050164e-16,0.51934969 0.51934969,-1.04359052e-16 1.16,0 Z" id="矩形" stroke="#F7BA2A" fill="#F7BA2A"></path>
+                        <line x1="3.16040039" y1="3.5" x2="9.63818359" y2="3.5" id="路径-36" stroke="#FFFFFF"></line>
+                        <line x1="3.16040039" y1="6.0107362" x2="7.33203125" y2="6.0107362" id="路径-36备份" stroke="#FFFFFF"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

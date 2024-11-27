@@ -1,0 +1,101 @@
+.healthFileFuncList {
+  width: 100%;
+  height: 100%;
+  background: #F4F5F9;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+.healthFileFuncList .patientChoose {
+  padding: 0 14px 0 24px;
+  height: 44px;
+  background: linear-gradient(277deg, #32ae57 1%, #46cd6e 96%);
+  font-size: 16px;
+  line-height: 46px;
+  color: #ffffff;
+}
+
+/* 列表 */
+.healthFileFuncList .patientChoose .patientId {
+  padding-right: 18px;
+  float: right;
+  font-size: 15px;
+  /* background: url("../assets/images/right-arrow-icon.png") no-repeat right; */
+}
+
+.healthFileFuncList .funcsList {
+  flex: 1;
+  padding: 0 12px;
+  overflow-y: scroll;
+}
+
+.healthFileFuncList .funcsList .funcsLi {
+  position: relative;
+  padding: 14px 0;
+  padding-left: 3.75%;
+  background-size: 16px;
+  overflow: hidden;
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 1px 4px 0px rgba(26, 33, 44, 0.08);
+}
+
+.healthFileFuncList .funcsList .funcsLi .detail {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 33px;
+  right: 12px;
+}
+
+.healthFileFuncList .funcsList .funcsLi text {
+  font-size: 14px;
+}
+
+.healthFileFuncList .funcsList .funcsLi .p {
+  font-family: 苹方-简;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #111111;
+  margin-bottom: 11px;
+  display: flex;
+}
+
+.healthFileFuncList .funcsList .funcsLi .p image {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.healthFileFuncList .funcsList .funcsLi .p .span {
+  padding: 2px 6px;
+  margin-left: 3px;
+  border-radius: 8.5px;
+  line-height: 14px;
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 0.13px;
+  transform: scale(0.9);
+  background: #ff7b35;
+  border-radius: 0 8px 8px 8px;
+}
+
+/* 无列表数据 */
+.healthFileFuncList .nodata {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 60px;
+}
+.nodata .nodata-img{
+  width: 160px;
+  height: 212px;
+}

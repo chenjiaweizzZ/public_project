@@ -1,0 +1,3 @@
+<view>
+  <TUIConsultChat id="TUIConsultChat" wx:if="{{currentConversationID}}" patientName="{{patientName}}" consultId="{{consultId}}" patientId="{{patientId}}" sourceId="{{sourceId}}" currentConversationID="{{currentConversationID}}" type="{{type}}"></TUIConsultChat>
+</view>

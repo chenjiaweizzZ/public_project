@@ -1,0 +1,302 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "flup-applet",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "Setting/pages/room/room",
+          "pathName": "Setting/pages/room/room",
+          "query": "inviteID=617a555b-292b-4352-8be3-64313f72eff3&roomID=1587&patientName=%E9%87%91*%E5%9B%BD",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/room/room",
+          "pathName": "Setting/pages/room/room",
+          "query": "inviteID=6dbb0082-00c3-467c-b9af-1063f799c8af&roomID=5731",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/room/room",
+          "pathName": "Setting/pages/room/room",
+          "query": "inviteID=49b7fede-376d-42e1-8f91-e09dadb68dd3&roomID=",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/room/room",
+          "pathName": "Setting/pages/room/room",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Chat-Main/pages/index",
+          "pathName": "Chat-Main/pages/index",
+          "query": "currentConversationID=543907271924310016&unreadCount=0&consultId=PCT2024051014174768422h&type=1&sourceId=1118033010334208499&patientId=20231027090349777nw2&patientName=%E9%87%91*%E5%9B%BD",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202311231112150135dt&hospitalId=1118033010334208499",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/summaryDischargeDetail/index",
+          "pathName": "pages/summaryDischargeDetail/index",
+          "query": "hospitalId=1118033010334208499&patientId=20231111020000300z0f&patientName=%E5%BC%A0*%E6%B6%B5&serialNo=20231111020000568d2r",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/packageDetail/index",
+          "pathName": "Setting/pages/packageDetail/index",
+          "query": "webUrl=https%253A%252F%252Fpremisd.zwjk.com%252Fflup%252Fweb%252Fh5%252F%2523%252FhealthControl%253FpackageId%253DPI202312141527269238xm%2526packageName%253D%25E9%25AB%2598%25E8%25A1%2580%25E5%258E%258B%25E8%25AF%258A%25E5%2590%258E%25E5%2581%25A5%25E5%25BA%25B7%25E7%25AE%25A1%25E7%2590%2586%2526isShow%253Dtrue",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202311231112150135dt&hospitalId=1118033010334208499&consultId=PCT20240412110101837l1w&roomType=GROUP&roomId=533710894086807552",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=20231027090349777nw2&hospitalId=1118033010334208499&consultId=PCT2024051014174768422h&roomType=GROUP&roomId=543907271924310016",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240510141743915lbe&consultPackageName=%E5%AD%95%E6%9C%9F%E9%99%AA%E8%AF%8A%E6%9C%8D%E5%8A%A1%7C%E4%B8%80%E4%B8%AA%E6%9C%88&status=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202310251441294368s7&hospitalId=1118033010334208499",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240523151459324f1x&consultPackageName=%E9%AB%98%E8%A1%80%E5%8E%8B%E8%AF%8A%E5%90%8E%E5%81%A5%E5%BA%B7%E7%AE%A1%E7%90%86%7C%E4%B8%80%E4%B8%AA%E6%9C%88&status=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202310251441294368s7&hospitalId=1118033010334208499",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240521171537065ads&consultPackageName=%E9%AB%98%E8%A1%80%E5%8E%8B%E8%AF%8A%E5%90%8E%E5%81%A5%E5%BA%B7%E7%AE%A1%E7%90%86%7C%E4%B8%80%E4%B8%AA%E6%9C%88&status=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240521142559067j95&consultPackageName=%E9%AB%98%E8%A1%80%E5%8E%8B%E8%AF%8A%E5%90%8E%E5%81%A5%E5%BA%B7%E7%AE%A1%E7%90%86%7C%E4%B8%80%E4%B8%AA%E6%9C%88&status=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202310251441294368s7&hospitalId=1118033010334208499",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=20230719080741138pmx&hospitalId=1118033010334208499",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/healthMonitoringDetail/healthMonitoringDetail",
+          "pathName": "pages/healthMonitoringDetail/healthMonitoringDetail",
+          "query": "hospitalId=1118033010334208499&patientId=20230719080741138pmx&index=0&patientName=%E5%8F%AF%E7%90%A6%E5%AE%89&age=5&sex=%E5%A5%B3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=20231027090349777nw2&hospitalId=1118033010334208499",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240508141355873px8&consultPackageName=%E6%B5%8B%E8%AF%9501%7C1&status=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240508131620121a19&consultPackageName=%E6%B5%8B%E8%AF%9501%7C1&status=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Chat-Main/pages/index",
+          "pathName": "Chat-Main/pages/index",
+          "query": "currentConversationID=542752330929201152&unreadCount=0&consultId=PCT2024050709482832063w&type=1&sourceId=1118033010334208499&patientId=20231027090349777nw2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202306161101083778pt&hospitalId=1118033010334208499&consultId=PPC20240426101504360lg5&roomType=GROUP&roomId=538772758927826944",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202308161637219222od&hospitalId=1118033010334208499&consultId=PCT20240418120418618eli&roomType=GROUP&roomId=535901146280943616",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240429133457712jdx",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/writeOff/index",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "orderserialno=PF20240428151906567rk4",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/patientInfo/PatientInfo",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=20231027090349777nw2&hospitalId=1118033010334208499&consultId=PCT20240428151911270ods&roomType=GROUP&roomId=539574067717287936",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/summaryDischargeDetail/index",
+          "pathName": "pages/summaryDischargeDetail/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "患者信息",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "patientId=202308161637219222od&hospitalId=1118033010334208499&consultId=PCT20240418120418618eli&roomType=GROUP&roomId=535901146280943616",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "权益核销",
+          "pathName": "Setting/pages/writeOff/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/bulletinBoard/index",
+          "pathName": "pages/bulletinBoard/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "测试",
+          "pathName": "Chat-Main/pages/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index3",
+          "pathName": "pages/customMessageDetail/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index/",
+          "pathName": "pages/questionnaire/questionnaire",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "Setting/pages/CLSetting/index",
+          "pathName": "Setting/pages/CLSetting/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "hai",
+          "pathName": "pages/ceshi/ceshi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/healthFileFuncDetail/healthFileFuncDetail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/patientInfo/PatientInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/ncdReportDetail/ncdReportDetail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "libVersion": "3.4.0"
+}

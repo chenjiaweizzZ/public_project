@@ -1,0 +1,23 @@
+<!-- 常用语 -->
+<view wx:if="{{displayTag}}" class="tui-common-words-container" catch:tap="handleClose">
+  <view class="tui-common-words-box" catch:tap="()=>{}">
+    <view class="tui-common-words-title">
+      <view>请选择你要发送的常用语</view>
+      <image style="width:22px;height:22px;" src="../../../../../../../assets/images/close.png" bindtap="handleClose"/>
+      <!-- <view style="color: #006EFF; font-family: PingFangSC-Regular;" class="tui-common-words-close" >关闭</view> -->
+    </view>
+    <view class="tui-common-words-main">
+      <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+        <van-sidebar-item title="基本内容" />
+        <van-sidebar-item title="自定义内容" />
+      </van-sidebar>
+      <view class="content">
+        <scroll-view style="width: 100%;height: 100%;" scroll-y="true">
+          <view wx:for="{{queryList}}" wx:key="index" bindtap="sendMessage" data-words="{{item}}" class="content-item">
+            <view style="padding:16px 12px;word-break: break-all;">{{item.contents}}</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

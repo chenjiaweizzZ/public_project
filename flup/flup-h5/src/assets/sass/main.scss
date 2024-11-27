@@ -1,0 +1,79 @@
+$colors: (B2B2B2, #b2b2b2),  (9B9B9B, #9b9b9b),  (F8F9FC, #f8f9fc),  (EFEFEF, #efefef),  (2F7CE1, #2f7ce1),  (111, #111),
+	 (999, #999),  (e2e2e2, #e2e2e2),  (1C98FC, #1c98fc),  (f2f2f2, #f2f2f2),  (D8D8D8, #d8d8d8);
+@each $name, $color in $colors {
+	.color-#{$name} {
+		color: $color;
+	}
+	.bgcolor-#{$name} {
+		background-color: $color;
+	}
+	.border-bottom-#{$name} {
+		border-bottom: 1px solid $color;
+	}
+}
+
+body,
+html {
+	height: 100%;
+	background-color: #f8f9fc;
+	letter-spacing: 0.2px;
+	font-size: 14px;
+	font-family: 'WebFontName';
+}
+
+.van-cell {
+	font-size: 16px;
+	padding: 16px 15px;
+}
+
+.van-cell__title {
+	color: #999999;
+}
+
+.but {
+	width: 100%;
+	height: 61px;
+	padding: 8px 20px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: #fff;
+	border-top: 1px solid #e2e2e2;
+}
+
+.noDatabox {
+	width: 100%;
+	padding-top: 20%;
+	img {
+		width: 160px;
+		height: 212px;
+		display: block;
+		margin: 0 auto;
+	}
+}
+.evalReport {
+	.van-collapse-item__content {
+		padding-bottom: 0;
+	}
+}
+
+div,
+span,
+ul,
+li,
+p,
+button{
+    font-family: 'PingFang SC';
+}
+.wrapper {
+	.van-circle__text {
+		color: #eee;
+	}
+}
+
+// 修改输入限制字段位置
+.van-field__word-limit {
+	position: absolute;
+	top: 20px;
+	right: 0;
+}

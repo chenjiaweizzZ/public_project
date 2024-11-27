@@ -1,0 +1,78 @@
+<view class="electronicRecordDetail">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">{{title}}</view>
+  </view>
+  <view wx:if="{{title=='检验报告'}}" class="reportDetail">
+    <scroll-view scroll-y="true" style="height: 100%;flex: 1;overflow: hidden;">
+      <view style="padding: 10px 14px;">
+        <view class="recordItem info">
+          <view class="key"><text user-select='true'>姓名</text></view>
+          <view class="value"><text user-select='true'>{{patientName}}</text></view>
+        </view>
+        <view class="recordItem info">
+          <view class="key"><text user-select='true'>性别</text></view>
+          <view class="value"><text user-select='true'>{{sex}}</text></view>
+        </view>
+        <view class="recordItem info">
+          <view class="key"><text user-select='true'>年龄</text></view>
+          <view class="value"><text user-select='true'>{{age}}岁</text></view>
+        </view>
+        <view class="recordItem">
+          <view class="key"><text user-select='true'>附加项</text></view>
+          <view class="recordLi ">
+            <view class="name"><text user-select='true'>项目</text></view>
+            <view class="result"><text user-select='true'>结果</text></view>
+            <view class="state"><text user-select='true'>状态</text></view>
+            <view class="unit"><text user-select='true'>单位</text></view>
+            <view class="range"><text user-select='true'>参考范围</text></view>
+          </view>
+          <view class="recordLi" wx:for="{{reportDetail}}" wx:for-item="item" wx:key="i">
+            <view class="name" wx:show="{{item.testName}}"><text user-select='true'>{{item.testName?item.testName:''}}</text></view>
+            <view class="result" wx:show="{{item.testResult}}"><text user-select='true' decode="true">{{item.testResult?item.testResult:''}}</text></view>
+            <view class="state" wx:show="{{item.correctFlag}}"><text user-select='true'>{{item.correctFlag?item.correctFlag:''}}</text></view>
+            <view class="unit" wx:show="{{item.unit}}"><text user-select='true'>{{item.unit?item.unit:''}}</text></view>
+            <view class="range" wx:if="{{item.referenceMin&&item.referenceMax}}"><text user-select='true'>{{item.referenceMin}}~{{item.referenceMax}}</text></view>
+            <view class="range" wx:if="{{!item.referenceMin&&!item.referenceMax&&item.reference}}"><text user-select='true' decode="true">{{item.reference}}</text></view>
+            <view class="range" wx:if="{{(!(item.referenceMin&&item.referenceMax))&&(!(!item.referenceMin&&!item.referenceMax&&item.reference))}}">
+              <text user-select='true' decode="true">{{item.referenceMin?item.referenceMin:item.referenceMax?item.referenceMax:item.reference?item.reference:''}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{title=='检查报告'}}" class="reportDetail">
+    <scroll-view scroll-y="true" style="height: 100%;flex: 1;overflow: hidden;">
+      <view style="padding: 10px 14px;">
+        <view class="recordItem info">
+          <view class="key"><text user-select='true'>姓名</text></view>
+          <view class="value"><text user-select='true'>{{patientName}}</text></view>
+        </view>
+        <view class="recordItem info">
+          <view class="key"><text user-select='true'>性别</text></view>
+          <view class="value"><text user-select='true'>{{sex}}</text></view>
+        </view>
+        <view class="recordItem info">
+          <view class="key"><text user-select='true'>年龄</text></view>
+          <view class="value"><text user-select='true'>{{age}}岁</text></view>
+        </view>
+        <view class="recordItem">
+          <view class="key"><text user-select='true'>影像所见</text></view>
+          <view class="value"><text user-select='true'>{{imagingFindings}}</text></view>
+        </view>
+        <view class="recordItem">
+          <view class="key"><text user-select='true'>检查结果</text></view>
+          <view class="value"><text user-select='true'>{{imagingDiagnosis}}</text></view>
+        </view>
+        <view class="recordItem">
+          <view class="key"><text user-select='true'>检查号</text></view>
+          <view class="value"><text user-select='true'>{{accessionNo}}</text></view>
+        </view>
+        <view class="recordItem">
+          <view class="read" bind:tap="readDetail">查看影像</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

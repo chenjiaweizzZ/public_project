@@ -1,0 +1,102 @@
+.healthMonitoring {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* header */
+.healthMonitoring .patientChoose {
+  padding: 0 14px 0 24px;
+  height: 44px;
+  background: linear-gradient(277deg, #32ae57 1%, #46cd6e 96%);
+  font-size: 16px;
+  line-height: 46px;
+  color: #ffffff;
+}
+
+/* 列表 */
+.healthMonitoring .patientChoose .patientId {
+  padding-right: 18px;
+  float: right;
+  font-size: 15px;
+  /* background: url("../assets/images/right-arrow-icon.png") no-repeat right; */
+}
+
+.healthMonitoring .funcsList {
+  display: flex;
+  padding: 0 3.75%;
+  flex-wrap: wrap;
+  /* overflow-y: scroll; */
+}
+
+.healthMonitoring .funcsList .funcsLi {
+  position: relative;
+  padding: 14px 0;
+  /* padding-left: 3.75%; */
+  background-size: 16px;
+  overflow: hidden;
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 8px;
+  /* box-shadow: 0px 1px 4px 0px rgba(26, 33, 44, 0.08); */
+  width: 44%;
+  padding: 3.75% 2%;
+  box-shadow: 0px 5px 11px 0px rgba(0, 0, 0, 0.0844);
+}
+.healthMonitoring .funcsList .funcsLi:nth-child(odd) {
+  margin-right: 4%;
+}
+.healthMonitoring .funcsList .funcsLi .detail {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 33px;
+  right: 12px;
+}
+
+.healthMonitoring .funcsList .funcsLi .text {
+  font-family: PingFang SC;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 14px;
+  letter-spacing: 0px;
+  color: #A0A5AD;
+  margin-top: 7px;
+}
+
+.healthMonitoring .funcsList .funcsLi .p {
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #111111;
+  margin-bottom: 11px;
+  display: flex;
+  font-family: PingFang SC;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: right;
+  letter-spacing: 0px;
+}
+
+.healthMonitoring .funcsList .funcsLi .p image {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.healthMonitoring .funcsList .funcsLi .p .span {
+  padding: 2px 6px;
+  margin-left: 3px;
+  border-radius: 8.5px;
+  line-height: 14px;
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 0.13px;
+  transform: scale(0.9);
+  background: #ff7b35;
+  border-radius: 0 8px 8px 8px;
+}

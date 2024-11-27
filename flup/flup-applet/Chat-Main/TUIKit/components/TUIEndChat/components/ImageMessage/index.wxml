@@ -1,0 +1,7 @@
+<view wx:if="{{isLoadingSuccess}}" class="TUI-ImageMessage" bindtap="previewImage">
+  <image class="image-message" mode="widthFix" src="{{ImgUrl}}" binderror="ImageError" />
+  <image wx:if="{{showSave}}" class="image-message" mode="widthFix" src="{{ImgUrl}}" show-menu-by-longpress="{{true}}" />
+</view>
+<view wx:else class="error-message">
+  图片加载失败
+</view>

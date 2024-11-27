@@ -1,0 +1,587 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F4F5F9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.enter {
+  transform: translate3d(0, 0, 0);
+  transform-origin: right;
+  animation: pageEnter .3s ease-in-out;
+}
+
+.tui-navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background-color: #FFFFFF;
+}
+
+.tui-navigatorbar-back {
+  position: absolute;
+  width: 20rpx;
+  height: 36rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #111111;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.group-information-box {
+  width: 100vw;
+  background: #D7EBDD;
+  box-shadow: 0px 1px 2px 0px #93B79E, inset 0px 0px 3px 0px rgba(147, 183, 158, 0.38);
+  height: 60px;
+}
+
+
+.group-information-box .showdetail {
+  display: flex;
+  width: 100%;
+}
+
+.group-information-box .box,
+.active {
+  flex-shrink: 0;
+  height: 120rpx;
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-information-box .active {
+  background-color: #fff;
+  box-shadow: 0px 4px 10px 0px #93B79E;
+}
+
+.group-information-box .active .userName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.group-information-box .active .roleName {
+  padding: 0 8px;
+  background: #FEFFD4;
+  box-sizing: border-box;
+  border: 1px solid #C86100;
+  font-size: 12px;
+  color: #C86100;
+  border-radius: 246px;
+}
+
+.group-information-box .box .userName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.group-information-box .box .roleName {
+  padding: 0 8px;
+  background: #E4FFEE;
+  box-sizing: border-box;
+  border: 1px solid #017925;
+  font-size: 12px;
+  color: #017925;
+  border-radius: 246px;
+}
+
+.message-list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.end-consultation {
+  position: absolute;
+  bottom: 0;
+  left: 6px;
+  border-radius: 274px;
+  padding: 5px 11px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #111111;
+  box-sizing: border-box;
+  border: 1px solid #646464;
+}
+
+.end-consultation image {
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+}
+
+.message-list-container {
+  width: 100%;
+  height: 100%;
+}
+
+.t-message {
+  position: relative
+}
+
+.no-message {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  font-size: 12px;
+  color: #a5b5c1;
+  height: 40px;
+  top: -40px;
+  right: 0;
+}
+
+.message-list {
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* component/item-message/item-message.wxss */
+
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-right: 30rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.time {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #999;
+  letter-spacing: 0.4rpx;
+  text-align: center;
+  line-height: 28rpx;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+.content-left {
+  max-width: 500rpx;
+  /* max-height: 500rpx; */
+  background-color: white;
+  border-bottom-color: white;
+  /*为了给after伪元素自动继承*/
+  padding: 20rpx 24rpx 20rpx 24rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  position: relative;
+  align-self: flex-start;
+  color: white;
+  margin-left: 20rpx;
+  margin-top: 10rpx !important;
+}
+
+.text {
+  /* font-family: PingFangSC-Regular; */
+  font-size: 32rpx;
+  font-family: Arial;
+  line-height: 36rpx;
+  word-break: break-word;
+  min-height: 28rpx;
+}
+
+.textleft {
+  color: #111;
+}
+
+.textright {
+  border-radius: 10px 2px 10px 10px;
+  border: 1px solid rgba(0, 110, 255, 0.30);
+  background: rgba(0, 110, 255, 0.10);
+  max-width: 60vw;
+  line-height: 52rpx;
+  padding: 12rpx 24rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+}
+
+.content-left::before {
+  content: '';
+  position: absolute;
+  width: 16rpx;
+  height: 10rpx;
+  right: 0rpx;
+  left: -10rpx;
+  top: 20rpx;
+  border-width: 0 20rpx 20rpx 0rpx;
+  border-style: solid;
+  border-left-color: transparent;
+  border-bottom-color: inherit;
+  border-bottom-left-radius: 60rpx;
+}
+
+.content-right {
+  max-width: 500rpx;
+  /* max-height: 500rpx; */
+  background-color: #bbe7ff;
+  border-bottom-color: #bbe7ff;
+  /*为了给after伪元素自动继承*/
+  padding: 20rpx 24rpx 20rpx 24rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  position: relative;
+  align-self: flex-end;
+  margin-right: 15rpx;
+  margin: 16rpx
+}
+
+.content-right::after {
+  content: '';
+  position: absolute;
+  width: 16rpx;
+  height: 10rpx;
+  right: -10rpx;
+  top: 5rpx;
+  border-width: 0 0 20rpx 20rpx;
+  border-style: solid;
+  border-left-color: transparent;
+  border-bottom-color: inherit;
+  border-bottom-right-radius: 60rpx;
+}
+
+.message-left {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx 0;
+}
+
+.message-right {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 20rpx 0;
+}
+
+.doctor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.doctor-info-image-left {
+  margin-left: 20rpx;
+  margin-right: 28rpx;
+  border-radius: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 8rpx;
+}
+
+.doctor-info-image-right {
+  margin-left: 28rpx;
+  margin-right: 20rpx;
+  border-radius: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 8rpx;
+}
+
+.doctor-info text {
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  line-break: anywhere;
+}
+
+.voice-left {
+  max-width: 278rpx;
+  height: 42rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 12rpx;
+  justify-content: flex-start;
+}
+
+.voice-left .voice-text {
+  padding-left: 20rpx;
+  font-size: 28rpx;
+  color: #111111;
+}
+
+.voice-right {
+  max-width: 278rpx;
+  height: 42rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 12rpx;
+  justify-content: flex-end;
+}
+
+.voice-right .voice-text {
+  padding-right: 20rpx;
+  font-size: 28rpx;
+  color: #111111;
+}
+
+.customer-msg-text {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #999;
+  letter-spacing: 0.4rpx;
+  /* margin-top: 6rpx; */
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 12rpx 24rpx 40rpx 24rpx;
+}
+
+.customer-msg-whitebg {
+  background-color: #FFF;
+  border: 1rpx solid #DDD;
+  border-radius: 8rpx;
+  text-align: left;
+  margin: 16rpx 0;
+  padding: 16rpx 24rpx;
+}
+
+.appraise-text {
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+  align-self: flex-start;
+  letter-spacing: 0.4rpx;
+  margin-top: 16rpx;
+  word-break: break-all;
+}
+
+.link-info.content-left {
+  border-bottom-color: #4185F3;
+  color: #4185F3;
+  padding: 24rpx 24rpx 34rpx;
+}
+
+.link-info {
+  background: #4185F3;
+}
+
+.link-info .top {
+  font-size: 28rpx;
+  color: #fff;
+  margin-bottom: 16rpx;
+}
+
+.link-info image {
+  border-radius: 8rpx;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 24rpx;
+}
+
+.doctorInfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 24rpx;
+  border-top: 2rpx solid rgba(255, 255, 255, .3);
+}
+
+.doctorInfo .bottom-info view,
+.doctorInfo .bottom-info text {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.left10 {
+  margin-right: 20rpx;
+}
+
+.doctorInfo .doctor-name {
+  margin-bottom: 10rpx;
+}
+
+.revoke-message {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+/****************** 播放闪烁 ******************/
+.playing-voice {
+  animation: fadeInOut 2s linear infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    /*初始状态 透明度为0*/
+  }
+
+  100% {
+    opacity: 1;
+    /*结尾状态 透明度为1*/
+  }
+}
+
+.video-icon {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 20rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-message {
+  max-width: 60vw;
+  line-height: 52rpx;
+  padding: 12rpx 24rpx;
+  background: #F8F8F8;
+  border: 1px solid #D9D9D9;
+  border-radius: 2px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+}
+
+.message-body-span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  outline: none;
+  font-size: 28rpx;
+  color: #333333;
+  position: relative;
+  max-width: 60vw;
+}
+
+.message-body-span-text {
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  line-break: anywhere;
+}
+
+.my-text {
+  border-radius: 10px 2px 10px 10px;
+  border: 1px solid rgba(0, 110, 255, 0.30);
+  background: rgba(0, 110, 255, 0.10);
+}
+
+.custom-message {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  padding: 14rpx 0;
+  color: #428D58;
+}
+
+.my-name {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  color: #666666;
+  margin-right: 20rpx;
+}
+
+.name {
+  display: flex;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  color: #666666;
+  margin-left: 20rpx;
+}
+
+.message-item {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.label-pop-right {
+  position: absolute;
+  display: flex;
+  font-size: 28rpx;
+  top: -60rpx;
+  right: 128rpx;
+  background-color: black;
+  color: #fff;
+  border-radius: 10rpx;
+  padding: 6rpx 12rpx;
+}
+
+.division-line {
+  margin: 0 10rpx;
+}
+
+.label-pop-right .triangle {
+  position: absolute;
+  top: 45rpx;
+  right: 20rpx;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #000000;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  transform: rotate(180deg);
+}
+
+.label-pop-left {
+  position: absolute;
+  font-size: 28rpx;
+  top: -60rpx;
+  left: 128rpx;
+  background-color: black;
+  color: #fff;
+  border-radius: 10rpx;
+  padding: 4rpx 8rpx;
+}
+
+.label-pop-left .triangle {
+  position: absolute;
+  top: 45rpx;
+  left: 20rpx;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #000000;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  transform: rotate(180deg);
+}

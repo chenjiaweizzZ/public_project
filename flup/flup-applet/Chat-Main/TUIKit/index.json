@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "TUIChat": "./components/TUIChat/index"
+  },
+  "navigationStyle": "custom",
+  "disableScroll": true
+}

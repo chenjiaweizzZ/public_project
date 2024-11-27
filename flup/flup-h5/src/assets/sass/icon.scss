@@ -1,0 +1,12 @@
+$icons : (patient_info, 20, 20),(check_info, 20, 20);
+
+@each $icon, $width, $height in $icons {
+  .icon-#{$icon} {
+    display: inline-block;
+    width: #{$width}px;
+    height: #{$height}px;
+    background-image: url("../images/icon/#{$icon}.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}

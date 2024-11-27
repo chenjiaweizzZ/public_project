@@ -1,0 +1,159 @@
+function my_slice(str) {
+  return str.slice(0, 10)
+}
+
+
+//计算年龄
+function caculateAge(birthDay, medicalDate) {
+  // let currentDate = new Date(medicalDate);
+  //     let birthDate = new Date(birthDay);
+  //     let age = currentDate.getFullYear() - birthDate.getFullYear();
+  //     let monthDiff = currentDate.getMonth() - birthDate.getMonth();
+
+  //     if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < birthDate.getDate())) {
+  //       age--;
+  //     }
+
+  //     return age;
+  if (birthDay.slice(5, 7) < medicalDate.slice(5, 7)) {
+    return medicalDate.slice(0, 4) - birthDay.slice(0, 4)
+  } else if (birthDay.slice(5, 7) == medicalDate.slice(5, 7)) {
+    if (birthDay.slice(5, 7) < medicalDate.slice(5, 7)) {
+      return medicalDate.slice(0, 4) - birthDay.slice(0, 4)
+    } else {
+      return medicalDate.slice(0, 4) - birthDay.slice(0, 4) - 1
+    }
+  } else {
+    return medicalDate.slice(0, 4) - birthDay.slice(0, 4) - 1
+  }
+}
+
+function num(str) {
+  if (str.indexOf('0') == -1) {
+    return parseInt(str)
+  } else {
+    return parseInt(str.slice(-1))
+  }
+}
+
+function getIdCardType(value) {
+  var documentList = [{
+      value: "01",
+      label: "身份证",
+    },
+    {
+      value: "03",
+      label: "护照",
+    },
+    {
+      value: "06",
+      label: "港澳居民内地通行证",
+    },
+    {
+      value: "07",
+      label: "台湾居民内地通行证",
+    },
+  ]
+  var list = documentList.filter(function (i) {
+    return i.value == value
+  })
+  if (list.length) {
+    return list[0].label || ""
+  } else {
+    return ""
+  }
+}
+
+function getClinicCardType(value) {
+  var mitList = [{
+    value: "1",
+    label: "长沙市医保",
+  },
+  {
+    value: "2",
+    label: "长沙居民医保",
+  },
+  {
+    value: "3",
+    label: "省直医保",
+  },
+  {
+    value: "4",
+    label: "铁路医保",
+  },
+  {
+    value: "5",
+    label: "长沙县医保",
+  },
+  {
+    value: "6",
+    label: "新农合",
+  },
+  {
+    value: "7",
+    label: "异地联网",
+  },
+  {
+    value: "8",
+    label: "外省医保",
+  },
+  {
+    value: "9",
+    label: "无医保",
+  },
+  ];
+  var list = mitList.filter(function (i) {
+    return i.value == value
+  })
+  if (list.length) {
+    return list[0].label || ""
+  } else {
+    return ""
+  }
+}
+
+function getConsultPurpose(consultPurpose) {
+  if(!consultPurpose) return
+  var arr = consultPurpose.split(",")
+  var text = ""
+  for(i = 0;i<arr.length;i++) {
+    if(arr[i] == 1) {
+      text = "病情咨询," + text
+    }else if(arr[i] == 2) {
+      text = "报告解读," + text
+    }else if(arr[i] == 3) {
+      text = "用药咨询," + text
+    }else {
+      text = text + ",其它"
+    }
+  }
+  return text
+}
+
+function centToYuan(number) {
+  if (typeof number !== 'number') {  
+    return 0;  
+  }  
+  return number / 100; 
+}
+
+function calculatePercentage(number1, number2) {  
+  if (typeof number1 !== 'number' || typeof number2 !== 'number') {  
+      return '0%';  
+  }  
+  if (number2 == 0) {  
+      return '0%';
+  }  
+  var percentage = (number1 / number2) * 100;  
+  return percentage.toString() + '%';  
+}  
+
+module.exports = {
+  my_slice: my_slice,
+  caculateAge: caculateAge,
+  getIdCardType: getIdCardType,
+  getClinicCardType: getClinicCardType,
+  getConsultPurpose: getConsultPurpose,
+  centToYuan: centToYuan,
+  calculatePercentage: calculatePercentage
+}

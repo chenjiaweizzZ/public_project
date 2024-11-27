@@ -1,0 +1,9 @@
+<!-- miniprogram/components/tui-group/group-profile/index.wxml -->
+<scroll-view class="group-information-box" scroll-x="true">
+  <view class="showdetail">
+    <view class="{{loginUserId == item.userId ? 'active' : 'box'}}" wx:for="{{groupMemberProfile}}" wx:key="id" data-value="{{item}}" bindtap="handleJumpPage">
+      <view class="userName">{{item.userName}}</view>
+      <view class="roleName">{{item.duties || item.roleName}}</view>
+    </view>
+  </view>
+</scroll-view>

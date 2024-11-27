@@ -1,0 +1,8 @@
+<view class="file-message {{isMine?'my-text':''}}" bind:tap="goDetail">
+  <view style="word-break: break-all;">
+    {{message.content.data.name}}
+  </view>
+  <image class="{{isMine?'my-image':''}}" wx:if="{{message.content.data.suffix == '.xls' || message.content.data.suffix == '.xlsx'}}" src="../../../../../../../assets/images/xlsx.png" mode="" />
+  <image class="{{isMine?'my-image':''}}" wx:if="{{message.content.data.suffix == '.doc' || message.content.data.suffix == '.docx'}}" src="../../../../../../../assets/images/docx.png" mode="" />
+  <image class="{{isMine?'my-image':''}}" wx:if="{{message.content.data.suffix == '.pdf'}}" src="../../../../../../../assets/images/PDF.png" mode="" />
+</view>

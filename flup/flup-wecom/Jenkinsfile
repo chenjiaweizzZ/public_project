@@ -1,0 +1,105 @@
+node {
+    //=======================测试环境前端项目脚本======================= 
+    def build_info = "医保自律前端测试环境，选择的分支为：${branch}"
+    echo "${build_info}"
+    //企业微信机器人 id 
+    def hook_id = "6f0d4a94-3aa1-4742-a52a-3e3812f1c75c"
+    def user_name = "未知用户"
+    wrap([$class: 'BuildUser']) {
+        //获取当前登录用户名
+        user_name = env.BUILD_USER
+    }
+    def remind_info = "${user_name}发起了一次更新（${BUILD_DISPLAY_NAME}）：${build_info}"
+    //调用脚本推送企业微信消息
+    //sh "sudo /home/ucmed/jenkins-script/wxRemind.sh ${hook_id} ${remind_info}"
+
+    try {
+        //gitlab凭证 
+        def git_auth = "yuanfei-git"
+        //gitlab地址  
+        def git_url = "http://yuanfei@192.168.0.116/information-management-department/ybzl_web.git"
+        //打包命令选项（不同环境需修改）
+        def build_tag = "dev.hospital"
+        //镜像版本（不同环境需修改）
+        def docker_tag = "env-test"
+        //harbor地址
+        def harbor_url = "registry.zwjk.com"
+        //harbor上的项目目录
+        def harbor_project_name = "misd"
+        //harbor凭证
+        def harbor_auth = "gcp_harbor_auth"
+        //SSH Server（不同环境需修改）
+        def remote_server = "192.168.6.61"
+        //远程服务器上执行脚本（不同环境需修改）
+        def remote_exec = "/home/ucmed/misd/reinstall.sh misd-h5"
+        stage('拉取代码') { // for display purposes
+            echo "从git拉取代码"
+            // Get some code from a GitHub repository
+            checkout([$class: 'GitSCM', branches: [[name: "*/${branch}"]], extensions: [], userRemoteConfigs: [[credentialsId: "${git_auth}", url: "${git_url}"]]])
+        }
+        stage('代码审查') {
+            if ("${check_code}" == "true") {
+                def scannerHome=tool 'sonar-scanner4.7'
+                withSonarQubeEnv('sonar-server-3.29') {
+                    echo "开始代码审查"
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            } else {
+                echo "代码审查已跳过"
+            }
+        }
+        stage('打包、构建镜像') {
+            def imageName = "misd-h5:${docker_tag}"
+            nodejs('NodeJS14') {
+                echo "开始打包"
+                if ("${npm_install}" == "true") {
+                    sh "npm install"
+                } else {
+                    echo "npm install已跳过！！！"
+                }
+                sh "npm run build"
+            }
+            echo "开始制作镜像"
+            sh "sudo docker build . -t ${imageName}"
+            sh "sudo docker tag ${imageName} ${harbor_url}/${harbor_project_name}/${imageName}"
+            withCredentials([usernamePassword(credentialsId: "${harbor_auth}", passwordVariable: 'password', usernameVariable: 'username')]) {
+                echo "登录并上传镜像"
+                sh "sudo docker login --username=${username} ${harbor_url} --password=${password}"
+                sh "sudo docker push ${harbor_url}/${harbor_project_name}/${imageName}"
+            }
+            echo "删除本地镜像"
+            sh "sudo docker rmi ${imageName}"
+            sh "sudo docker rmi ${harbor_url}/${harbor_project_name}/${imageName}"
+        }
+        stage('部署代码') {
+            echo "开始部署代码"
+            sshPublisher(publishers: [
+                sshPublisherDesc(configName: "${remote_server}", 
+                transfers: [
+                    sshTransfer(cleanRemote: false, 
+                    excludes: '', 
+                    execCommand: "${remote_exec}", 
+                    execTimeout: 120000, 
+                    flatten: false, 
+                    makeEmptyDirs: false, 
+                    noDefaultExcludes: false, 
+                    patternSeparator: '[, ]+', 
+                    remoteDirectory: '', 
+                    remoteDirectorySDF: false, 
+                    removePrefix: '', 
+                    sourceFiles: '')
+                    ], 
+                    usePromotionTimestamp: false, 
+                    useWorkspaceInPromotion: false, verbose: false)
+                    ])
+        }
+    } catch (Throwable e) {
+      remind_info = "${user_name}发起的更新（${BUILD_DISPLAY_NAME}）失败！详见Jenkins日志"
+      //sh "sudo /home/ucmed/jenkins-script/wxRemind.sh ${wook_id} ${remind_info}"
+      throw e
+    }
+    remind_info = "${user_name}发起的更新（${BUILD_DISPLAY_NAME}）已结束"
+    //调用脚本推送企业微信消息
+    //sh "sudo /home/ucmed/jenkins-script/wxRemind.sh ${hook_id} ${remind_info}"
+
+}

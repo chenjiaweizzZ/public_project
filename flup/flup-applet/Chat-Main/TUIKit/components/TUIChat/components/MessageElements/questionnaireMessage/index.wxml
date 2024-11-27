@@ -1,0 +1,9 @@
+<view class="text-message {{isMine?'my-text':''}}" bind:tap="goDetail">
+  <view class="header">
+    <view class="title">问卷</view>
+    <image src="../../../../../../../assets/images/right.png" mode="" />
+  </view>
+  <view class="plan-message">
+    <view class="title">为了更好的为您服务，请填写问卷相关内容</view>
+  </view>
+</view>

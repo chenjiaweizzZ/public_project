@@ -1,0 +1,434 @@
+.shade {
+        height: 100%;
+        width: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+
+    }
+    .main {
+        margin-top:0.1rem;
+        padding-bottom: 0.6rem;
+        span,p,div,input,textarea{
+            font-size:0.24rem;
+        }
+        li:nth-child(3) , li:nth-child(5) , li:nth-child(8){
+            border-bottom: 1px solid #eee;
+            margin-bottom:0
+        }
+        li:last-child {
+            height:1.6rem;
+            display:flex;
+            align-items:center;
+        }
+
+    }
+    li {
+        background:#fff;
+        height: .65rem;
+        line-height:.65rem;
+        padding:0 0.4rem;
+        position: relative;
+        color: #666;
+        font-size: 0.26rem;
+        font-family: "Microsoft YaHei";
+        margin-bottom:0.1rem;
+        display: flex;
+        label {
+            flex: 1.5;
+            line-height:0.65rem;
+            text-align:justify;
+            text-align-last:justify;
+            margin-right:0.3rem;
+            vertical-align: top;
+            font-size:0.22rem;
+        }
+        >textarea {
+            display: flex;
+            flex: 3;
+        }
+        >div , >span , >input {
+            display: flex;
+            flex: 3;
+            height: .62rem;
+            line-height: .62rem;
+            overflow: hidden;
+            span {
+                flex: 1;
+                width: 0;
+                line-height: .62rem;
+            }
+        }
+        >p {
+            flex: 3;
+            height: .62rem;
+            padding-right: .2rem;
+            overflow: hidden;
+            i {
+                overflow: hidden;
+            }
+        }
+    }
+    .choice:after {
+        content:'';
+        display:inline-block;
+        width:0.3rem;
+        height:0.3rem;
+        background: url("../../assets/images/you-jiantou.png") 0 0 no-repeat;
+        background-size:100% 100%;
+        position: absolute;
+        right: 0.3rem;
+        top: 0.15rem;
+    }
+    .radio-box:before {
+        content: '';
+        display: inline-block;
+        width: .25rem;
+        height: .25rem;
+        margin-right: .05rem;
+        border-radius: 50%;
+        box-shadow: #dfdfdf 0 0 0 0 inset;
+        background-image: url('../../assets/images/gouxuan.png');
+        background-size: cover;
+
+    }
+    .radio-active:before {
+        background-image: url('../../assets/images/gouxuan_on.png');
+        background-size: cover;
+    }
+    .radio-disabled {
+        pointer-events: none;
+        color: #aaa;
+    }
+    .checkbase:after {
+        position: absolute;
+        right: .2rem;
+        top: .15rem;
+        content: '';
+        display: inline-block;
+        width: .35rem;
+        height: .35rem;
+        margin-right: .05rem;
+        border-radius: 50%;
+        box-shadow: #dfdfdf 0 0 0 0 inset;
+        background-image: url('../../assets/images/gouxuan.png');
+        background-size: cover;
+    }
+    .checkbase-active:after {
+        background-image: url('../../assets/images/gouxuan_on.png');
+        background-size: cover;
+    }
+    p {
+        margin :0
+    }
+    i {
+        font-style: normal;
+        line-height: .65rem;
+        padding-right: .1rem;
+    }
+    textarea {
+        display:inline-block;
+        width: calc(100% - 2rem);
+        height:1.4rem;
+        margin-top:0.1rem;
+        align-self:flex-start;
+    }
+    .department {
+        width:100vw;
+        height:100vh;
+        background:#F8F8F8;
+        position:absolute;
+        top:0;
+        z-index: 999;
+    }
+    .type {
+        background:#fff;
+        width:100%;
+        /*z-index: 10000;*/
+        text-align: center;
+    }
+    .search {
+        position:relative;
+        margin: .1rem .2rem;
+        border: 1px solid #eee;
+        border-radius: 0.3rem;
+        height: 0.6rem;
+        input {
+            margin: 0.1rem 0 0.1rem 0.2rem;
+            height: 0.4rem;
+            width: calc(100% - 1rem);
+            background: transparent;
+            display:inline-block;
+        }
+        i {
+            display:inline-block;
+            width:0.4rem;
+            height:0.4rem;
+            margin:0.1rem;
+            background:url('../../assets/images/icon-search.png') 0 0 no-repeat;
+            background-size:100% 100%;
+            cursor:pointer;
+            vertical-align: middle;
+            z-index:99;
+        }
+    }
+    s {
+        text-decoration: none;
+    }
+    .students , .remark {
+        height: auto;
+        p {
+            height: auto;
+            min-width: 100%;
+        }
+        span {
+            line-height:0.35rem;
+        }
+    }
+    li.add {
+        height: auto;
+        input {
+            opacity: 0;
+            position: absolute;
+            left: 2rem;
+            width: calc(100% - 5.4rem);
+            height: 100%;
+        }
+        p {
+            height: auto;
+        }
+        s {
+            display:inline-block;
+            width:0.4rem;
+            height:0.4rem;
+            background:url('../../assets/images/attachment.png') 0 0 no-repeat;
+            background-size:100% 100%;
+            vertical-align: middle;
+        }
+        i {
+            font-style: normal;
+            color: #3499db;
+            padding-left: 0.2rem;
+        }
+    }
+    .result {
+        display: inline-block;
+        width: 100%;
+        height: 0.6rem;
+        background: #fff;
+        position: fixed;
+        bottom: 0;
+        padding: 0 0.4rem;
+        color: #666;
+        z-index: 999;
+        border-top: 1px solid #eee;
+        p {
+            height: 0.6rem;
+            line-height: 0.6rem;
+            font-size: 0.25rem;
+        }
+        p:after {
+            content:'';
+            display:inline-block;
+            width:0.3rem;
+            height:0.3rem;
+            background: url("../../assets/images/you-jiantou.png") 0 0 no-repeat;
+            background-size:100% 100%;
+            position: absolute;
+            right: 0.3rem;
+            top: 0.15rem;
+        }
+    }
+    .doctorupdata {
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    i.deleteitem {
+        display: inline-block;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        font-style: normal;
+        color: #fff;
+        padding: 0 0.1rem;
+        text-align: center;
+        background: #f56c6c;
+        border-radius: 5px;
+    }
+    .cascade{
+        min-height:100%;
+        background: #fff;
+        &>.cascade_item_content{
+            overflow: auto;
+            height: 5rem;
+        }
+        &>.operation{
+            &>div{
+                @include sexy-flex;
+                flex-flow: row nowrap;
+                border-top:1px solid $borderDashColor;
+                border-bottom:1px solid $borderDashColor;
+                button{
+                    @include flex1(1);
+                    text-align: center;
+                    height: 0.8rem;
+                }
+                &>button:nth-child(2){
+                    background: $activeColor;
+                    color:#fff;
+                }
+            }
+            margin-top:0.5rem;
+        }
+        .cascade_item_wrap{
+            padding:$paddingL;
+            background:#fff;
+            .cascade_item{
+                @include sexy-flex;
+                flex-flow: row nowrap;
+                &>ul{
+                    @include sexy-flex;
+                    flex-flow: row wrap;
+                    @include flex1;
+                    li{
+                        width: 33.3%;
+                        color:$wordColor;
+                        margin-bottom: 0;
+                        padding:0 0.1rem;
+                        height: 0.55rem;
+                        line-height: 0.55rem;
+                        font-size:0.22rem;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow:hidden;
+                        display: block;
+                        .mk{display:none;}
+                    }
+                    li.active{
+                        position: relative;
+                        .mk {
+                            left:0;
+                            display: block;
+                            position: absolute;
+                            margin-right: 0.1rem;
+                            width: 3px;
+                            height: 0.2rem;
+                            top: 0.19rem;
+                            background: $activeColor;
+                            padding: 0;
+                        }
+                        color:$activeColor
+                    }
+                }
+            }
+        }
+    }
+    //考核
+    .kh-c {
+        .title {
+            display: flex;
+            background:$bgColor;
+            border-bottom:1px solid $borderColor;
+            li{
+                flex:1;
+                background:$bgColor;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+            }
+            .all{
+                position:absolute;
+                padding: 0;
+                z-index: 10;
+                font-size:0.23rem;
+                text-align:center;
+                left:0.12rem;
+            }
+
+        }
+      .kh-c-list{
+          padding-bottom: 1rem;
+          .stdname {
+              .stdname-d {
+                  width: 70px;
+                  word-break: break-all;
+                  display: inline-block;
+                  white-space: normal;
+              }
+          }
+
+          .all {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+
+              span {
+                  text-align: right;
+              }
+          }
+
+          li {
+              font-size: 0.23rem;
+              position: relative;
+              padding: 0;
+
+              label {
+                  position: relative;
+                  display: flex;
+                  &>div {
+                      line-height: 0.6rem;
+                      justify-content: center;
+                      flex: 1;
+                      display: flex;
+                      min-width: 0;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      font-weight: normal;
+                  }
+              }
+
+              div.fixed {
+                  position: absolute;
+                  left: 0.12rem;
+                  top: 0.14rem;
+              }
+
+
+              div.base {
+                  display: block;
+              }
+
+          }
+
+      }
+    }
+    .typeitems-wrap{
+        padding-bottom: 1rem;
+    }
+    .g-main-typeitems{
+        margin-top:0.9rem;
+    }
+    .reset /deep/ .van-tabs__wrap{
+        top:1.6rem;
+    }
+    .kh-c-list{
+        li{
+            label{
+                margin-right: 0;
+                text-align:center;
+                text-align-last:auto;
+            }
+        }
+    }
+    .list-inner{
+        padding-bottom: 1rem;
+    }
+

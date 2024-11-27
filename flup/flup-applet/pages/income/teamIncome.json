@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "TeamIncomeMonth": "./components/TeamIncomeLastMonth/TeamIncomeLastMonth"
+  }
+}

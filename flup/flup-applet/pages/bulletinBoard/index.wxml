@@ -1,0 +1,74 @@
+<view class="bulletin-board">
+  <view class="tui-navigatorbar">
+    <view class="conversation-title">看板</view>
+  </view>
+  <van-tabs active="{{ active }}" class="flex">
+    <van-tab title="待办工作">
+      <view class="main">
+        <view class="header">
+          <view class="date" bind:tap="selectDate">
+            <image src="../../assets/images/date.png" mode="" />
+            {{ date ? date : '选择日期'}}
+          </view>
+          <view class="switch">
+            <text class="text">只看未办</text>
+            <van-switch active-color="#32AE57" size="14px" checked="{{ checked }}" bind:change="onChange" />
+          </view>
+        </view>
+        <view class="list" wx:if="{{list.length > 0}}">
+          <view class="item" wx:for="{{list}}" wx:key="patientId">
+            <view class="title">
+              <image src="../../assets/images/avatar.png" mode="" />
+              <text class="name">{{item.patientName}}</text>
+              <text class="number">{{item.patientPhone}}</text>
+            </view>
+            <view wx:for="{{item.userPlanDetailList}}" wx:key="planId" class="plan">
+              <view class="plan-name">
+                {{item.planName}}
+              </view>
+              <view class="plan-item" wx:for="{{item.flupTaskListViews}}" wx:key="serialNo" bind:tap="goDetail" data-value="{{item}}">
+                <view class="checked {{ item.flupState === '已完成' || item.flupState === '已作废' ? 'active' : '' }}">
+                </view>
+                <view class="plan-item-name">
+                  {{item.templateName || '消息提醒'}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:else class="list nodata">
+          暂无数据
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+  <van-popup show="{{ show }}" round position="bottom" custom-style="height: 50%;" bind:close="onClose">
+    <van-datetime-picker type="date" title="选择日期" value="{{ currentDate }}" bind:input="onInput" formatter="{{ formatter }}" bind:cancel="onCancel" bind:confirm="onConfirm" />
+  </van-popup>
+
+  <van-popup style="position: relative;" closeable show="{{ show1 }}" round position="bottom" custom-style="height: 1200rpx;" bind:close="onClose1">
+    <view class="task-title">任务详情</view>
+    <view class="task-content">
+      <view class="task-content-item">
+        <view class="key">任务类型：</view>
+        <view class="tip">消息提醒</view>
+      </view>
+      <view class="task-content-item">
+        <view class="key">任务名称：</view>
+        <view class="name">{{detail.templateName || '消息提醒'}}</view>
+      </view>
+      <view class="task-content-item-other">
+        <view class="key">任务内容：</view>
+        <text class="content">{{detail.flupContent}}</text>
+      </view>
+    </view>
+    <view class="operation">
+      <view class="button cancel" bind:tap="onClose1">取消</view>
+      <view class="button void" bind:tap="onVoid" wx:if="{{detail.flupState != '已作废'}}">作废</view>
+      <view class="button complete" bind:tap="onComplete" wx:if="{{detail.flupState == '执行中' || detail.flupState == '待执行'}}">完成</view>
+      <view class="button complete" wx:if="{{detail.flupState === '已完成'}}">已完成</view>
+      <view class="button voided" wx:if="{{detail.flupState === '已作废'}}">已作废</view>
+      <view class="button voided" wx:if="{{detail.flupState === '已过期'}}">已过期</view>
+    </view>
+  </van-popup>
+</view>

@@ -1,0 +1,65 @@
+/* component/input/tsl-input.wxss */
+
+.wrapper {
+  padding-top: 6rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 1rpx solid #f2f3f7;
+  width: 750rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tsl-input {
+  flex: 1;
+  display: flex;
+  height: 64rpx;
+  padding-left: 20rpx;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  background-color: #f6f6f6;
+  border-radius: 10rpx;
+}
+
+.input {
+  width: 500rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #111;
+  caret-color:#4185F3; 
+  text-align: left;
+  padding-left: 10rpx;
+  letter-spacing: 0.4rpx;
+}
+
+.textHint {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #999;
+  text-align: left;
+  padding-left: 10rpx;
+  letter-spacing: 0.4rpx;
+}
+
+.input-placeholder {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #999;
+  letter-spacing: 0.4rpx;
+}
+
+.clear {
+  justify-items: flex-end;
+}
+
+.cancel-text {
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #4185f3;
+  margin-right: 20rpx;
+  letter-spacing: 0.4rpx;
+  text-align: center;
+}

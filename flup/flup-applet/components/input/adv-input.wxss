@@ -1,0 +1,111 @@
+.adv-input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  min-height: 50rpx;
+  box-sizing: border-box;
+}
+
+.inputmg{
+  margin-top: 30rpx;
+}
+
+.adv-input .name {
+  width: 160rpx;
+  text-align: left;
+  line-height: 50rpx;
+  height: 50rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #111;
+  font-size: 14px;
+}
+
+.adv-input .input {
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #111;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-left: 40rpx;
+}
+
+.input-placeholder{
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #b2b2b2;
+  line-height: 50rpx;
+  height: 50rpx;
+}
+
+.bottom{
+ width: 100%;
+ margin-top: 8rpx;
+ min-height: 2rpx;
+}
+.bottom .tip{
+  font-family: PingFangSC-Regular;font-size: 28rpx;
+  color: #999999;
+  letter-spacing: 0.4rpx;
+  line-height: 40rpx;
+  margin-top: 16rpx;
+}
+.line{
+  height: 1rpx;
+  width: 100%;
+  background: rgba(65, 133, 243, .25);
+}
+.focus{
+  background: linear-gradient(to right,rgba(65, 133, 243, 1),rgba(65, 133, 243, 1),rgba(65, 133, 243, 1),rgba(65, 133, 243, 1),rgba(65, 133, 243,1));
+  animation: colorline 200ms ease;
+}
+
+@keyframes colorline{
+  0% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .0),rgba(65, 133, 243, .0),rgba(65, 133, 243, 1),rgba(65, 133, 243, .0),rgba(65, 133, 243,.0))
+
+  }
+  10% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .0),rgba(65, 133, 243, .1),rgba(65, 133, 243, 1),rgba(65, 133, 243, .1),rgba(65, 133, 243,.0))
+
+  }
+  20% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .0),rgba(65, 133, 243, .2),rgba(65, 133, 243, 1),rgba(65, 133, 243, .2),rgba(65, 133, 243,.0))
+
+  }
+  30% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .0),rgba(65, 133, 243, .3),rgba(65, 133, 243, 1),rgba(65, 133, 243, .3),rgba(65, 133, 243,.0))
+
+  }
+  40% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .0),rgba(65, 133, 243, .4),rgba(65, 133, 243, 1),rgba(65, 133, 243, .4),rgba(65, 133, 243,.0))
+
+  }
+  50% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .1),rgba(65, 133, 243, .5),rgba(65, 133, 243, 1),rgba(65, 133, 243, .5),rgba(65, 133, 243,.1))
+
+  }
+  60% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .2),rgba(65, 133, 243, .6),rgba(65, 133, 243, 1),rgba(65, 133, 243, .6),rgba(65, 133, 243,.2))
+
+  }
+  70% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .3),rgba(65, 133, 243, .7),rgba(65, 133, 243, 1),rgba(65, 133, 243, .7),rgba(65, 133, 243,.3))
+
+  }
+  80% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .4),rgba(65, 133, 243, .8),rgba(65, 133, 243, 1),rgba(65, 133, 243, .8),rgba(65, 133, 243,.4))
+
+  }
+  90% {
+  background: linear-gradient(to right,rgba(65, 133, 243, .5),rgba(65, 133, 243, .9),rgba(65, 133, 243, 1),rgba(65, 133, 243, .9),rgba(65, 133, 243,.5))
+
+  }
+  100%{
+  background: linear-gradient(to right,rgba(65, 133, 243, 1),rgba(65, 133, 243, 1),rgba(65, 133, 243, 1),rgba(65, 133, 243, 1),rgba(65, 133, 243,1))
+
+  }
+}

@@ -1,0 +1,51 @@
+/**
+  * @description 样式初始化
+  */
+
+* {
+  box-sizing: border-box;
+  // transition: width 2s;
+  // -moz-transition: width 2s;
+  // -webkit-transition: width 2s;
+  // -o-transition: width 2s;
+}
+
+html,body {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  font-family: "PingFangSC-Regular", "microsoft yahei", "Arial" !important;
+  background-color: #ffffff;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+ul,
+li {
+  list-style: none;
+  box-sizing: border-box;
+}
+
+i {
+  display: inline-block;
+  font-style: normal;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:link,
+a:focus {
+  background: none;
+}

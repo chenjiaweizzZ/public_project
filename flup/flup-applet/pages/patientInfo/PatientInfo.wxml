@@ -1,0 +1,165 @@
+<!--pages/patientInfo/PatientInfo.wxml-->
+<wxs src="../../utils/utils.wxs" module="utils"></wxs>
+<view class="patientInfo">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">患者信息</view>
+  </view>
+  <view class="main">
+    <view class="info">
+      <view>{{baseInfo.patientName}}</view>
+      <view class="middle">{{baseInfo.sex}}</view>
+      <view>{{baseInfo.age}}岁</view>
+    </view>
+    <view class="tab_box" style="width: 100%">
+      <view class="tabs_v">
+        <block wx:for="{{tabs}}" wx:for-item="item" wx:key="index">
+          <view class="tab_v {{index<1?'tab_nature':'tab_course'}}" bindtap='changeCurrentTab_' data-index='{{index}}' data-current='{{index}}'>
+            <text class="tab_txt {{currentTab==index? 'tab_v_active' : ''}}">{{item.label}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- tab 容器 -->
+    <view class="tabWrap">
+      <swiper class="" current="{{currentTab}}" duration="300" bindchange="swiperTab" style="width:100%;height:100%;">
+        <!-- 页面1 -->
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+              <van-sidebar-item title="患者备注" />
+              <van-sidebar-item title="健康计划" />
+              <van-sidebar-item title="咨询记录" />
+              <van-sidebar-item title="订单信息" />
+              <van-sidebar-item title="评估报告" />
+              <van-sidebar-item title="运动方案" />
+              <van-sidebar-item title="饮食建议" />
+              <van-sidebar-item title="用药指导" />
+              <van-sidebar-item title="健康监测" />
+            </van-sidebar>
+            <view class="content">
+              <view class="content-container">
+                <!-- 患者备注 -->
+                <remark wx:if="{{activeKey == 0}}" baseInfo="{{baseInfo}}"></remark>
+                <!-- 健康计划 -->
+                <view wx:if="{{activeKey == 1}}">
+                  <view class="addPlan">
+                    <view class="addBtn" bind:tap="toAddPlan">加入计划</view>
+                    <view class="addBtn" bind:tap="toAddDetail">添加临时任务</view>
+                  </view>
+                  <planList id="planList" selectIndex="{{0}}" patientId="{{patientId}}" hospitalId="{{hospitalId}}"></planList>
+                </view>
+                <!-- 咨询记录 -->
+                <view wx:if="{{activeKey == 2}}" class="consultList">
+                  <view wx:if="{{consultList.length > 0}}">
+                    <view class="" wx:for="{{consultList}}" wx:for-item="item" wx:key="index" data-value="{{item}}" bind:tap="toRoom">
+                      <view class="consult">
+                        <view class="left">
+                          <view class="line" wx:if="{{index!=0}}"></view>
+                          <view>
+                            <image src="../../assets/images/u-bg.png"></image>
+                          </view>
+                          <view class="line" wx:if="{{index!=(consultList.length-1)}}"></view>
+                        </view>
+                        <view class="right clinicItem">
+                          <view><text user-select='true'>由{{item.doctorName}}医生提供服务</text></view>
+                          <view class="date"><text user-select='true'>{{utils.my_slice(item.consultStartTime)}}</text></view>
+                          <view><text user-select='true'>{{item.consultPackageName}}</text></view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                  <view wx:else class="nodata">
+                    <image src="../../assets/images/noData.png" class="nodata-img"></image>
+                  </view>
+                </view>
+                <!-- 订单信息 -->
+                <view wx:if="{{activeKey == 3}}" class="orderList">
+                  <view class="line" style="top: {{height1}}px;height:{{height}}px"></view>
+                  <view wx:if="{{orderList.length > 0}}">
+                    <view class="clinicItem" wx:for="{{orderList}}" wx:for-item="item" wx:key="index">
+                      <view class="consult">
+                        <view class="left">
+                          <image style="z-index: 10;" src="../../assets/images/u-bg.png"></image>
+                        </view>
+                        <view class="right">
+                          <view class="date">
+                            <text selectable="true">{{utils.my_slice(item.createTime)}}{{item.status==2?'—'+utils.my_slice(item.serviceEndTime):''}}</text>
+                            <view class="days" wx:if="{{item.daysRemaining&&item.status==1}}"><text selectable="true">剩余{{item.text}}</text></view>
+                          </view>
+                          <view class="package">
+                            <text selectable="true">{{item.consultPackageName}}</text>
+                            <view style="color: #0079FD;" data-value="{{item}}" bind:tap="seeEquity">查看权益</view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                  <view wx:else class="nodata">
+                    <image src="../../assets/images/noData.png" class="nodata-img"></image>
+                  </view>
+                </view>
+                <!-- 评估报告 -->
+                <ncdReport wx:if="{{activeKey == 4}}" selectIndex="{{0}}" patientId="{{patientId}}" hospitalId="{{hospitalId}}"></ncdReport>
+                <!-- 运动方案、饮食建议、用药指导 -->
+                <healthFileFuncList wx:if="{{activeKey == 7}}" selectIndex="{{0}}" patientId="{{patientId}}" hospitalId="{{hospitalId}}"></healthFileFuncList>
+                <healthFileFuncList wx:if="{{activeKey == 6}}" selectIndex="{{2}}" patientId="{{patientId}}" hospitalId="{{hospitalId}}"></healthFileFuncList>
+                <healthFileFuncList wx:if="{{activeKey == 5}}" selectIndex="{{1}}" patientId="{{patientId}}" hospitalId="{{hospitalId}}"></healthFileFuncList>
+                <!-- 健康监测 -->
+                <healthMonitoring wx:if="{{activeKey == 8}}" selectIndex="{{0}}" patientId="{{patientId}}" hospitalId="{{hospitalId}}" patientName="{{baseInfo.patientName}}" sex="{{baseInfo.sex}}" age="{{baseInfo.age}}"></healthMonitoring>
+              </view>
+            </view>
+          </view>
+
+        </swiper-item>
+        <!-- 页面2 -->
+        <swiper-item style="width:100%;height:100%;">
+          <view class="main-content">
+            <van-sidebar active-key="{{ activeTreatKey }}" bind:change="onTreatChange">
+              <van-sidebar-item title="基本资料" />
+              <van-sidebar-item title="门诊病历" />
+              <van-sidebar-item title="检验报告" />
+              <van-sidebar-item title="检查报告" />
+              <van-sidebar-item title="出院记录" />
+            </van-sidebar>
+            <view class="content">
+              <!-- 基本资料 -->
+              <view wx:if="{{activeTreatKey == 0}}" class="baseInfo">
+                <view class="infoItem"><text user-select='true' class="key">姓名</text><text user-select='true' class="value">{{baseInfo.patientName}}</text></view>
+                <view class="infoItem"><text user-select='true' class="key">性别</text><text user-select='true'>{{baseInfo.sex}}</text></view>
+                <view class="infoItem"><text user-select='true' class="key">年龄</text><text user-select='true'>{{baseInfo.age}}岁</text></view>
+                <view class="infoItem"><text user-select='true' class="key">电话</text><text user-select='true'>{{baseInfo.phone}}</text></view>
+                <view class="infoItem"><text user-select='true' class="key">身份证号</text><text user-select='true'>{{baseInfo.idNo}}</text></view>
+                <view class="infoItem"><text user-select='true' class="key">病案号</text><text user-select='true'>{{baseInfo.patientId ? baseInfo.patientId : ""}}</text></view>
+                <view class="infoItem">
+                  <text user-select='true' class="key">家庭住址</text>
+                  <text user-select='true'>{{(baseInfo.homeAddrState?baseInfo.homeAddrState:'')+(baseInfo.homeAddrCity?baseInfo.homeAddrCity:'')+(baseInfo.homeAddrCounty?baseInfo.homeAddrCounty:'')+(baseInfo.homeAddrVillage?baseInfo.homeAddrVillage:'')}}</text>
+                </view>
+                <view class="infoItem"><text user-select='true' class="key">既往史</text><text user-select='true'>{{baseInfo.pastHistory?baseInfo.pastHistory:''}}</text></view>
+                <view class="infoItem"><text user-select='true' class="key">过敏史</text><text user-select='true'>{{baseInfo.allergyHistory?baseInfo.allergyHistory:''}}</text></view>
+                <view class="infoItem"><text user-select='true' class="key">家族史</text><text user-select='true'>{{baseInfo.familyHistory?baseInfo.familyHistory:''}}</text></view>
+              </view>
+              <!-- 门诊病历 -->
+              <view wx:if="{{activeTreatKey == 1}}" class="clinicList">
+                <view wx:if="{{clinicList.length > 0}}">
+                  <view class="clinicItem" wx:for="{{clinicList}}" wx:for-item="item" wx:key="index" data-value="{{item}}" bind:tap="toClinicDetail">
+                    <view class="date">
+                      <text selectable="true">{{item.medicalDate}}</text>
+                      <view class="days"><text selectable="true">{{item.medicalDoctor}}</text></view>
+                    </view>
+                    <view><text selectable="true">{{item.clinicalDiagnosis}}</text></view>
+                  </view>
+                </view>
+                <view wx:else class="nodata">
+                  <image src="../../assets/images/noData.png" class="nodata-img"></image>
+                </view>
+              </view>
+              <!-- 检验检查报告出院记录 -->
+              <electronicRecord wx:if="{{activeTreatKey == 2||activeTreatKey == 3||activeTreatKey == 4}}" selectIndex="{{activeTreatKey}}" patientId="{{patientId}}" hospitalId="{{hospitalId}}" patientName="{{baseInfo.patientName}}" birthday="{{baseInfo.dateOfBirth}}" sex="{{baseInfo.sex}}" patientId2="{{baseInfo.patientId}}"></electronicRecord>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>

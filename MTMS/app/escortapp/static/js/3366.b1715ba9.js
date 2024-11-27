@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkapp"]=self["webpackChunkapp"]||[]).push([[3366],{43366:function(e,t,u){u.r(t),u.d(t,{default:function(){return c}});var n=function(){var e=this,t=e._self._c;return t("div",{staticClass:"global-style"},[t("router-view")],1)},a=[],l={name:"wxapp",computed:{}},s=l,p=u(1001),r=(0,p.Z)(s,n,a,!1,null,"300bc2e4",null),c=r.exports}}]);
+//# sourceMappingURL=3366.b1715ba9.js.map

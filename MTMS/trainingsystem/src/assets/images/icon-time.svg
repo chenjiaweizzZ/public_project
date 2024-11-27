@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon14-时间</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4弹窗" transform="translate(-609.000000, -317.000000)">
+            <g id="编组-5" transform="translate(253.000000, 136.000000)">
+                <g id="编组-18" transform="translate(46.000000, 61.000000)">
+                    <g id="编组-14" transform="translate(225.000000, 111.000000)">
+                        <g id="编组" transform="translate(77.000000, 0.000000)">
+                            <g id="icon14-时间" transform="translate(8.000000, 9.000000)">
+                                <rect id="底" fill="#000000" opacity="0" x="0" y="0" width="14" height="14"></rect>
+                                <path d="M13,7 C13,10.313702 10.313702,13 7,13 C3.68629797,13 1,10.313702 1,7 C1,3.68629797 3.68629797,1 7,1 C10.313702,1 13,3.68629797 13,7 Z" id="Stroke-" stroke="#CCCCCC" stroke-width="1.4"></path>
+                                <path d="M9.97164482,7.00733015 L7.42908939,7.00733015 C7.19210727,7.00733015 7.00000715,6.81523004 7.00000715,6.57824791 L7.00000715,4.03569249" id="Stroke-" stroke="#CCCCCC" stroke-width="1.4" stroke-linecap="round"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

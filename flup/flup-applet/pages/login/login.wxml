@@ -1,0 +1,21 @@
+<view class="container">
+  <image mode='widthFix' style='width:200rpx;height:100rpx' src='{{logoUrl}}'></image>
+  <image style='margin-top:20rpx;width:160rpx;height:38rpx' src='{{logoName}}'></image>
+  <view class='input-block'>
+    <adv-input value="{{form.loginName}}" bindinput='usernameinput' hasmargin name="手机号码" placeholder='请输入手机号码'></adv-input>
+    <adv-input value="{{form.code}}" bindinput='codeinput' hasclear="{{false}}" hasmargin name="短信验证码" placeholder='请输入短信验证码'>
+      <button disabled='{{(!phonevalid)||(regetcodetime<60)}}' class='getcode-btn' slot="right" bindtap='getCaptcha'>
+        {{(regetcodetime>0&&regetcodetime!=60)?regetcodetime+'s后':''}}{{getcodebtn}}
+      </button>
+    </adv-input>
+  </view>
+
+  <button class='login-btn' bindtap='submit' disabled='{{!valid}}'>立即登录</button>
+  <view style="margin-top:48rpx">
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="wechat-style">一键授权登录</button>
+  </view>
+  <view class="explanation">
+    仅供湘雅医院全病程管理团队使用
+  </view>
+  <code-input id='codecheck' phone="{{form.loginName}}" />
+</view>

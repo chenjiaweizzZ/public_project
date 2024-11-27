@@ -1,0 +1,9 @@
+<!-- 文本 + 表情 -->
+<view class="text-message {{isMine?'my-text':''}}">
+  <view class="message-body-span" wx:for="{{renderDom}}" wx:key="index">
+    <span class="message-body-span-text" wx:if="{{item.name === 'span'}}">{{item.text}}</span>
+    <image wx:if="{{item.name === 'img'}}" class="emoji-icon" src="{{item.src}}" />
+  </view>
+  <image wx:if="{{isMine}}" class="bubbles-right" src="../../../../../../assets/images/mr.png" mode=""/>
+  <image wx:if="{{!isMine}}" class="bubbles-left" src="../../../../../../assets/images/ml.png" mode=""/>
+</view>

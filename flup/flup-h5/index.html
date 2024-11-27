@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />  
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <% htmlWebpackPlugin.options.cdnConfig.forEach(function(item){ if(item.css){ %>
+    <link href="<%= item.css %>" rel="stylesheet" />
+    <% }}) %>
+      <title></title>
+      <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+      <!-- <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script> -->
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="./static/config.js?date=20240621"></script>
+  <!-- cnd 加载js start-->
+  <% if( htmlWebpackPlugin.options.isExternalJs){htmlWebpackPlugin.options.cdnConfig.forEach(function(item){
+    if(item.js){ %>
+    <script type="text/javascript" src="<%= item.js %>"></script>
+    <% }})} %>
+      <!-- <script>
+      window.onload = function() {
+        if (window.viewportUnitsBuggyfill) {
+          window.viewportUnitsBuggyfill.init({
+            hacks: window.viewportUnitsBuggyfillHacks
+          })
+        }
+      }
+    </script> -->
+</body>
+
+</html>

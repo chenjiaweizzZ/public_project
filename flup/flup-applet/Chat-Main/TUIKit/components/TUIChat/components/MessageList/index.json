@@ -1,0 +1,20 @@
+{
+  "component": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "TimeMessage": "../MessageElements/TimeMessage/index",
+    "ImageMessage": "../../../TUIEndChat/components/ImageMessage/index",
+    "expressionMessage": "../../../TUIEndChat/components/expressionMessage/index",
+    "AudioMessage": "../MessageElements/AudioMessage/index",
+    "questionnaireMessage": "../MessageElements/questionnaireMessage/index",
+    "planMessage": "../MessageElements/planMessage/index",
+    "PackageRecommendations": "../MessageElements/PackageRecommendations/index",
+    "satisfactionMessage": "../MessageElements/satisfactionMessage/index",
+    "prescriptionMessage": "../MessageElements/prescriptionMessage/index",
+    "robotMessage": "../MessageElements/robotMessage/index",
+    "VideoMessage": "../MessageElements/VideoMessage/index",
+    "fileMessage": "../MessageElements/fileMessage/index",
+    "Referral": "../MessagePrivate/Referral/index",
+    "callMessage": "../MessageElements/callMessage/index"
+  }
+}

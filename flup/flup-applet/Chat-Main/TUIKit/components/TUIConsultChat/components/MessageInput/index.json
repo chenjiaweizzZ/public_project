@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Emoji": "../../../TUIChat/components/MessageElements/Emoji/index",
+    "CommonWords": "../../../TUIChat/components/MessagePrivate/CommonWords/index",
+    "addManager": "../../../TUIChat/components/MessagePrivate/addManager/index",
+    "aiAssistant": "../../../TUIChat/components/MessagePrivate/aiAssistant/index"
+  }
+}

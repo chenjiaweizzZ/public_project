@@ -1,0 +1,62 @@
+.group-information-box {
+  width: 100vw;
+  background: #D7EBDD;
+  box-shadow: 0px 1px 2px 0px #93B79E, inset 0px 0px 3px 0px rgba(147, 183, 158, 0.38);
+  height: 60px;
+}
+
+
+.group-information-box .showdetail {
+  display: flex;
+  width: 100%;
+}
+
+.group-information-box .box,
+.active {
+  flex-shrink: 0;
+  height: 120rpx;
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-information-box .active {
+  background-color: #fff;
+  box-shadow: 0px 4px 10px 0px #93B79E;
+}
+
+.group-information-box .active .userName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.group-information-box .active .roleName {
+  padding: 0 8px;
+  background: #FEFFD4;
+  box-sizing: border-box;
+  border: 1px solid #C86100 ;
+  font-size: 12px;
+  color: #C86100;
+  border-radius: 246px;
+}
+
+.group-information-box .box .userName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.group-information-box .box .roleName {
+  padding: 0 8px;
+  background: #E4FFEE;
+  box-sizing: border-box;
+  border: 1px solid #017925;
+  font-size: 12px;
+  color: #017925;
+  border-radius: 246px;
+}

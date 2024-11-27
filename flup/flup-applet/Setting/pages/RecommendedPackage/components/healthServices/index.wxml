@@ -1,0 +1,51 @@
+<view class="health-services">
+  <view class="main" wx:if="{{!isSearch}}">
+    <view class="search" bind:tap="Search">
+      <view class="search-item">
+        <image src="../../../../../assets/images/search.png" mode=""/>
+        请输入
+      </view>
+    </view>
+    <view class="package-list">
+      <view class="sidebar">
+        <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+          <van-sidebar-item wx:for="{{packageClassList}}" wx:key="classId" wx:for-item="item" title="{{item.className}}" />
+        </van-sidebar>
+      </view>
+      <view class="content">
+        <view class="group-name" bind:tap="onShowGroup">
+          <text class="{{selectIndex == 0 ? 'title' : 'selectTitle'}}">{{selectObj.groupName}}</text>
+          <image wx:if="{{selectIndex == 0}}" src="../../../../../assets/images/dowm.png" />
+          <image wx:else="" src="../../../../../assets/images/dowm2.png" />
+        </view>
+        <scroll-view scroll-y bindscrolltolower="scrolltolower" class="scrolltolower">
+          <view class="package-item" wx:for="{{packageInfoList}}" wx:key="packageId" wx:for-item="item">
+            <PackageItem packageInfo="{{item}}" roomType="{{roomType}}" roomId="{{roomId}}" consultId="{{consultId}}" type="{{type}}" sendUserName="{{sendUserName}}" sendUserId="{{sendUserId}}"></PackageItem>
+          </view>
+          <view wx:if="{{isMore}}" class="tip">
+            没有更多了
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <view class="main" wx:else>
+    <van-search value="{{ value }}" placeholder="请输入" input-align="center" show-action bind:change="onSearch" bind:cancel="onCancel" />
+    <view class="content">
+      <scroll-view scroll-y bindscrolltolower="searchScrolltolower" style="height: 100%">
+        <view class="package-item" wx:for="{{searchPackageInfoList}}" wx:key="packageId" wx:for-item="item">
+          <PackageItem packageInfo="{{item}}" roomType="{{roomType}}" roomId="{{roomId}}" consultId="{{consultId}}" type="{{type}}" sendUserName="{{sendUserName}}" sendUserId="{{sendUserId}}"></PackageItem>
+        </view>
+        <view wx:if="{{searchIsMore}}" class="tip">
+          没有更多了
+        </view>
+      </scroll-view>
+    </view>
+
+  </view>
+  <view class="tui-cards-container" catch:tap="handleClose" wx:if="{{displayTag}}">
+    <view class="service-evaluation" catch:tap="()=>{}">
+      <van-picker show-toolbar value-key="groupName" default-index="{{selectIndex}}" style="flex: 1;" columns="{{ flupGroupList }}" bind:cancel="handleClose" bind:confirm="onReferral" />
+    </view>
+  </view>
+</view>

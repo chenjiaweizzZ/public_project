@@ -1,0 +1,79 @@
+.navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #666;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.summary-discharge {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.summary-discharge .item {
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  font-size: 28rpx;
+  overflow: hidden;
+}
+
+.summary-discharge .item .key {
+  flex-shrink: 0;
+  color: #999;
+  width: 240rpx;
+  display: inline-block;
+}
+
+.summary-discharge .item .value text {
+  flex: 1;
+  color: #333;
+  word-break: break-all;
+}
+
+.signature {
+  display: flex;
+  padding-left: 340rpx;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 28rpx;
+  overflow: hidden;
+}

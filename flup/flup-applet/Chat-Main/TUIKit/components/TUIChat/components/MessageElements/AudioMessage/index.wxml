@@ -1,0 +1,21 @@
+<block>
+  <view class="audio-message {{isMine?'my-audio':''}}">
+    <!-- 默认状态 未播放 -->
+    <view class='audio' wx:if="{{!isPlay}}" bindtap='audioPlay' data-id="{{message.ID}}">
+      <view class="audio-text" wx:if="{{!isMine}}">
+        <image src="../../../../../static/images/suona.png" /> {{renderDom[0].second}}"
+      </view>
+      <view class="my-audio-text" wx:else>
+        {{renderDom[0].second}}"
+        <image class="my-image" src="../../../../../static/images/suona3.png" />
+      </view>
+    </view>
+    <!-- 当前正在播放状态 -->
+    <view class='audio' wx:else data-value="{{message}}" bindtap='audioStop' data-id="{{message.ID}}">
+      <image wx:if="{{!isMine}}" class="audio-play" src="../../../../../static/images/suona2.gif" />
+      <image wx:else class="my-audio-play" src="../../../../../static/images/suona.gif" />
+    </view>
+    <image wx:if="{{isMine}}" class="bubbles-right" src="../../../../../../../assets/images/mr.png" mode="" />
+    <image wx:if="{{!isMine}}" class="bubbles-left" src="../../../../../../../assets/images/ml.png" mode="" />
+  </view>
+</block>

@@ -1,0 +1,81 @@
+<!--pages/planAdd/planAdd.wxml-->
+<!--pages/healthMonitoringDetail/healthMonitoringDetail.wxml-->
+<view class="planAdd">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">患者信息</view>
+  </view>
+  <view class="main">
+    <view class="info">
+      <view>{{patientName}}</view>
+      <view class="middle">{{sex}}</view>
+      <view>{{age}}岁</view>
+    </view>
+    <view class="content">
+      <view class="recordItem">
+        <view class="key">选择计划</view>
+        <view class="value" bind:tap="choosePlan">{{planName?planName:''}}
+          <image class="detail" src="../../assets/images/right.png" />
+        </view>
+      </view>
+      <view class="recordItem">
+        <view class="key">选择日期</view>
+        <view class="value" bind:tap="chooseDate">{{addDate?addDate:''}}
+          <image class="detail" src="../../assets/images/right.png" />
+        </view>
+      </view>
+      <view class="recordItem">
+        <view class="key">任务类型</view>
+        <view class="value" bind:tap="chooseType" bind:change="onTypeChange">{{taskType?taskType:''}}
+          <image class="detail" src="../../assets/images/right.png" />
+        </view>
+      </view>
+      <view class="recordItem">
+        <view class="key">{{taskType=='健康宣教'?'宣教内容':taskType=='调查问卷'?'问卷内容':taskType=='消息提醒'?'消息内容':'任务内容'}}</view>
+        <view class="value" bind:tap="chooseContent" wx:if="{{taskType&&taskType!='消息提醒'}}">{{planContent?planContent:''}}
+          <image class="detail" src="../../assets/images/right.png" />
+        </view>
+        <view class="value" wx:if="{{taskType=='消息提醒'}}">
+          <input value="{{value}}" class='input' placeholder='{{placeholder}}' bindinput="bindinput"></input>
+        </view>
+      </view>
+      <view class="recordItem">
+        <view class="key valid">有效天数<text>（为0时任务永久有效）</text></view>
+        <view class="value days">
+          <view class="less" bind:tap="decrease">—</view>{{validDays}}
+          <view class="more" bind:tap="addDays">+</view>
+        </view>
+      </view>
+      <view class="recordItem">
+        <view class="key">途径</view>
+        <view class="value">微信</view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="bottom-btn">
+        <view class="cancel" bindtap="goBack">取消</view>
+        <view class="submit" bindtap="addPlanSubmit">确定</view>
+      </view>
+    </view>
+  </view>
+  <view class="tui-cards-container" wx:if="{{planDisplay}}">
+    <view class="service-evaluation">
+      <van-picker columns="{{ planList }}" bind:confirm="onConfirmPlan" bind:cancel="onCancel" show-toolbar />
+    </view>
+  </view>
+  <view class="tui-cards-container" wx:if="{{dateDisplay}}">
+    <view class="service-evaluation">
+      <van-datetime-picker type="date" value="{{ currentDate }}" min-date="{{ minDate }}" formatter="{{ formatter }}" bind:input="onInput" bind:cancel="onCancel" bind:confirm="onConfirm" />
+    </view>
+  </view>
+  <view class="tui-cards-container" wx:if="{{taskDisplay}}">
+    <view class="service-evaluation">
+      <van-picker columns="{{ taskList }}" bind:confirm="onConfirmTask" bind:cancel="onCancel" show-toolbar />
+    </view>
+  </view>
+  <view class="tui-cards-container" wx:if="{{contentDisplay}}">
+    <view class="service-evaluation">
+      <van-picker columns="{{ contentList }}" bind:confirm="onConfirmContent" bind:cancel="onCancel" show-toolbar />
+    </view>
+  </view>
+</view>

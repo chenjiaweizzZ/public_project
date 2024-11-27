@@ -1,0 +1,32 @@
+<!--pages/healthFileFuncDetail/healthFileFuncDetail.wxml-->
+<view class="healthFileDetail">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">
+      <text user-select='true'>{{funcDetail.type}}</text>
+    </view>
+  </view>
+  <view class="healthFile">
+    <view class="userInfo">
+      <image src="../../assets/images/medicine-bg.jpg" wx:if="{{titieIndex==0}}" />
+      <image src="../../assets/images/sport-bg.jpg" wx:if="{{titieIndex==1}}" />
+      <image src="../../assets/images/diet-bg.jpg" wx:if="{{titieIndex==2}}" />
+      <view class="title">
+        <text user-select='true'>{{funcDetail.type}}</text>
+        <view class="type"><text user-select='true'>{{funcDetail.type}}</text></view>
+      </view>
+    </view>
+    <view class="hfBtns">
+      <view class="docInfo">
+        <text class="short span"></text>
+        <text user-select='true'>医生 : {{ funcDetail.doctor }}</text>
+        <text user-select='true' class="span">{{ funcDetail.createTime.slice(0, 10) }}</text>
+      </view>
+      <view class="medInfo">
+        <rich-text user-select='true' class="p" style="white-space: pre-wrap;" nodes="{{funcDetail.content}}"></rich-text>
+        <!-- <rich-text class="p" style="white-space: pre-wrap;" nodes="{{funcDetail.content}}"></rich-text> -->
+        <!-- <view  v-html="funcDetail.content"></view> -->
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,79 @@
+<view class="template-1v1">
+  <view wx:for="{{playerList}}" wx:key="streamID" wx:if="{{item.src && isAnswer && (item.hasVideo || item.hasAudio)}}" class="view-container player-container {{item.isVisible?'':'none'}}">
+    <live-player class="player" id="{{item.streamID}}" data-userid="{{item.userID}}" data-streamid="{{item.streamID}}" data-streamtype="{{item.streamType}}" src="{{item.src}}" mode="RTC" autoplay="{{item.autoplay}}" mute-audio="{{item.muteAudio}}" mute-video="{{item.muteVideo}}" orientation="{{item.orientation}}" object-fit="{{item.objectFit}}" background-mute="{{item.enableBackgroundMute}}" min-cache="{{item.minCache}}" max-cache="{{item.maxCache}}" sound-mode="{{item.soundMode}}" enable-recv-message="{{item.enableRecvMessage}}" auto-pause-if-navigate="{{item.autoPauseIfNavigate}}" auto-pause-if-open-native="{{item.autoPauseIfOpenNative}}" debug="{{debug}}" bindstatechange="_playerStateChange" bindfullscreenchange="_playerFullscreenChange" bindnetstatus="_playerNetStatus" bindaudiovolumenotify="_playerAudioVolumeNotify" />
+  </view>
+  <view class="view-container pusher-container {{pusher.isVisible?'':'none'}} {{!isAnswer? 'fullscreen':''}}">
+    <live-pusher id="{{item.id}}" src="{{item.src}}" class="pusher" url="{{pusher.url}}" ode="{{pusher.mode}}" enable-camera="{{pusher.enableCamera}}" enable-mic="{{pusher.enableMic}}" autopush="{{true}}" bindstatechange="_pusherStateChangeHandler" bindnetstatus="_pusherNetStatusHandler" binderror="_pusherErrorHandler" bindbgmstart="_pusherBGMStartHandler" bindbgmprogress="_pusherBGMProgressHandler" bindbgmcomplete="_pusherBGMCompleteHandler" bindaudiovolumenotify="_pusherAudioVolumeNotify" />
+    <!-- 用户还没有接听 -->
+    <view class="loading" wx:if="{{!isAnswer}}">
+      <view class="loading-img">
+        <image src="../../../assets/images/head.png" class="rotate-img"></image>
+      </view>
+      <view class="loading-text loading-name">{{patientName}}</view>
+      <view wx:if="{{isCancel}}" class="loading-text">
+        对方已拒绝
+      </view>
+      <view wx:if="{{isAgree}}" class="loading-text">
+        连接中...
+      </view>
+      <view wx:if="{{!isCancel && !isAgree}}" class="loading-text">
+        等待对方接受邀请...
+      </view>
+    </view>
+  </view>
+  <view class="handle-btns" wx:if="{{isAnswer}}">
+    <view class="item" bindtap="_pusherAudioHandler">
+      <view class="background">
+        <image wx:if="{{pusher.enableMic}}" class="btn-image" src="../../../static/images/microphone-turned-on.svg"></image>
+        <image wx:else class="btn-image" src="../../../static/images/microphone-turned-off.svg"></image>
+      </view>
+      <view>{{pusher.enableMic ? "麦克风已开":"麦克风已关"}}</view>
+    </view>
+    <view class="item" bindtap="_pusherSpeakerHandler">
+      <view class="background">
+        <image wx:if="{{pusher.enableSpeaker}}" class="btn-image" src="../../../static/images/speaker-turned-on.svg"></image>
+        <image wx:else class="btn-image" src="../../../static/images/speaker-turned-off.svg"></image>
+      </view>
+      <view>{{pusher.enableSpeaker ? "扬声器已开":"扬声器已关"}}</view>
+    </view>
+    <view class="item" bindtap="_pusherEnableHandler">
+      <view class="background">
+        <image wx:if="{{pusher.enableCamera}}" class="btn-image" src="../../../static/images/camera-turned-on.svg"></image>
+        <image wx:else class="btn-image" src="../../../static/images/camera-turned-off.svg"></image>
+      </view>
+      <view>{{pusher.enableCamera ? "摄像头已开":"摄像头已关"}}</view>
+    </view>
+  </view>
+  <view class="handle-btns" wx:else>
+    <view class="item" bindtap="_pusherSwitchCamera">
+      <view class="flip-background">
+        <image class="btn-image" src="../../../static/images/camera.svg"></image>
+      </view>
+      <view>翻转</view>
+    </view>
+    <view class="item" bindtap="_pusherEnableHandler">
+      <view class="background">
+        <image wx:if="{{pusher.enableCamera}}" class="btn-image" src="../../../static/images/camera-turned-on.svg"></image>
+        <image wx:else class="btn-image" src="../../../static/images/camera-turned-off.svg"></image>
+      </view>
+      <view>{{pusher.enableCamera ? "摄像头已开":"摄像头已关"}}</view>
+    </view>
+  </view>
+  <view class="bottom-btns">
+    <view wx:if="{{isAnswer}}" class="item" bindtap="_pusherSwitchCamera">
+      <view class="flip-background">
+        <image class="btn-image" src="../../../static/images/camera.svg"></image>
+      </view>
+      <view>翻转</view>
+    </view>
+    <view class="item" bindtap="_hangUp">
+      <view class="answer-background">
+        <image class="btn-image" src="../../../static/images/phone.svg"></image>
+      </view>
+      <view>挂断</view>
+    </view>
+  </view>
+  <view wx:if="{{isAnswer}}" class="talk-time">
+    {{talkTime}}
+  </view>
+</view>

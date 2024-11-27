@@ -1,0 +1,70 @@
+.package-item {
+  /* position: relative; */
+  width: 100%;
+  display: flex;
+}
+.title {
+  flex: 1;
+  padding-right: 20rpx;
+  overflow: hidden;
+}
+
+.packageName {
+  color: #111111;
+  font-size: 30rpx;
+  font-weight: 700;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 12rpx;
+}
+
+.packageDiscription {
+  color: #666666;
+  font-size: 24rpx;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 12rpx;
+}
+
+.floorPrice {
+  /* position: relative; */
+  font-size: 24rpx;
+  color: #666666;
+  display: flex;
+  justify-content: space-between;
+}
+
+.floorPrice .symbol {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #FF5500;
+  margin-right: 4rpx;
+}
+
+.floorPrice .money {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #FF5500;
+  margin-right: 8rpx;
+}
+
+.price {
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.send {
+  /* position: absolute;
+  right: 0; */
+  width: 96rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border-radius: 100px;
+  border: 1px solid #cccccc;
+  padding: 8rpx 0rpx;
+}

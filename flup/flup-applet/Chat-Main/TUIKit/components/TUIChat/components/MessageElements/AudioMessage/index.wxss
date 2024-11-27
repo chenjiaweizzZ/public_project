@@ -1,0 +1,71 @@
+.audio-message {
+  padding: 10rpx 18rpx;
+  margin-top: 4px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.my-audio {
+  background: #32AE57;
+}
+
+.audio-message .audio {
+  height: 60rpx;
+  font-size: 32rpx;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.audio-message .bubbles-right {
+  position: absolute;
+  top: 4px;
+  right: -8px;
+  width: 12px;
+  height: 8px;
+}
+
+.audio-message .bubbles-left {
+  position: absolute;
+  top: 4px;
+  left: -8px;
+  width: 12px;
+  height: 8px;
+}
+
+.audio-text {
+  display: flex;
+  align-items: center;
+}
+
+.audio-text image {
+  margin: 0 5px 0 2px;
+  width: 11.5px;
+  height: 17px;
+}
+
+.my-audio-text {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.my-audio-text image {
+  margin: 0 2px 0 5px;
+  width: 11.5px;
+  height: 17px;
+  transform: rotate(180deg)
+}
+
+.audio-play {
+  width: 11.5px;
+  height: 17px;
+}
+
+.my-audio-play {
+  width: 11.5px;
+  height: 17px;
+  transform: rotate(180deg)
+}

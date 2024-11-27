@@ -1,0 +1,10 @@
+<!-- 问卷详情 -->
+<view class="questionnaire-detail" style="padding-bottom: {{bottomSafeArea}}px;">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/ic_back_white.svg" />
+    <view class="conversation-title">详情</view>
+  </view>
+  <view class="main">
+    <questionnaireTemplate questionnaireDatail="{{questionnaireDatail}}"></questionnaireTemplate>
+  </view>
+</view>

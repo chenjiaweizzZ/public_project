@@ -1,0 +1,3 @@
+<view>
+  <TUIKit id="TUIKit" wx:if="{{currentConversationID}}" isUrlLink="{{isUrlLink}}" patientId="{{patientId}}" sourceId="{{sourceId}}" conversationID="{{currentConversationID}}" consultId="{{consultId}}" unreadCount="{{unreadCount}}" type="{{type}}" patientName="{{patientName}}" patientCardNo="{{patientCardNo}}" patientPhone="{{patientPhone}}" ></TUIKit>
+</view>

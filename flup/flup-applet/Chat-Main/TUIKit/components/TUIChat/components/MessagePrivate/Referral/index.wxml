@@ -1,0 +1,6 @@
+<!-- 转介医生 -->
+<view class="tui-cards-container" catch:tap="handleClose" wx:if="{{displayTag}}">
+  <view class="service-evaluation" catch:tap="()=>{}">
+    <van-picker show-toolbar title="转介至" value-key="userName" style="flex: 1;" columns="{{ columns }}" bind:change="onChange" bind:cancel="handleClose" bind:confirm="onReferral" />
+  </view>
+</view>

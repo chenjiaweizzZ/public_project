@@ -1,0 +1,179 @@
+/* Element theme */
+$--color-success: #00982d;
+$--color-primary: #0075ff;
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: "~element-ui/lib/theme-chalk/fonts";
+
+/** button **/
+.el-button--success.is-plain {
+  /* 特别强调/绿色渐变 */
+  background: linear-gradient(
+    180deg,
+    rgba(237, 255, 242, 0.1) 0%,
+    rgba(0, 152, 45, 0.1) 100%
+  ) !important;
+  border: 1px solid #32ae57 !important;
+}
+.el-button--success.is-plain:hover,
+.el-button--success.is-plain:focus {
+  color: #fff;
+  background-color: #00982d !important;
+}
+/* button size */
+.el-button--mini {
+  padding: 3px 16px !important;
+  font-size: 14px !important;
+  border-radius: 4px !important;
+  line-height: 16px !important;
+}
+/* 蓝色搜索框按钮样式陈家伟2022/3/29 */
+.el-button.search_btn {
+  padding: 1px 13px;
+}
+.search_btn {
+  width: 28px;
+  height: 28px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #ffffff !important;
+  span {
+    width: 16px;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    img {
+      display: block;
+      width: 16px;
+      height: 16px;
+      content: url("../../assets/images/metaDataManager/searchBlue@3x.png");
+    }
+  }
+  &:hover,
+  &:active {
+    background-color: #0075ff !important;
+    img {
+      content: url("../../assets/images/metaDataManager/searchWhite@3x.png");
+    }
+  }
+}
+.search_btn.el-button--primary.is-disabled {
+  background-color: #ffffff !important;
+  img {
+    content: url("../../assets/images/metaDataManager/search_dark@3x.png");
+  }
+}
+/**********/
+
+/** collapse **/
+.el-collapse {
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+}
+.el-collapse-item__content {
+  padding-bottom: 0 !important;
+}
+.el-collapse-item {
+  margin-bottom: 10px !important;
+}
+.el-collapse-item__wrap {
+  border-bottom: 0px !important;
+}
+.el-collapse-item__header {
+  border: 1px solid #e6e6e6 !important;
+  background: #fbfbfb !important;
+  height: 40px !important;
+  color: #111111 !important;
+  &.el-collapse-item__header.is-active {
+    border-bottom-color: #ebeef5 !important;
+  }
+}
+/***********/
+
+/** input **/
+.el-input-group__append {
+  background-color: #fff !important;
+  padding: 0 12px !important;
+}
+.el-input__inner {
+  height: 28px !important;
+}
+.el-input__icon {
+  line-height: 28px !important;
+}
+/***********/
+
+/** table **/
+.el-table .el-table__cell {
+  padding: 2px 0 !important;
+  th,
+  td {
+    height: 28px;
+  }
+}
+/*陈家伟 2022/3/29 */
+.el-table {
+  .el-table__body-wrapper {
+    height: 100%;
+  }
+}
+/*陈家伟 2022/3/29 */
+.el-table__empty-text {
+  text-indent: -9999px;
+  //列表图片动态兼容
+  // min-width: auto;
+  // height: 80%;
+  // margin: 0 auto;
+  // display: inline-block;
+  // transform: translateX(25%);
+  display: block;
+  width: 320px !important;
+  height: 205px;
+  vertical-align: middle;
+  font-size: 18px;
+  background: url("../../assets/images/metaDataManager/nodata.png") no-repeat;
+  background-size: 100% 100% !important;
+  background-size: contain;
+  // color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  position: relative;
+  &:before {
+    text-indent: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 17px;
+    // content: '暂无记录';
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #3b5370;
+    text-align: center;
+  }
+}
+
+.metaDataManagerPopover {
+  height: 600px;
+  overflow: scroll;
+  .pop-title-top {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: #111111;
+    padding: 8px 0 20px 0;
+  }
+  .pop-title {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: #111111;
+    padding: 20px 0;
+  }
+}
+
+/***********/
+
+@import "~element-ui/packages/theme-chalk/src/index";

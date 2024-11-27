@@ -1,0 +1,75 @@
+<view class="remark">
+  <view class="operation">
+    <view class="add-remark button" bind:tap="addRemark">备注</view>
+    <view class="record button" bind:tap="uploadFile">上传文件</view>
+    <view class="record button" bind:tap="seeRecord">操作记录</view>
+  </view>
+  <view class="remark-list">
+    <view wx:for="{{remarkList}}" wx:key="index" class="item">
+      <view class="text">
+        <text user-select='true'>{{item.remarkContent}}</text>
+      </view>
+      <view class="edit-delete">
+        <text user-select='true'>{{item.createTime}}</text>
+      </view>
+      <view class="edit-delete-button">
+        <view wx:if="{{item.remarkType == 3 || item.remarkType == 4}}" data-value="{{item}}" bind:tap="See" style="flex-shrink: 0;">
+          查看
+        </view>
+        <view wx:if="{{item.remarkType == 2 }}" style="flex-shrink: 0;">
+          <view data-index="{{index}}" data-value="{{item}}" bind:tap="audioPause" wx:if="{{index == selectIndex && play == true}}">
+            停止
+          </view>
+          <view data-index="{{index}}" data-value="{{item}}" bind:tap="audioPlay" wx:else>
+            播放
+          </view>
+        </view>
+        <view data-value="{{item}}" bind:tap="Edit" style="flex-shrink: 0;">
+          <!-- <image src="../../../../assets/images/edit2.png" mode="" /> -->
+          编辑
+        </view>
+        <view data-value="{{item}}" bind:tap="Delete" style="flex-shrink: 0;">
+          <!-- <image src="../../../../assets/images/delete.png" mode="" /> -->
+          删除
+        </view>
+        <view data-value="{{item}}" bind:tap="Topping" style="flex-shrink: 0;">
+          {{ item.isTop == 1 ? '取消置顶': '置顶'}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+  <van-dialog message="确定删除该备注？" show="{{ show3 }}" confirm-button-color="#00982D" show-cancel-button custom-class="my-custom-class" bind:confirm="onConfirm" bind:cancel="onCancel" />
+  <van-popup round closeable show="{{ show }}" position="bottom" custom-style="height: 536rpx" bind:close="onClose">
+    <view class="popup">
+      <text class="text">备注</text>
+      <view class="main">
+        <textarea maxlength="-1" placeholder="请输入内容" value="{{value}}" bindinput="onInput" />
+      </view>
+      <view class="confirm" bind:tap="Confirm">
+        确定
+      </view>
+    </view>
+  </van-popup>
+  <van-popup round closeable show="{{ show2 }}" position="bottom" custom-style="height: 836rpx" bind:close="onClose2">
+    <view class="popup">
+      <text class="text">操作记录</text>
+      <view wx:if="{{logList && logList.length > 0}}" class="main2">
+        <view wx:for="{{logList}}" wx:key="index" class="record-item">
+          <view class="content">{{item.operateContents}}</view>
+          <view class="record-operation">
+            <text>{{item.operateTime}}</text>
+            <text>{{item.operatorUserName}}</text>
+            <text>{{item.operateType}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="nodata" wx:else>
+        暂无相关数据
+      </view>
+      <view class="confirm" bind:tap="onClose2">
+        确定
+      </view>
+    </view>
+  </van-popup>
+</view>

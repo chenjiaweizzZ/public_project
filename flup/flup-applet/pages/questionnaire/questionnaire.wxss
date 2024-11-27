@@ -1,0 +1,238 @@
+/* pages/questionnaire/questionnaire.wxss */
+.questionnaire {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F4F5F9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background: #FFFFFF;
+}
+
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #000000;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* tab */
+.tab_box {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-bottom: 1px solid #E5E5E5;
+  /* margin-bottom: 30rpx; */
+}
+
+.tabs_v {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab_v {
+  width: 50%;
+  text-align: center;
+}
+
+.tab_txt {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 14px;
+  color: #999999;
+}
+
+.tab_v_active {
+  border-bottom: 2px solid #36B765;
+  color: #36B765;
+  font-weight: bold;
+}
+
+/* 容器 */
+.tabWrap {
+  flex: 1;
+  width: 100%;
+}
+
+.main-content {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.his-questionnaire {
+  padding-top: 10px;
+}
+
+.main-content .push {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 58px;
+  background: #FFFFFF;
+  padding: 8px 20px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.main-content .push .title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #32AE57;
+  border-radius: 100px;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.consult {
+  display: flex;
+}
+
+.consult .left {
+  width: 14px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.consult image {
+  width: 14px;
+  height: 14px;
+}
+
+.consult .left .line {
+  height: 100%;
+  width: 1px;
+  background: #e2e2e2;
+}
+
+.consult .right {
+  width: 100%;
+}
+
+.consultList .date {
+  font-size: 12px;
+}
+
+.clinicItem {
+  padding: 11px 15px 8px 14px;
+  box-shadow: 0px 2px 6px 0px rgba(26, 33, 44, 0.08);
+  margin-bottom: 14px;
+}
+
+.clinicItem .time {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 17px;
+  letter-spacing: 0.2px;
+  color: #A0A5AD;
+  margin-bottom: 8px;
+}
+
+.clinicItem .title,
+.clinicItem .content {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #111111;
+  margin-bottom: 8px;
+}
+
+.clinicItem .content {
+  margin-bottom: 0;
+}
+
+.nodata {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.nodata image {
+  width: 160px;
+  height: 212px;
+}
+
+.tab_nature {
+  position: relative;
+}
+
+.tab_nature::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 20px;
+  right: 0;
+  background: #E2E2E2;
+}
+
+.no-data {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.no-data image {
+  width: 280px;
+  height: 138px;
+}
+
+.no-data .title {
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0px;
+  color: #6B8C75;
+}

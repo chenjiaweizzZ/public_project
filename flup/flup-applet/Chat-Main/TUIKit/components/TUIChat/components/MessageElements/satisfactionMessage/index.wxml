@@ -1,0 +1,21 @@
+<view class="text-message" bind:tap="goDetail">
+  <view class="title" wx:if="{{message.content.data.type == 11}}">
+    {{message.content.ext.attentionText}}
+  </view>
+  <view class="content">
+    <view class="border">
+      <image wx:if="{{message.content.data.type == 11}}" src="../../../../../../../assets/images/satisfaction.png" mode="" />
+      <image wx:else="" src="../../../../../../../assets/images/file.png" mode="" />
+      <view class="satisfaction" wx:if="{{message.content.data.type == 11}}">满意度调查</view>
+      <view class="satisfaction" wx:else>{{message.content.data.name}}</view>
+      <view class="see">
+        点击查看
+        <view class="see-icon">
+          <image class="icon1" style="width: 10rpx;height: 18rpx;" src="../../../../../../../assets/images/see.png" mode="" />
+          <image class="icon2" style="width: 10rpx;height: 18rpx;" src="../../../../../../../assets/images/see.png" mode="" />
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+<!--pages/questionnaire/questionnaire.wxml-->
+<view class="questionnaire" style="padding-bottom: {{bottomSafeArea}}px;">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">问卷</view>
+  </view>
+  <view class="main">
+    <view class="tab_box" style="width: 100%">
+      <view class="tabs_v">
+        <block wx:for="{{tabs}}" wx:for-item="item" wx:key="index">
+          <view class="tab_v {{index<1?'tab_nature':'tab_course'}}" bindtap='changeCurrentTab_' data-index='{{index}}' data-current='{{index}}'>
+            <text class="tab_txt {{currentTab==index? 'tab_v_active' : ''}}">{{item.label}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="tabWrap">
+      <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="width:100%;height:100%;">
+        <!-- 页面1 -->
+        <swiper-item style="width:100%;height:100%;">
+          <view class="main-content">
+            <questionnaireTemplate wx:if="{{questionnaireDatail && questionnaireDatail.description}}" questionnaireDatail="{{questionnaireDatail}}"></questionnaireTemplate>
+            <view wx:else="" class="no-data">
+              <image src="../../assets/images/noData1.png" mode="" />
+              <view class="title">可向患者推送问卷，收集并了解患者近况</view>
+            </view>
+            <view class="push">
+              <view class="title" bind:tap="pushQuestionnaire">推送问卷</view>
+            </view>
+          </view>
+        </swiper-item>
+        <!-- 页面2 -->
+        <swiper-item style="width:100%;height:100%;">
+          <view class="main-content his-questionnaire">
+            <view style="width: 100%;height: 100%;" wx:if="{{questionnaireList.length > 0}}">
+              <scroll-view style="width: 100%;height: 100%;" scroll-y="true" refresher-enabled="true" bindrefresherrefresh="onRefresh" bindscrolltolower="loadMore" refresher-triggered="{{triggered}}">
+                <view style="padding: 0 10px;" wx:for="{{questionnaireList}}" wx:for-item="item" wx:key="index" data-value="{{item}}" bind:tap="goDetail">
+                  <view class="consult">
+                    <view class="left">
+                      <view class="line" style="{{index == 0 ? 'background: #fff' : ''}}"></view>
+                      <view>
+                        <image src="../../assets/images/u-bg.png"></image>
+                      </view>
+                      <view class="line" style="{{index == questionnaireList.length - 1 ? 'background: #fff' : ''}}"></view>
+                    </view>
+                    <view class="right clinicItem">
+                      <view class="time">{{item.answerTime}}</view>
+                      <view class="title">由{{item.senderName}}推送</view>
+                      <view class="content">{{item.questionnaireName}}</view>
+                    </view>
+                  </view>
+                </view>
+              </scroll-view>
+            </view>
+            <view wx:else class="nodata">
+              <image src="../../assets/images/noData.png"></image>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>

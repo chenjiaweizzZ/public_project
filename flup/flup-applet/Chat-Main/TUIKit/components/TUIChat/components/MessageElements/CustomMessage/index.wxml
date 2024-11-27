@@ -1,0 +1,3 @@
+<view class="custom-message">
+  {{message.payload.data.text}}
+</view>

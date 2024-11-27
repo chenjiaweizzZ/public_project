@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "TUIEndChat": "../TUIKit/components/TUIEndChat"
+  }
+}

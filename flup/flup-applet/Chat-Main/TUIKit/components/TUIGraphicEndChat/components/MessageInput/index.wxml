@@ -1,0 +1,115 @@
+<view class="TUI-message-input-container">
+  <view class="TUI-commom-function">
+    <view class="End-Consultation" bind:tap="endConsultation">
+      <image src="../../../../../../assets/images/end.png" mode="" />
+      结束咨询
+    </view>
+  </view>
+  <view class="TUI-message-input">
+    <image class="TUI-icon" bindtap="switchAudio" src="{{isAudio ? '../../../../static/assets/keyboard.svg' : '../../../../static/assets/audio.svg'}}" />
+    <view wx:if="{{!isAudio || isEmoji}}" class="TUI-message-input-main {{ focus && 'TUI-message-input-main-focus'}}">
+      <textarea id="textarea" maxlength="-1" class="TUI-message-input-area" adjust-position="{{false}}" cursor-spacing="20" value="{{message}}" bindinput="onInputValueChange" type="text" auto-height="{{true}}" placeholder="" placeholder-class="input-placeholder" confirm-type="send" show-confirm-bar="{{false}}" bindfocus="inputBindFocus" bindblur="inputBindBlur" bindconfirm="sendTextMessage" />
+    </view>
+    <view wx:if="{{isAudio}}" class="TUI-message-input-main" bind:longpress="handleLongPress" bind:touchstart="handleTouchStart" bind:touchmove="handleTouchMove" bind:touchend="handleTouchEnd" style="display: flex; justify-content: center; font-size: 32rpx; font-family: PingFangSC-Regular; height: 30px">
+      <text>{{text}}</text>
+    </view>
+    <view class="TUI-message-input-functions" hover-class="none">
+      <view class="TUI-sendMessage-btn">
+        <image class="TUI-icon" bindtap="handleEmoji" src="../../../../static/assets/face-emoji.svg" />
+      </view>
+      <view wx:if="{{!sendMessageBtn}}" bindtap="handleExtensions" class="TUI-sendMessage-btn">
+        <image class="TUI-icon" src="../../../../static/assets/more.svg" />
+      </view>
+      <view wx:else class="TUI-sendMessage-btn" bindtap="sendTextMessage">
+        发送
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{displayFlag === 'emoji'}}" class="TUI-Emoji-area">
+    <Emoji bind:enterEmoji="appendMessage" />
+  </view>
+  <view wx:if="{{displayFlag === 'extension'}}" class="TUI-Extensions">
+    <swiper class="swiper">
+      <swiper-item class="swiper-item">
+        <view class="TUI-Extension-slot" bindtap="handleSendPicture">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/take-photo.png" />
+          <view class="TUI-Extension-slot-name">拍摄照片</view>
+        </view>
+        <view class="TUI-Extension-slot" bindtap="handleSendImage">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/send-img.png" />
+          <view class="TUI-Extension-slot-name">发送图片</view>
+        </view>
+        <!-- <view class="TUI-Extension-slot" bindtap="handleShootVideo">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/take-photo.png" />
+          <view class="TUI-Extension-slot-name">拍摄视频</view>
+        </view> -->
+        <!-- <view class="TUI-Extension-slot" bindtap="handleSendVideo">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/send-img.png" />
+          <view class="TUI-Extension-slot-name">发送视频</view>
+        </view>
+        <view class="TUI-Extension-slot" bind:tap="viewProfile">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/material.png" />
+          <view class="TUI-Extension-slot-name">查看资料</view>
+        </view> -->
+        <view class="TUI-Extension-slot" bindtap="handleCommonFunctions">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/common-phrases.png" />
+          <view class="TUI-Extension-slot-name">常用语</view>
+        </view>
+        <view class="TUI-Extension-slot" bindtap="handleAddTimes">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/add-times.png" />
+          <view class="TUI-Extension-slot-name">增加对话</view>
+        </view>
+        <!-- <view wx:if="{{isReferral != 1}}" class="TUI-Extension-slot" bind:tap="handleCheckManager">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/referral.png" />
+          <view class="TUI-Extension-slot-name">转介至个管师</view>
+        </view>
+        <view class="TUI-Extension-slot" bind:tap="handleRecommendedPackage">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/recommendation.png" />
+          <view class="TUI-Extension-slot-name">套餐推荐</view>
+        </view>
+        <view wx:if="{{description == '0' && isReferral == 1}}" class="TUI-Extension-slot" bind:tap="openAiAssistant">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/AI.png" />
+          <view class="TUI-Extension-slot-name">AI助手</view>
+        </view> -->
+      </swiper-item>
+      <!-- <swiper-item class="swiper-item">
+        <view wx:if="{{description == '0' && isReferral != 1}}" class="TUI-Extension-slot" bind:tap="openAiAssistant">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/AI.png" />
+          <view class="TUI-Extension-slot-name">AI助手</view>
+        </view>
+        <view wx:if="{{description == '0'}}" class="TUI-Extension-slot" bind:tap="uploadFile">
+          <image class="TUI-Extension-icon" src="../../../../static/assets/file.png" />
+          <view class="TUI-Extension-slot-name">上传文件</view>
+        </view>
+      </swiper-item> -->
+    </swiper>
+  </view>
+  <!-- 常用语 -->
+  <CommonWords class="tui-cards" display="{{displayCommonWords}}" bind:sendMessage="$handleSendTextMessage" bind:close="$handleCloseCards" />
+  <!-- 转介至个管师 -->
+  <addManager id="addManager" class="tui-cards" columns="{{PersonalManagerList}}" consultId="{{consultId}}" conversation="{{conversation}}" display="{{displayAddManager}}" bind:close="$handleCloseCards" bind:addManager="$addManager"></addManager>
+  <!-- AI 助手 -->
+  <aiAssistant id="aiAssistant" class="tui-cards" isOpenAi="{{isOpenAi}}" conversation="{{conversation}}" display="{{displayAiAssistant}}" bind:close="$handleCloseCards" bind:openAI="$openAI"></aiAssistant>
+</view>
+<van-dialog
+  use-slot
+  title="增加对话次数"
+  show="{{ addTimeShow }}"
+  show-cancel-button
+  bind:cancel="addTimeCancal"
+  bind:confirm="addTimeConfirm"
+  confirm-button-color="#00982D"
+>
+<view class="time-container">
+  <van-stepper value="{{ time }}" input-width="50px" button-size="42px" decimal-length="0" bind:change="timeChange"/></view>
+</van-dialog>
+<van-dialog id="van-dialog" confirm-button-color="#00982D"/>
+<view class="record-modal" wx:if="{{popupToggle}}" bind:longpress="handleLongPress" bind:touchmove="handleTouchMove" bind:touchend="handleTouchEnd">
+  <view class="wrapper">
+    <view class="modal-loading">
+    </view>
+  </view>
+  <view class="modal-title">
+    {{title}}
+  </view>
+</view>

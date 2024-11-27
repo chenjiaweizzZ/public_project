@@ -1,0 +1,18 @@
+$icons : (send_failed, 50, 20),
+(send_success, 25, 23),
+(patient_info, 20, 20),
+(add, 16, 16),
+(side_btn, 40, 107),
+(check_info, 20, 20);
+
+@each $icon, $width, $height in $icons {
+  .icon-#{$icon} {
+    display: inline-block;
+    width: #{$width}px;
+    height: #{$height}px;
+    background-image: url("../images/icon/#{$icon}.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    vertical-align: middle;
+  }
+}

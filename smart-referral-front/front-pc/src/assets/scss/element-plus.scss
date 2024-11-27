@@ -1,0 +1,288 @@
+$green: #00982D;
+:root {
+  --el-fill-color-blank: #FFFFFF !important;
+  --el-text-color-regular: #111111 !important;
+  --el-fill-color-light: #F9F9F9 !important;
+  --el-border-color-light: #D7DAE0 !important;
+  --el-border-color: #D7DAE0 !important;
+  // --el-text-color-placeholder: #111111 !important;
+}
+
+.el-date-editor {
+  --el-date-editor-daterange-width: 250px !important; // 修改日期选择器的宽度
+}
+
+.el-collapse {
+  --el-collapse-header-height: 44px !important;
+}
+
+.el-pagination__sizes {
+  flex: 1;
+}
+
+.el-input__inner {
+  height: 34px !important;
+}
+
+.el-range-editor.el-input__wrapper {
+  height: 34px !important;
+}
+
+.el-range-editor {
+  --el-input-focus-border-color: #00982D !important;
+}
+
+.el-select{
+  --el-select-input-focus-border-color: #00982D !important;
+}
+
+.btn-height-34 {
+  height: 34px !important;                 //   按钮高度34px <el-button class="btn-height-34">清空</el-button>     可以和下面的主题一起 <el-button class="btn-normal btn-height-38">清空</el-button>  
+}
+
+.btn-height-38 {
+  height: 38px !important;                
+}
+
+.el-button.btn-normal{
+  --el-button-bg-color: #FFF !important;
+  --el-color-primary: #666!important;
+  --el-button-border-color: #ccc!important;
+  --el-button-hover-border-color: #ccc !important;
+  --el-button-hover-bg-color: #FFF !important;
+}
+
+.el-button.btn-normal:hover{
+  --el-button-hover-text-color: #32ae57 !important;
+  --el-button-hover-bg-color: #FFF!important;
+  --el-button-hover-border-color: #32ae57!important;
+}
+
+.el-button.btn-normal:active{
+  --el-button-active-bg-color: #F7FCF8!important;
+  --el-button-active-border-color: #00982D!important;    // 白色颜色按钮 <el-button class="btn-normal">清空</el-button>
+}
+
+.el-button.btn-green-plain{
+  --el-button-bg-color: #F7FCF8 !important;
+  --el-color-primary: #00982D!important;
+  --el-button-border-color: #00982D!important;
+  --el-button-hover-border-color: #00982D !important;
+  --el-button-hover-bg-color: #F7FCF8 !important;
+  --el-button-text-color: #00982D!important;
+}
+
+.el-button.btn-green-plain:hover{
+  --el-button-hover-text-color: #FFF !important;
+  --el-button-hover-text-color: #FFF;
+  --el-button-hover-bg-color: #32ae57!important;
+  --el-button-hover-border-color: #32ae57!important;
+}
+
+.el-button.btn-green-plain:active{
+  --el-button-active-bg-color: #00982D!important;
+  --el-button-active-border-color: #00982D!important;   // 浅绿色按钮  <el-button class="btn-green-plain">搜索</el-button>
+}
+
+.el-button.btn-green{
+  --el-button-bg-color: #32ae57 !important;
+  --el-color-primary: #FFF!important;
+  --el-button-border-color: #00982D!important;
+  --el-button-hover-border-color: #288b46 !important;
+  --el-button-hover-bg-color: #32ae57  !important;
+  --el-button-text-color: #FFF!important;
+}
+
+.el-button.btn-green:hover{
+  --el-button-hover-text-color: #FFF !important;
+  --el-button-hover-text-color: #FFF;
+  --el-button-hover-bg-color: #2d9d4e!important;
+  --el-button-hover-border-color: #288b46!important;
+}
+
+.el-button.btn-green:active{
+  --el-button-active-bg-color: #32ae57!important;
+  --el-button-active-border-color: #00982D!important;   // 深绿色按钮  <el-button class="btn-green">确认</el-button>
+}
+
+.el-button.btn-blue-plain{
+  --el-button-bg-color: #F5FAFF !important;
+  --el-color-primary: #0276D7!important;
+  --el-button-border-color: #0276D7!important;
+  --el-button-hover-border-color: #0283ef !important;
+  --el-button-hover-bg-color: #F5FAFF !important;
+  --el-button-text-color: #0276D7!important;
+}
+
+.el-button.btn-blue-plain:hover{
+  --el-button-hover-text-color: #FFF !important;
+  --el-button-hover-text-color: #FFF;
+  --el-button-hover-bg-color: #0283ef!important;
+  --el-button-hover-border-color: #0283ef!important;
+}
+
+.el-button.btn-blue-plain:active{
+  --el-button-active-bg-color: #0269bf!important;
+  --el-button-active-border-color: #0269bf!important;   // 浅蓝色按钮  <el-button class="btn-blue-plain">确认</el-button>
+}
+
+
+.el-date-table-cell .el-date-table-cell__text {
+  --el-datepicker-active-color: #00982D;
+}
+
+.el-date-table-cell {
+  --el-datepicker-inrange-bg-color: #d9f6e1;
+  --el-color-primary: #00982D;
+}
+
+.available {
+  --el-datepicker-hover-text-color: #00982D;
+}
+
+.el-input__wrapper.is-focus {
+  --el-input-focus-border-color: #00982D;
+}
+
+.el-picker-panel__shortcut:hover {
+  --el-datepicker-hover-text-color: #00982D;
+}
+
+.el-input {
+  --el-input-bg-color: #ffffff !important;
+}
+
+.el-picker-panel__icon-btn:hover {
+  --el-datepicker-hover-text-color: #00982D;
+}
+
+.el-select-dropdown__item.selected {
+  --el-color-primary: #00982D;
+}
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+  --el-fill-color-light: #d9f6e1;
+}
+
+.el-pagination.is-background .btn-next.is-active, .el-pagination.is-background .btn-prev.is-active, .el-pagination.is-background .el-pager li.is-active {
+  --el-color-primary: #00982D;              // 分页active
+}
+
+.el-pager li:hover {
+  --el-pagination-hover-color: #00982D;    //  分页hover
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell {
+  --el-table-row-hover-bg-color: #d9f6e1;    //表格hover一行的背景颜色
+}
+
+.el-table__body tr.hover-row>td.el-table__cell {
+  --el-table-row-hover-bg-color: #d9f6e1;   //hover-row背景颜色
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  --el-checkbox-checked-bg-color: #32ae57;
+  --el-checkbox-checked-input-border-color: #32ae57;
+}
+
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  --el-checkbox-checked-bg-color: #32ae57;
+  --el-checkbox-checked-input-border-color: #32ae57;  //表格的checkbox
+}
+
+.el-button.is-link:focus, .el-button.is-link:hover {
+  --el-button-hover-link-text-color: #409eff;  
+}
+
+.el-message-box__btns {
+  .el-button{
+    --el-button-bg-color: #FFF !important;
+    --el-color-primary: #666!important;
+    --el-button-border-color: #ccc!important;
+    --el-button-hover-border-color: #ccc !important;
+    --el-button-hover-bg-color: #FFF !important;
+  }
+  
+  .el-button:hover{
+    --el-button-hover-text-color: #32ae57 !important;
+    --el-button-hover-bg-color: #FFF!important;
+    --el-button-hover-border-color: #32ae57!important;
+  }
+  
+  .el-button:active{
+    --el-button-active-bg-color: #F7FCF8!important;
+    --el-button-active-border-color: #00982D!important;
+  }
+}
+
+.el-message-box__btns {
+  .el-button.el-button--primary{
+    --el-button-bg-color: #32ae57 !important;
+    --el-color-primary: #FFF!important;
+    --el-button-border-color: #00982D!important;
+    --el-button-hover-border-color: #288b46 !important;
+    --el-button-hover-bg-color: #32ae57  !important;
+    --el-button-text-color: #FFF!important;
+  }
+  
+  .el-button.el-button--primary:hover{
+    --el-button-hover-text-color: #FFF !important;
+    --el-button-hover-text-color: #FFF;
+    --el-button-hover-bg-color: #2d9d4e!important;
+    --el-button-hover-border-color: #288b46!important;
+  }
+  
+  .el-button.el-button--primary:active{
+    --el-button-active-bg-color: #32ae57!important;
+    --el-button-active-border-color: #00982D!important;
+  }
+}
+
+.el-message-box__headerbtn:focus .el-message-box__close, .el-message-box__headerbtn:hover .el-message-box__close {
+  --el-color-primary: #00982D;
+}
+
+.el-tag.tag1 {
+  --el-tag-bg-color: #FFE6D9;
+  --el-tag-border-color:#FFD8C3;
+  --el-tag-hover-color:#FF7B35;
+  --el-tag-text-color: #FF7B35
+}
+
+.el-tag.tag2 {
+  --el-tag-bg-color: #ECF5FF;
+  --el-tag-border-color:#D9ECFF;
+  --el-tag-hover-color:#0283EF;
+  --el-tag-text-color: #0283EF
+}
+
+.el-tag.tag3 {
+  --el-tag-bg-color: #DDFFE7;
+  --el-tag-border-color:#BCF0CB;
+  --el-tag-hover-color:#32AE57;
+  --el-tag-text-color: #32AE57
+}
+
+.el-tag.tag4 {
+  --el-tag-bg-color: #F3F3F3;
+  --el-tag-border-color:#D3D3D3;
+  --el-tag-hover-color:#b1b3b8;
+  --el-tag-text-color: #B2B2B2 
+}                                      // 1-橙色  2-蓝色 3-绿色  4-灰色 
+
+.el-button.el-button--primary {
+  span {
+    font-size: 14px;
+    --el-button-text-color: #0283EF
+  }
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,147 @@
+<!-- index.wxml -->
+<view class="container home">
+  <view class="tui-navigatorbar">
+    <view class="conversation-title">服务列表</view>
+  </view>
+  <view class="search">
+    <van-search value="{{ value }}" shape="round" use-left-icon-slot="true" placeholder="请输入患者姓名" bind:change="onChange" bind:search="onSearch">
+      <view slot="left-icon" class="left-icon">
+        <image src="../../assets/images/search.png" />
+      </view>
+    </van-search>
+    <view style="height:100%;display: flex;flex-direction: column;">
+      <view class="tab_box" style="width: 100%">
+        <view class="tabs_v">
+          <block wx:for="{{tabs}}" wx:for-item="item" wx:key="index">
+            <view class="tab_v {{index<1?'tab_nature':'tab_course'}}" bindtap='changeCurrentTab_' data-index='{{index}}' data-current='{{index}}'>
+              <text class="tab_txt {{currentTab==index? 'tab_v_active' : ''}}">{{item.label + '（' + item.count + '）'}}</text>
+              <view wx:if="{{showHandler.getIsShow(is_health_admin,personalConsultCount.manageUnreadCount,personalConsultCount.doctorUnreadCount) && index == 0}}" class="unread-messages-num total-num">
+                {{ is_health_admin == 1 ? personalConsultCount.manageUnreadCount : personalConsultCount.doctorUnreadCount }}
+              </view>
+              <view wx:if="{{showHandler.getIsShow(is_health_admin,incompleteCount.manageUnreadCount,incompleteCount.doctorUnreadCount) && index == 1}}" class="unread-messages-num total-num">
+                {{ is_health_admin == 1 ? incompleteCount.manageUnreadCount : incompleteCount.doctorUnreadCount }}
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <!-- tab 容器 -->
+      <view class="tabWrap">
+        <swiper class="" current="{{currentTab}}" duration="300" bindchange="swiperTab" style="width:100%;height:100%;">
+          <!-- 售前咨询 -->
+          <swiper-item style="width:100%;height:100%;">
+            <scroll-view style="height: 100%;" scroll-y="true" data-type="1" refresher-enabled="true" bindrefresherrefresh="onRefresh" bindscrolltolower="loadMore" refresher-triggered="{{triggered}}">
+              <view wx:for="{{consultationList}}" wx:key="serialNo" class="list" data-item="{{item}}" data-type="3" bind:tap="handleRoute3">
+                <view class="message-top">
+                  <view style="flex: 1;display: flex;align-items: center;overflow: hidden;">
+                    <image src="../../assets/images/notice.png" mode="" />
+                    <text class="name">{{item.userName}}</text>
+                    <view class="unread" wx:if="{{item.manageUnreadCount > 0}}"></view>
+                    <view wx:if="{{item.remark}}" class="remark" catch:tap="seeRemark" data-value="{{item}}">{{item.remark || ""}}</view>
+                  </view>
+                  <text class="time">{{item.lastReplyTime}}</text>
+                </view>
+
+                <view style="display: flex;justify-content: space-between;align-items: center;">
+                  <view class="message" wx:if="{{item.lastReplyUserName}}">{{'【' + item.lastReplyUserName + '】' + item.lastReplyRecord}}</view>
+                  <view class="message" wx:else>暂无消息</view>
+                  <view class="unread-messages-num" wx:if="{{showHandler.getIsShow(is_health_admin,item.manageUnreadCount,item.doctorUnreadCount)}}">{{is_health_admin == 1 ? item.manageUnreadCount : item.doctorUnreadCount}}</view>
+                </view>
+
+              </view>
+              <view class="noData" wx:if="{{consultationList.length <= 0}}">
+                <image src="../../assets/images/noData.png" mode="" />
+              </view>
+            </scroll-view>
+          </swiper-item>
+          <!-- 服务中 -->
+          <swiper-item style="width:100%;height:100%;">
+            <scroll-view style="height: 100%;" scroll-y="true" data-type="2" refresher-enabled="true" bindrefresherrefresh="onRefresh" bindscrolltolower="loadMore" refresher-triggered="{{triggered}}">
+              <view wx:for="{{selectIncompleteList}}" wx:key="serialNo" class="list" data-type="1" data-item="{{item}}" bind:tap="handleRoute1">
+                <view class="message-top">
+                  <!-- patientName -->
+                  <view style="flex:1;display: flex;align-items: center;overflow: hidden;">
+                    <image src="../../assets/images/notice.png" mode="" />
+                    <text class="name">{{item.patientName}}</text>
+                    <view class="unread" wx:if="{{showHandler.getIsShow(is_health_admin,item.manageUnreadCount,item.doctorUnreadCount)}}"></view>
+                    <view class="remark" wx:if="{{item.remark}}" catch:tap="seeRemark" data-value="{{item}}">{{item.remark || ""}}</view>
+                    <!-- <view></view> -->
+                  </view>
+                  <text class="time">{{item.lastReplyTime}}</text>
+                </view>
+                <view style="display: flex;justify-content: space-between;align-items: center;">
+                  <view class="message" wx:if="{{item.lastReplyUserName}}">{{'【' + item.lastReplyUserName + '】' + item.lastReplyRecord}}</view>
+                  <view class="message" wx:else>暂无消息</view>
+                  <view class="unread-messages-num" wx:if="{{showHandler.getIsShow(is_health_admin,item.manageUnreadCount,item.doctorUnreadCount)}}">{{is_health_admin == 1 ? item.manageUnreadCount : item.doctorUnreadCount}}</view>
+                </view>
+                <view class="message-bottom">
+                  {{item.consultPackageName}}
+                  <view class="remainder">剩余{{item.showTime}}</view>
+                </view>
+              </view>
+              <view class="noData" wx:if="{{selectIncompleteList.length <= 0}}">
+                <image src="../../assets/images/noData.png" mode="" />
+              </view>
+            </scroll-view>
+          </swiper-item>
+          <!-- 服务完成 -->
+          <swiper-item style="width:100%;height:100%;display: flex;flex-direction: column;">
+            <view class="picker-list">
+              <view class="picker-item" data-value="1" bind:tap="handleShow">{{startTime}}
+                <van-icon wx:if="{{startTime}}" catch:tap="clearTime1" class="cross" name="cross" />
+              </view>
+              <view style="margin: 0 14px;color: #333;font-size: 15px;font-weight: normal;">至</view>
+              <view class="picker-item" data-value="2" bind:tap="handleShow">{{endTime}}
+                <van-icon wx:if="{{endTime}}" catch:tap="clearTime2" class="cross" name="cross" />
+              </view>
+            </view>
+            <view style="flex: 1;overflow: hidden;">
+              <scroll-view style="height: 100%;" scroll-y="true" data-type="3" refresher-enabled="true" bindrefresherrefresh="onRefresh" bindscrolltolower="loadMore" refresher-triggered="{{triggered}}">
+                <!-- 列表 -->
+                <view wx:for="{{serveList}}" wx:key="serialNo" class="list" data-item="{{item}}" bind:tap="handleRoute2">
+                  <view class="message-top">
+                    <view style="display: flex;align-items: center;">
+                      <image src="../../assets/images/notice1.png" mode="" />
+                      <text class="name">{{item.patientName}}</text>
+                    </view>
+                    <text class="time">{{item.serviceStartTime + "-" + item.serviceEndTime}}</text>
+                  </view>
+                  <view class="message-bottom">
+                    <text class="left">{{item.consultPackageName}}</text>
+                    <text class="right">{{item.surplusTime}}</text>
+                  </view>
+                </view>
+                <view class="noData" wx:if="{{serveList.length <= 0}}">
+                  <image src="../../assets/images/noData.png" mode="" />
+                </view>
+              </scroll-view>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+  </view>
+  <view class="tui-cards-container" catch:tap="onCancel" wx:if="{{display}}">
+    <view class="service-evaluation" catch:tap="()=>{}">
+      <van-datetime-picker type="date" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{maxDate}}" formatter="{{ formatter }}" bind:input="onInput" bind:cancel="onCancel" bind:confirm="onConfirm" />
+    </view>
+  </view>
+  <van-dialog title="备注" message="{{remark}}" show="{{ show }}" confirm-button-color="#32AE57" />
+</view>
+<wxs module="showHandler">
+  module.exports.getIsShow = function (admin, count1, count2) {
+    if (admin == 1) {
+      if (count1 > 0) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      if (count2 > 0) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+</wxs>

@@ -1,0 +1,20 @@
+<!-- 用药指导、饮食建议、运动方案公共组件 -->
+<!-- <wxs src="../../../../utils/utils.wxs" module="utils"></wxs> -->
+<view class="healthFileFuncList">
+  <view class="funcsList" wx:if="{{funcsList.length}}">
+    <view class="funcsLi" wx:for="{{funcsList}}" wx:key="index" data-value="{{item}}" bind:tap="goToDetail">
+      <view class="p">
+        <image src="../../../../assets/images/sport.png" wx:if="{{item.type=='运动方案'}}"/>
+        <image src="../../../../assets/images/diet.png" wx:if="{{item.type=='饮食建议'}}"/>
+        <image src="../../../../assets/images/medicine.png" wx:if="{{item.type=='用药指导'}}"/>
+        <text selectable="true">{{ item.type }}</text>
+        <text selectable="true" class="span" wx:if="{{index==0}}">最新</text>
+      </view>
+      <text selectable="true">{{ item.doctor || "" }} {{ item.createTime }}</text>
+      <image class="detail" src="../../../../assets/images/jr.png" />
+    </view>
+  </view>
+  <view class="nodata" wx:else>
+    <image src="../../../../assets/images/noData.png" class="nodata-img"></image>
+  </view>
+</view>

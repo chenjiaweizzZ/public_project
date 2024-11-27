@@ -1,0 +1,16 @@
+{
+  "component": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "TimeMessage": "../../../TUIChat/components/MessageElements/TimeMessage/index",
+    "ImageMessage": "../../../TUIEndChat/components/ImageMessage/index",
+    "expressionMessage": "../../../TUIEndChat/components/expressionMessage/index",
+    "AudioMessage": "../../../TUIChat/components/MessageElements/AudioMessage/index",
+    "PackageRecommendations": "../../../TUIChat/components/MessageElements/PackageRecommendations/index",
+    "robotMessage": "../../../TUIChat/components/MessageElements/robotMessage/index",
+    "VideoMessage": "../../../TUIChat/components/MessageElements/VideoMessage/index",
+    "satisfactionMessage": "../../../TUIChat/components/MessageElements/satisfactionMessage/index",
+    "fileMessage": "../../../TUIChat/components/MessageElements/fileMessage/index",
+    "graphicMessage": "../graphicMessage/index"
+  }
+}

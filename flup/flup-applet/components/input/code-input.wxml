@@ -1,0 +1,21 @@
+<view class="code-dialog" wx:if="{{visible}}">
+  <view class='close' bindtap='hide'>
+      <iicon class='iicon' icon="iconguanbi" size="32" style="display:inline-block" color="#999999"/>
+  </view>
+  <view class='title'>请输入图形验证码{{phone}}</view>
+  <view class='tip'>{{showtip?"验证码错误，请重新输入":"  "}}</view>
+  <view class='code-img'>
+    <image mode='scaleToFill' src='{{codeimg}}'></image>
+    <view class='refresh' bindtap='refreshcode'>
+      <iicon class='iicon' icon="iconshuaxin" />
+    </view>
+  </view>
+  <view class='input-groups'>
+    <view class='input {{inputfocus&&activeindex==0?"active":""}}' data-index="0" catchtap='inputtap'>{{code[0]}}</view>
+    <view class='input {{inputfocus&&activeindex==1?"active":""}}' data-index="1" catchtap='inputtap'>{{code[1]}}</view>
+    <view class='input {{inputfocus&&activeindex==2?"active":""}}' data-index="2" catchtap='inputtap'>{{code[2]}}</view>
+    <view class='input {{inputfocus&&activeindex==3?"active":""}}' data-index="3" catchtap='inputtap'>{{code[3]}}</view>
+  </view>
+  <input value='{{rawvalue}}' class='hideinput' type='number' bindblur="bindblur" maxlength="99" focus="{{inputfocus}}" bindinput='codeinput'></input>
+</view>
+<view class='shadow' wx:if="{{visible}}" bindtap='hide'></view>

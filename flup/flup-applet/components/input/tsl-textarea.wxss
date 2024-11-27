@@ -1,0 +1,30 @@
+/* component/input/tsl-textarea.wxss */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx;
+}
+
+.textarea {
+  width: 100%;
+  font-family: PingFangSC-Regular;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #111111;
+  letter-spacing: 0.4px;
+  text-align: justify;
+  line-height: 44rpx;
+}
+.placeholder{
+  color:#B2B2B2!important;
+}
+.count {
+  align-self: flex-end;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #b2b2b2;
+  letter-spacing: 0.4rpx;
+  text-align: justify;
+  line-height: 34rpx;
+}

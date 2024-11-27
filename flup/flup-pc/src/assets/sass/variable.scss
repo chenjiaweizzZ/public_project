@@ -1,0 +1,50 @@
+/**
+  * @description 色值样式demo
+  */
+
+/* 本项目色值 */
+$color-theme: #32ae57;
+$color-theme-text: #16953c;
+$color-orange: #ff7b35;
+$color-orange-light: #ffefe5;
+
+$colors: (theme, $color-theme), (theme-text, $color-theme-text), (orange, $color-orange),
+  (orange-light, $color-orange-light), (ddd, #ddd), (b2, #b2b2b2), (f6, #f6f6f6), (fb, #fbfbfb);
+
+@each $name, $color in $colors {
+  .color-#{$name} {
+    color: $color;
+  }
+  .bgcolor-#{$name} {
+    background-color: $color;
+  }
+}
+
+/* width */
+$i: 500;
+@while $i>-1 {
+  .width#{$i}px {
+    width: #{$i}px;
+  }
+  .min-width#{$i}px {
+    min-width: #{$i}px;
+  }
+  $i: $i - 10;
+}
+
+$i: 100;
+@while $i>-1 {
+  .padding#{$i} {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+  .margin#{$i} {
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
+  }
+  $i: $i - 1;
+}

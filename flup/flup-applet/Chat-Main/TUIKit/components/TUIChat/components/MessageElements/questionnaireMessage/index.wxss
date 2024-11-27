@@ -1,0 +1,38 @@
+.text-message {
+  width: 234px;
+  background: linear-gradient(0deg, #FFFFFF 35%, #E6FFEA 100%);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.header::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  background: #D9E8DD;
+}
+
+.header .title {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  word-break: break-all;
+  color: #00982D;
+}
+
+.header image {
+  width: 12px;
+  height: 12px;
+}
+
+.plan-message {
+  padding: 12px;
+}

@@ -1,0 +1,169 @@
+/* pages/patientInfo/components/remark/index.wxss */
+.remark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx 0 24rpx 24rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.remark .operation {
+  display: flex;
+}
+
+.remark .operation .add-remark {
+  border: 1px solid #32AE57;
+  color: #00982D;
+}
+
+.remark .operation .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  height: 52rpx;
+  box-sizing: border-box;
+  border-radius: 26rpx;
+  margin-right: 20rpx;
+  padding: 0 28rpx;
+}
+
+.remark .operation .record {
+  border: 1px solid #BEBEBE;
+  color: #333333;
+}
+
+.remark .remark-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 24rpx;
+}
+
+.remark .remark-list .item {
+  border-bottom: 1px solid #E2E2E2;
+  padding-bottom: 30rpx;
+  padding-top: 24rpx;
+}
+
+.remark .remark-list .item .text text{
+  color: #111111;
+  font-size: 30rpx;
+  word-break: break-all;
+}
+
+.remark .remark-list .item .edit-delete {
+  margin-top: 12rpx;
+  display: flex;
+  color: #999999;
+  font-size: 28rpx;
+  justify-content: space-between;
+}
+
+image {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.edit-delete-button {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #0283EF;
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  background: linear-gradient(0deg, #F9F9F9 64%, #E6FFEE 100%);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.02);
+}
+
+.popup .text {
+  display: inline-block;
+  color: #111111;
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 26rpx;
+}
+
+.popup .main {
+  margin-top: 30rpx;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 36rpx 24rpx;
+}
+
+.popup .main2 {
+  margin-top: 30rpx;
+  height: 544rpx;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 28rpx;
+  overflow-y: auto;
+  margin-bottom: 28rpx;
+}
+
+.popup .nodata {
+  margin-top: 30rpx;
+  height: 544rpx;
+  line-height: 544rpx;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 28rpx;
+  overflow-y: auto;
+  margin-bottom: 28rpx;
+}
+
+textarea {
+  height: 192rpx;
+  width: 100%;
+  border: 1px solid #D4D4D4;
+  text-align: left;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.confirm {
+  background: #32AE57;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 200rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+
+.record-item {
+  text-align: left;
+  padding-bottom: 28rpx;
+  border-bottom: 1px solid #E2E2E2;
+}
+
+.record-item .content {
+  color: #111111;
+  font-size: 30rpx;
+  word-wrap: break-word;
+}
+
+.record-item .record-operation {
+  display: flex;
+  margin-top: 10rpx;
+}
+
+.record-item .record-operation text {
+  color: #666666;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+}
+
+.my-dialog-class{
+  color: #111111 !important;
+  font-size: 32rpx !important;
+}

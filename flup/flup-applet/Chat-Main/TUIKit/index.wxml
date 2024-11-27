@@ -1,0 +1,2 @@
+<!-- 聊天页面 -->
+<TUIChat id="TUIChat" patientName="{{patientName}}" patientPhone="{{patientPhone}}" patientCardNo="{{patientCardNo}}" isUrlLink="{{isUrlLink}}" patientId="{{patientId}}" sourceId="{{sourceId}}" currentConversationID="{{currentConversationID}}" consultId="{{consultId}}" unreadCount="{{unreadCount}}" hasCallKit="{{hasCallKit}}" type="{{type}}" bind:showConversationList="showConversationList" bind:handleCall="handleCall"></TUIChat>

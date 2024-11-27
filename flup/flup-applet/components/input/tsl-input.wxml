@@ -1,0 +1,14 @@
+<view class="wrapper">
+  <view class="tsl-input" style="justify-content:{{disabled?'center':''}}" bindtap='click'>
+    <block wx:if="{{!disabled}}">
+      <iicon icon="iconsousuo" size="32" color="#CDCDCD"></iicon>
+      <input class="input" confirm-type="{{confirmType}}" value="{{inputValue}}" placeholder="{{placeholder}}" placeholder-class="input-placeholder" focus="{{true}}" bindfocus="focus" bindblur="blur" bindinput="input" bindconfirm="confirm"confirm-hold="{{confirmHold}}"></input>
+      <iicon class="clear" icon="iconqingchu" size="36" color="#999" wx:if="{{showClear}}" bindtap="clearInput"></iicon>
+    </block>
+    <block wx:if="{{disabled}}">
+        <iicon icon="iconsousuo" size="36" color="#CDCDCD"></iicon>
+        <text class="textHint">{{placeholder}}</text>
+    </block>
+  </view>
+  <text class="cancel-text" wx:if="{{!disabled}}" bindtap="cancelClick">取消</text>
+</view>

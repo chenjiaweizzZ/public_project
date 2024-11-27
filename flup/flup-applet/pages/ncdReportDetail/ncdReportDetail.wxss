@@ -1,0 +1,45 @@
+.ncdReportDetail {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.navigatorbar {
+  position: relative;
+  flex-shrink: 0;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background-color: #006EFF;
+}
+
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+}

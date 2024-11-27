@@ -1,0 +1,32 @@
+<!-- 检查检验报告 -->
+<wxs src="../../../../utils/utils.wxs" module="utils"></wxs>
+<view class="electronicRecord">
+  <view wx:if="{{selectIndex == 3}}" class="refresh" bind:tap="Refresh">获取最新报告</view>
+  <view class="recordList" wx:if="{{funcsList.length > 0}}">
+    <view class="recordItem" wx:for="{{funcsList}}" wx:for-item="item" wx:key="index">
+      <view wx:if="{{selectIndex==2}}" data-value="{{item}}" bind:tap="goToDetail">
+        <view class="date">
+          <text selectable="true">{{utils.my_slice(item.reportingDatetime)}}</text>
+          <view class="right" wx:if="{{item.reportingPhysician}}"><text selectable="true">{{item.reportingPhysician}}</text></view>
+        </view>
+        <view><text selectable="true">{{item.testName?item.testName:''}}</text></view>
+      </view>
+      <view wx:if="{{selectIndex==3}}" data-value="{{item}}" bind:tap="goToDetail">
+        <view class="date">
+          <text selectable="true">{{item.reportedDatetime ? utils.my_slice(item.reportedDatetime) : utils.my_slice(item.appointmentDatetime)}}</text>
+          <view class="right"><text selectable="true">{{item.reporter?item.reporter:''}}</text></view>
+        </view>
+        <view><text selectable="true">{{item.examClassName}}</text></view>
+      </view>
+      <view wx:if="{{selectIndex==4}}" data-value="{{item}}" bind:tap="goToDetail">
+        <view class="date">
+          <text selectable="true">{{item.dischargeDatetime}}</text>
+        </view>
+        <view><text selectable="true">{{item.dischargeDept}}</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="nodata" wx:else>
+    <image src="../../../../assets/images/noData.png" class="nodata-img"></image>
+  </view>
+</view>

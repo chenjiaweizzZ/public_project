@@ -1,0 +1,67 @@
+<!--个人中心-->
+<wxs src="../../utils/utils.wxs" module="utils"></wxs>
+<view class="personal-page">
+  <image class="personal-page-bg" src="../Resources/personal-bg.png" />
+  <view class="personal-page-main">
+  <view>
+    <view class="personal-title">
+      <text class="personal-title-text">个人中心</text>
+    </view>
+    <view class="personal-header" hover-class="none">
+      <view class="personal-header-avatar">
+        <image src="{{userId?'../Resources/user.png':'../Resources/icon/personal.png'}}" lazy-load="true" />
+      </view>
+      <view class="personal-header-ID" wx:if="{{userId}}">
+        <!-- <label class="personal-header-ID-label">ID:</label> -->
+        <text class="personal-header-ID-text">{{userName}}</text>
+      </view>
+      <view class="personal-header-ID" wx:else bindtap="login">
+        <label class="personal-header-ID-label">未登录</label>
+        <!-- <text class="personal-header-ID-text">{{userId}}</text> -->
+      </view>
+    </view>
+    <!-- 金额统计 -->
+    <view class="money" bindtap="viewTeamIncome" wx:if="{{leader}}">
+      <view class="money-title">
+        <van-icon name="friends-o" color="#FFFFFF"/>
+        <view class="money-title-right">团队收入</view>
+      </view>
+      <view class="money-item">
+        <view class="key" bind:tap="toPatient">上月收入</view>
+        <view class="value" wx:if="{{userId}}">{{ incomeInfo.leaderGroupLastMonthIncome ? utils.centToYuan(incomeInfo.leaderGroupLastMonthIncome) : 0 }}</view>
+      </view>
+      <view class="shortLine"></view>
+      <view class="money-item">
+        <view class="key">本月收入</view>
+        <view class="value" wx:if="{{userId}}">{{ incomeInfo.leaderGroupThisMonthIncome ? utils.centToYuan(incomeInfo.leaderGroupThisMonthIncome) : 0 }}</view>
+      </view>
+    </view>
+    <view class="money money2" bindtap="viewMyIncome">
+      <view class="money-title money-title2">
+        <van-icon name="manager-o" color="#019F4B"/>
+        <view class="money-title-right">个人收入</view>
+      </view>
+      <view class="money-item">
+        <view class="key" bind:tap="toPatient">历史总收入</view>
+        <view class="value" wx:if="{{userId}}">{{ incomeInfo.totalIncome ? utils.centToYuan(incomeInfo.totalIncome) : 0 }}</view>
+      </view>
+      <view class="shortLine shortLine2"></view>
+      <view class="money-item">
+        <view class="key">上月收入</view>
+        <view class="value" wx:if="{{userId}}">{{ incomeInfo.lastMonthIncome ? utils.centToYuan(incomeInfo.lastMonthIncome) / 100 : 0 }}</view>
+      </view>
+    </view>
+  </view>
+    <!-- 操作 -->
+    <view class="personal-main personal-list">
+      <view class="personal-list-item" wx:for="{{list}}" wx:key="*this" data-item="{{item}}" bindtap='handleRouter'>
+        <view class="aside-left">
+          <image class="icon" src="{{item.icon}}" lazy-load="true" />
+          <text>{{item.name}}</text>
+        </view>
+        <image class="icon aside-right" src="../Resources/icon/right.png" lazy-load="true" />
+      </view>
+    </view>
+    <view class="bottom" bindtap='unLogin' wx:if="{{userId}}">注销登录</view>
+  </view>
+</view>

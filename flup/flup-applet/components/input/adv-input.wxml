@@ -1,0 +1,11 @@
+<view class="adv-input {{hasmargin?'inputmg':''}}"  >
+  <view class='name'>{{name}}</view>
+  <input value="{{value}}" password='{{input_type==="password"}}' maxlength="{{maxlength}}" focus="{{focus}}" class='input' bindfocus="bindfocus" bindblur="bindblur" bindconfirm="bindconfirm" placeholder='{{placeholder}}' bindinput="bindinput"></input>
+  <iicon icon="iconqingchu" wx:if="{{hasclear}}" size="32" color="#ddd" catchtap="clearcontent"/>
+  <iicon icon="{{input_type==='password'?'iconbukejian':'iconkejian'}}" wx:if="{{type=='password'||hasplain}}" size="40" color="#ddd" catchtap="showpassword"/>
+  <slot></slot>
+</view>
+ <view class='bottom'>
+    <view class='line {{isfocus?"focus":""}}'></view>
+    <view class='tip' wx:if="{{tip}}">{{tip}}</view>
+</view>

@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "服务列表",
+  "navigationBarTextStyle": "black",
+  "disableScroll": true
+}

@@ -1,0 +1,232 @@
+.container {
+  background-repeat:no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.login-header {
+  height: 45vh;
+  background-image: url('https://web.sdk.qcloud.com/component/miniApp/resources/login-bg.png');
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-header .login-header-title {
+  padding: 0 40px;
+  font-family: PingFangSC-Regular;
+  font-size: 32px;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 38px;
+  font-weight: 400;
+}
+.box{
+  flex: 1;
+  width: 100vw;
+  margin-top: -40px;
+  background: #ffffff;
+  border-radius: 0 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input-box {
+  background-color: transparent;
+  padding: 2vw 0 2vw 1vw;
+  border-bottom: 1px solid #EEEEEE;
+  margin: 20rpx 0 20rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 80vw;
+  position: relative;
+  align-items: center;
+  font-size: 20rpx;
+}
+input{
+  display: flex;
+  font-size: 20px; 
+  width: 60vw;
+}
+
+.login {
+  display: flex;
+  width: 100vw;
+  text-align: center;
+  bottom: 5vh;
+  margin:70rpx
+}
+.login button{
+  width: 80%;
+  background-color: #006eff;
+  border-radius: 50px;
+  color:white
+}
+.codeBtn{
+  float: right;
+  height: 60rpx;
+  min-height: 60rpx;
+  line-height: 60rpx;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 0 10rpx;
+  
+}
+.btn{
+  width:180rpx;
+  color: #006eff;
+  background-color: white;
+  align-items: center;
+}
+.close {
+  position:absolute;
+  padding-left:5vw;
+  padding-right:5vw;
+  width:50rpx;
+  height:60rpx;
+}
+.page {
+  width: 750rpx;
+  min-height: 100vh;
+}
+
+.page image {
+  width: 430rpx;
+  margin-top: 72rpx;
+  margin-left: 160rpx;
+}
+
+.input-block {
+  margin-top: 60rpx;
+  width: 750rpx;
+  padding: 0rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.control_line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 35rpx;
+}
+
+.control_line text {
+  margin: 0 40rpx;
+  font-family: PingFangSC-Regular;font-size: 28rpx;
+  color: #666;
+  letter-spacing: 0;
+}
+
+.login-btn {
+  margin-top: 60rpx;
+  background-color: #32AE57;
+  border-radius: 8rpx;
+  width: 670rpx;
+  height: 90rpx;
+  color: white;
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  margin-left: 40rpx;
+}
+
+.login-btn[disabled] {
+  opacity: 0.3;
+  background-color: #32AE57 !important;
+  color: white !important;
+}
+
+.reg-line {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  font-family: PingFangSC-Regular;
+  color: #666;
+  letter-spacing: 0;
+  /* text-align: center; */
+  line-height: 44rpx;
+  margin-top: 28rpx;
+  font-size: 14px;
+  width: 100%;
+  padding-left: 80rpx;
+}
+
+.reg-line text {
+  color: #32AE57;
+  letter-spacing: 0;
+}
+.reg-line1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 44rpx;
+  margin-top: 28rpx;
+  margin-left: 40rpx;
+}
+
+.reg-line1 text {
+  color: #4185f3;
+  letter-spacing: 0;
+}
+
+.getcode-btn{
+  background: #FFFFFF;
+  border: 1rpx solid #4185f3;
+  border-radius: 4rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #4185f3;
+  width: 200rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+}
+.getcode-btn[disabled] {
+  border: 1rpx solid #f6f6f6 !important;
+  background-color: #fff!important;
+}
+.reg-line2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-family: PingFangSC-Regular;font-size: 28rpx;
+  color: #666;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 44rpx;
+  margin-top: 28rpx;
+  margin-left: 40rpx;
+}
+
+.reg-line2 text {
+  color: #4185f3;
+  letter-spacing: 0;
+}
+.wechat-style{
+  /* margin-top: 40rpx; */
+  background-color: #fff;
+  border: 1rpx solid #f6f6f6 !important;
+  border-radius: 8rpx;
+  width: 670rpx;
+  height: 90rpx;
+  color: #999;
+  font-family: PingFangSC-Regular;font-size: 34rpx;
+  /* margin-left: 40rpx; */
+}
+
+.explanation {
+  margin-top: 100rpx;
+  color: #333333;
+  font-size: 26rpx;
+}

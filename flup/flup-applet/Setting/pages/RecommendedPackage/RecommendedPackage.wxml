@@ -1,0 +1,14 @@
+<view class="recommended-package">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../../assets/images/back.png" />
+    <view class="conversation-title">套餐推荐</view>
+  </view>
+  <van-tabs active="{{ active }}" style="flex: 1;display: flex;flex-direction: column;overflow: hidden;">
+    <van-tab title="健康服务">
+      <healthServices roomType="{{roomType}}" roomId="{{roomId}}" consultId="{{consultId}}" type="{{type}}" sendUserName="{{sendUserName}}" sendUserId="{{sendUserId}}"></healthServices>
+    </van-tab>
+    <van-tab title="在线咨询">
+     <onlineConsultation roomType="{{roomType}}" roomId="{{roomId}}" consultId="{{consultId}}" type="{{type}}" sendUserName="{{sendUserName}}" sendUserId="{{sendUserId}}"></onlineConsultation>
+    </van-tab>
+  </van-tabs>
+</view>

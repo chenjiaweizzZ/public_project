@@ -1,0 +1,26 @@
+<wxs src="../../../../../../utils/utils.wxs" module="utils"></wxs>
+<view class="text-message"  bind:tap="goDetail">
+  <view class="content">
+    <view class="content-title">
+      <view class="content-title-left">健康档案</view>
+      <view class="content-title-right">
+        <image src="../../../../static/images/graphicLogo.png" style="width: 50rpx;height: 50rpx;margin-right: 10rpx;"/>
+        <van-icon name="arrow" color="#7B95B1"/>
+      </view>
+    </view>
+    <view class="content-desc">
+      <view class="content-desc-title">
+        <image src="../../../../static/images/describe.png" style="width: 20rpx;height: 20rpx;margin-right: 10rpx;"/>
+        <view>病情描述</view>
+      </view>
+      <view class="content-desc-text">{{ message.diseaseDescription }}</view>
+    </view>
+    <view class="content-desc">
+      <view class="content-desc-title">
+        <image src="../../../../static/images/purpose.png" style="width: 20rpx;height: 20rpx;margin-right: 10rpx;"/>
+        <view>咨询目的</view>
+      </view>
+      <view class="content-desc-text">{{ utils.getConsultPurpose(message.consultPurpose) }}</view>
+    </view>
+  </view>
+</view>

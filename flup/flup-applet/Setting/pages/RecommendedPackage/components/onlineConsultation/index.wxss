@@ -1,0 +1,143 @@
+.health-services {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.package-list {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  height: 100%;
+  background: #F3F7F5;
+  overflow-y: scroll;
+}
+
+.van-sidebar-item {
+  background: #F3F7F5 !important;
+}
+
+.van-sidebar-item--selected {
+  background-color: #FFFFFF !important;
+  color: #00982D !important;
+  font-size: 32rpx !important;
+}
+
+.van-sidebar-item--selected {
+  border-color: #32AE57 !important;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.scrolltolower {
+  flex: 1;
+  overflow: hidden;
+}
+
+.van-sidebar {
+  width: 240rpx !important;
+}
+
+.package-item {
+  margin-left: 25rpx;
+  padding: 30rpx 0rpx;
+  border-bottom: 1px solid rgba(216, 216, 216, 0.3);
+}
+
+.package-item image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 18rpx;
+  border-radius: 8rpx;
+}
+
+.tip {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  text-align: center;
+  color: #aaaaaa;
+}
+
+.tui-cards-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+}
+
+.service-evaluation {
+  flex: 1;
+  background: #FFFFFF;
+  padding: 48rpx 40rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 12px 12px 0px 0px;
+  height: 566rpx;
+}
+
+.group-name {
+  padding-top: 10rpx;
+  padding-left: 25rpx;
+}
+
+.group-name image {
+  margin-left: 6rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.group-name .selectTitle {
+  color: #00982D;
+  font-weight: 600;
+}
+
+.group-name .title {
+  color: #111111;
+  font-weight: 600;
+}
+
+.search {
+  width: 100%;
+  height: 88rpx;
+  background: #FFFFFF;
+  padding: 12rpx 28rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.search-item {
+  flex: 1;
+  background: #F6F6F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B2B2B2;
+  font-size: 28rpx;
+}
+
+.search-item image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}

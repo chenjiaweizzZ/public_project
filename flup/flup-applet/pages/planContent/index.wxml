@@ -1,0 +1,28 @@
+<view class="plan-content">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">任务内容</view>
+  </view>
+  <view class="main" style="margin-bottom: {{bottomSafeArea}}px;">
+    <van-search value="{{ value }}" shape="round" use-left-icon-slot="true" input-align="center" placeholder="请输入查询的内容" bind:change="onSearch">
+      <view slot="left-icon" class="left-icon">
+        <image src="../../assets/images/search.png" />
+      </view>
+    </van-search>
+    <scroll-view scroll-y class="plan-content-list">
+      <radio-group bindchange="radioChange">
+        <view class="item" wx:for="{{filterContentList}}" wx:key="serialNo">
+          <radio value="{{item.serialNo}}" checked="{{item.checked}}" />
+          <view class="title">{{item.questionnaireName}}</view>
+          <view class="detail" bind:tap="goDetail" data-value="{{item}}">
+            <image src="../../assets/images/right.png" mode="" />
+          </view>
+        </view>
+      </radio-group>
+    </scroll-view>
+    <view class="footer">
+      <view class="cancel" bind:tap="Cancel">取消</view>
+      <view class="confirm" bind:tap="Confirm">确定</view>
+    </view>
+  </view>
+</view>

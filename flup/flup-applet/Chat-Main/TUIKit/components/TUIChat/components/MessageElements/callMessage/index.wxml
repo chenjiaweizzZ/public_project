@@ -1,0 +1,10 @@
+<!-- 文本 + 表情 -->
+<view class="text-message {{isMine?'my-text':''}}">
+  <view class="message-body-span">
+    <text class="message-body-span-text">{{isMine ? message.content.data.from : message.content.data.to}}</text>
+    <image style="margin-right: 10rpx;transform: rotate(180deg);" wx:if="{{!isMine}}" src="../../../../../../../assets/images/video-call.svg" mode=""/>
+    <image style="margin-left: 10rpx;" wx:else src="../../../../../../../assets/images/video-call2.svg" mode=""/>
+  </view>
+  <image wx:if="{{isMine}}" class="bubbles-right" src="../../../../../../../assets/images/mr.png" mode=""/>
+  <image wx:if="{{!isMine}}" class="bubbles-left" src="../../../../../../../assets/images/ml.png" mode=""/>
+</view>

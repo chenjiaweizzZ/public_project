@@ -1,0 +1,23 @@
+.reset  .van-tabs__line {
+    background: #3499db !important;
+}
+
+.van-tabs span {
+    display: inline-block !important;
+}
+.reset .van-tab--active {
+    color: #3499db ;
+}
+/* .toast-wrap{display: none;} */
+.reset .van-tabs__wrap{top:0.76rem;position: fixed;border-bottom: 1px solid #c9caca;}
+.reset .van-radio-group{width: 100%;}
+.reset .van-radio-group .van-radio{display: inline-block;line-height: 0.6rem;}
+.reset .van-radio-group .van-radio:nth-child(1){margin-right: 0.1rem;}
+.van-tabs--line{padding-top: 0;}
+.reset .van-slider, .reset .van-slider__bar{
+    /*background: none;*/
+    /*margin-top:0.1rem;*/
+    height: 2px;
+}
+.van-loading{margin:.2rem auto;}
+.van-number-keyboard__close {padding-top:5px;}

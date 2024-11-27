@@ -1,0 +1,19 @@
+<view class="container enter">
+  <!-- 自定义header -->
+  <view class="tui-navigatorbar">
+    <image class="tui-navigatorbar-back" bindtap="goBack" src="../../../../assets/images/back.png" />
+    <view class="conversation-title">{{patientName || "聊天室"}}</view>
+  </view>
+  <!-- 聊天信息 -->
+  <view class="list-box">
+    <scroll-view class="message-list" bindtap="triggerClose" scroll-y="true">
+      <MessageList id="MessageList" conversation="{{conversation}}" patientId="{{patientId}}" sourceId="{{sourceId}}" isReferral="{{isReferral}}" bind:getConsultDetailsById="getConsultDetailsById" groupUserInfoList="{{groupUserInfoList}}" type="{{type}}" consultId="{{consultId}}" chatContainerHeight="{{chatContainerHeight}}"></MessageList>
+    </scroll-view>
+  </view>
+  <!-- 输入框 -->
+  <view class="input-area" wx:if="{{isShowInput && referralStatus}}">
+    <view class="message-input" style="{{viewData.style}}">
+      <MessageInput id="MessageInput" isOpenAi="{{isOpenAi}}" type="{{type}}" patientId="{{patientId}}" sourceId="{{sourceId}}" isReferral="{{isReferral}}" groupUserInfoList="{{groupUserInfoList}}" consultId="{{consultId}}" conversation="{{conversation}}" serialNo="{{serialNo}}" bind:sendMessage="sendMessage" bind:downKeysBoards="downKeysBoards" bind:pullKeysBoards="pullKeysBoards" bind:inputHeightChange="inputHeightChange" bind:getConsultDetailsById="getConsultDetailsById" bind:hideInput="hideInput"></MessageInput>
+    </view>
+  </view>
+</view>

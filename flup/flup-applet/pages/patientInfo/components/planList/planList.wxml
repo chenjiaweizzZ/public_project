@@ -1,0 +1,36 @@
+<!-- 健康计划 -->
+<wxs src="../../../../utils/utils.wxs" module="utils"></wxs>
+<view class="planList">
+  <view class="reportList" wx:if="{{funcsList.length > 0}}">
+    <view class="reportUl">
+      <view class="reportLi" :class="{ choose: !index }" wx:for="{{funcsList}}" wx:for-item="dataItem" wx:key="i">
+        <view class="taskName"><text user-select='true'>{{dataItem.planName}}</text><text user-select='true' class="ttTag">{{ item.planFinishStatus }}</text></view>
+        <view class="taskItem" wx:for="{{dataItem.vpatientTask4CList}}" wx:for-item="item" wx:key="index">
+          <view class="list">
+            <view class="left">
+              <view class="line" wx:if="{{index!=0}}"></view>
+              <view>
+                <image src="../../../../assets/images/u-bg.png"></image>
+              </view>
+              <view class="line" wx:if="{{index!=(dataItem.vpatientTask4CList.length-1)}}"></view>
+            </view>
+            <view class="tlsContent" data-value="{{item}}" bind:tap="goToDetail">
+              <view class="tlsIcon" wx:if="{{item.flupType != '调查问卷' && item.readStatus == '未读'}}"></view>
+              <view class="tlsIcon tlsiA" wx:if="{{item.flupType != '调查问卷' && item.readStatus == '已读'}}"></view>
+              <view class="tlsIcon tlsiB" wx:if="{{ item.flupType == '调查问卷' &&item.writeStatus == '待用户填写'}}"></view>
+              <view class="tlsIcon tlsiC" wx:if="{{item.flupType == '调查问卷' && item.writeStatus == '已填写'}}"></view>
+              <view wx:if="{{item.flupType == '消息提醒' || item.flupType == '健康宣教'}}"><text user-select='true'>{{ item.taskContent ? item.taskContent : item.flupType  }}</text></view>
+              <view wx:else><text user-select='true'>{{ item.flupType }}</text></view>
+              <view class="time"><text user-select='true'>{{ utils.my_slice(item.flupStartTime)}}</text></view>
+              <!-- <view class="tlsBtn" wx:if="{{item.finish}}" bind:tap="goToEvaluationResults" >评测结果</view> -->
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="nodata" wx:else>
+    <image src="../../../../assets/images/noData.png" class="nodata-img"></image>
+  </view>
+</view>

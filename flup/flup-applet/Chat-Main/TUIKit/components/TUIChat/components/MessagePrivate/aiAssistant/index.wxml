@@ -1,0 +1,16 @@
+<!-- 转诊 -->
+<view class="tui-cards-container" catch:tap="handleClose" wx:if="{{displayTag}}">
+  <view class="service-evaluation" catch:tap="()=>{}">
+    <view class="goBack">
+      <view class="title">AI助手</view>
+      <image catch:tap="handleClose" src="../../../../../../../assets/images/close.png" mode=""/>
+    </view>
+    <view class="control">
+      打开AI助手
+      <van-switch size="48rpx" active-color="#32AE57" checked="{{ checked }}" bind:change="onChange" />
+    </view>
+    <view class="remark">
+      AI助手小雅能够根据自身知识库，自动回答患者的问题。打开后全聊天室默认应用，小雅能够自动回答患者的每个问题，患者和聊天室其他成员也可以关闭小雅。
+    </view>
+  </view>
+</view>

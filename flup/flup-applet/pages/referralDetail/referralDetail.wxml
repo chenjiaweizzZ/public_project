@@ -1,0 +1,189 @@
+<wxs src="../../utils/utils.wxs" module="utils"></wxs>
+<view class="referral-detail">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">转诊审核</view>
+  </view>
+  <view class="deta1l">
+    <view class="deta1l-box">
+      <view class="refuse-content" wx:if="{{ referralRecordVo.comments }}"><van-icon name="warning-o" color="#ff7b35"/>   {{ referralRecordVo.comments }}</view>
+      <view class="deta1l-title">患者基本信息</view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">姓名</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.patientName }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">证件类型</view>
+        <view class="deta1l-right"><text selectable='true'>{{ utils.getIdCardType(referralRecordVo.idCardType) }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">证件号</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.idNo }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">性别</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.sexCode == 1 ? "男" : "女" }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">年龄</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.patientAge }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">手机号码</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.patientPhone }}</text></view>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">转诊信息</view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">医保卡类型</view>
+        <view class="deta1l-right"><text selectable='true'>{{ utils.getClinicCardType(referralRecordVo.clinicCardType) }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">医保卡卡号</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.clinicCardNo }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">申请人</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.applyUserName }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">门诊卡号</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.visitNo ? referralRecordVo.visitNo : "" }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">用户ID号</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.patientUserId ? referralRecordVo.patientUserId : "" }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">申请人电话</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.applyPhone }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">转出医院</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.sourceHospitalName }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">转出科室</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.sourceDeptName }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">转入医院</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.targetHospitalName }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">转入科室</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.targetDeptName }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">时间段</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.expectedDateSpan == "AM" ? "上午" : "下午" }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">期望日期</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.expectedDateFrom }}</text></view>
+      </view>
+      <view class="deta1l-content autoHeight">
+        <view class="deta1l-left">转诊目的</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.referralPurpose ? referralRecordVo.referralPurpose : "" }}</text></view>
+      </view>
+      <view class="deta1l-content">
+        <view class="deta1l-left">接诊医生</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.targetDoctorName ? referralRecordVo.targetDoctorName : ""  }}</text></view>
+      </view>
+      <view class="deta1l-content autoHeight">
+        <view class="deta1l-left">其他备注</view>
+        <view class="deta1l-right"><text selectable='true'>{{ referralRecordVo.otherRemark }}</text></view>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">主诊断</view>
+      <view class="deta2l-content">
+        <text selectable='true'>{{ referralRecordVo.mainDiagnosis || "暂无记录" }}</text>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">门诊记录</view>
+      <view class="deta2l-content">
+        <text selectable='true'>{{ recordTextListVo.clinicReportList || "暂无记录" }}</text>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">检查记录</view>
+      <view class="deta2l-content">
+        <text selectable='true'>{{ recordTextListVo.emrLabReportList || "暂无记录" }}</text>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">检验记录</view>
+      <view class="deta2l-content">
+        <text selectable='true'>{{ recordTextListVo.examReportList || "暂无记录" }}</text>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">入院记录</view>
+      <view class="deta2l-content">
+        <text selectable='true'>{{ recordTextListVo.admissionRecordList || "暂无记录" }}</text>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">出院记录</view>
+      <view class="deta2l-content">
+        <text selectable='true'>{{ recordTextListVo.dischargeRecordList || "暂无记录" }}</text>
+      </view>
+    </view>
+    <view class="deta1l-box">
+      <view class="deta1l-title">其他</view>
+      <view class="deta3l-content">
+        <view class="deta3l-left">图片</view>
+        <view class="deta3l-images">
+          <!-- <view class="deta1l-image" wx:for="{{ fileInfoVoList }}">
+          </view> -->
+          <image wx:for="{{ fileInfoVoList }}" src="{{ item.fileUrl }}" wx:key="index" bind:tap="previewImage" data-item="{{ item }}" />
+        </view>
+      </view>
+      <view class="deta3l-content">
+        <view class="deta3l-left2">附言</view>
+        <view class="deta3l-text"><text selectable='true'>{{ referralRecordVo.postscript }}</text></view>
+      </view>
+    </view>
+    <view class="deta1l-box" wx:if="{{ ((review && DKSSH) || DYQZBSH) && currentTab == 1 }}">
+      <view class="deta1l-title">审核信息</view>
+      <van-cell-group>
+        <van-field label="医生姓名" value="{{ admissionForm.doctorName }}" placeholder="请输入" border="{{ false }}" required input-align="right" bind:change="onChange1" readonly="{{ DYQZBSH }}" />
+        <van-field label="预交金" value="{{ admissionForm.prepayment }}" placeholder="请输入" border="{{ false }}" required input-align="right"  bind:change="onChange2" type="number" readonly="{{ DYQZBSH }}"/>
+        <van-field model:value="{{ admissionForm.diseaseCondition }}" readonly is-link border="{{ false }}" label="病情" placeholder="请选择" bind:tap="onClickDiseaseCondition" required input-align="right"  readonly="{{ DYQZBSH }}"/>
+        <van-field model:value="{{ admissionForm.writeDate }}" readonly is-link border="{{ false }}" label="填写日期" placeholder="请选择" bind:tap="onClickWriteDate" required input-align="right"  readonly="{{ DYQZBSH }}"/>
+        <van-field label="院前记录人" value="{{ admissionForm.beforeRecorderName }}" placeholder="请输入" border="{{ false }}" required input-align="right"  bind:change="onChange3" readonly="{{ DYQZBSH }}"/>
+        <van-field label="工号" value="{{ admissionForm.beforeRecorderNo }}" placeholder="请输入" border="{{ false }}" required input-align="right" bind:change="onChange4" readonly="{{ DYQZBSH }}"/>
+        <van-field label="备注" value="{{ admissionForm.remark }}" placeholder="请输入" border="{{ false }}" input-align="right" type="textarea" autosize bind:change="onChange5" readonly="{{ DYQZBSH }}"/>
+        <van-field model:value="{{ admissionForm.recordDate }}" readonly is-link border="{{ false }}" label="记录日期" placeholder="请选择" bind:tap="onClickRecordDate" required input-align="right"  readonly="{{ DYQZBSH }}"/>
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="btnGroup" wx:if="{{ review }}">
+    <view class="btnRefuse" bind:tap="refuse">拒绝</view>
+    <view class="agree" bind:tap="agree">同意</view>
+  </view>
+  <van-popup show="{{ show }}" round closeable position="bottom" custom-style="height: 318px;background: linear-gradient(0deg, #F9F9F9 64%, #E6FFEE 100%);box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.02);" bind:close="onClose">
+    <view class="popup-content">
+      <view class="title">拒绝原因</view>
+      <view class="content-input">
+        <textarea value="{{value}}" maxlength="500" bindinput="handleInput" placeholder="请输入" />
+      </view>
+      <view class="content-footer">
+        <view class="confirm" bind:tap="refuseConfirm">确定</view>
+      </view>
+    </view>
+  </van-popup>
+  <van-popup show="{{ diseaseConditionShow }}" round position="bottom">
+    <van-picker columns="{{ diseaseConditionList }}" show-toolbar bind:cancel="diseaseConditiOnCancel" bind:confirm="diseaseConditiOnConfirm" title="病情选择" class="diseaseConditiPicker"/>
+  </van-popup>
+  <van-popup show="{{ writeDateShow }}" round position="bottom">
+    <van-datetime-picker type="date" value="{{ admissionForm.writeDateCode }}"  show-toolbar bind:cancel="writeDateOnCancel" bind:confirm="writeDateOnConfirm" title="填写日期"/>
+  </van-popup>
+  <van-popup show="{{ recordDateShow }}" round position="bottom">
+    <van-datetime-picker type="date" value="{{ admissionForm.recordDateCode }}"  show-toolbar bind:cancel="recordDateOnCancel" bind:confirm="recordDateOnConfirm" title="记录日期"/>
+  </van-popup>
+  <van-dialog id="van-dialog" confirm-button-color="#00982D" />
+</view>

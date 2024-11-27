@@ -1,0 +1,186 @@
+/* pages/referralExamine/referralExamine.wxss */
+.referral-examine {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F4F5F9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background: #FFFFFF;
+}
+
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #000000;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* tab */
+.tab_box {
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+}
+
+.tabs_v {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.tab_v {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tab_txt {
+  padding-bottom: 0;
+  margin: 0;
+  color: #999999;
+}
+
+.tab_v_active {
+  position: relative;
+  color: #00982D;
+}
+
+.tab_nature {
+  position: relative;
+}
+
+/* .tab_nature:first-child::after {
+  position: absolute;
+  content: "";
+  top: 12px;
+  width: 1px;
+  height: 20px;
+  right: 0;
+  background: #E2E2E2;
+} */
+
+.tab_v_active::after {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 31px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1.5px;
+  background: #32AE57;
+  z-index: 100;
+}
+
+
+/* 容器 */
+.tabWrap {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+  padding-bottom: 58px;
+}
+
+.sw1per-left {
+  width: 100px;
+  background: #F6F6F6;
+}
+
+.referral-examine .sw1per-right {
+  width: 100%;
+  height: 100%;
+  padding: 11px 18px;
+  overflow: auto;
+  background-color: #ffffff;
+}
+
+.referral-examine .referralDetailItem {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #8BAA96;
+  height: 50px;
+}
+
+.referral-examine .head {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #32AE57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.referral-examine .patientName {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #111111;
+  margin-left: 16px;
+}
+
+.sw1per-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+
+.van-sidebar-item--selected {
+  border-color: #32AE57 !important;
+}
+
+.van-sidebar {
+  width: 100px !important;
+}
+
+.noData {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noData image {
+  width: 160px;
+  height: 212px;
+}
+

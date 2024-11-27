@@ -1,0 +1,65 @@
+<!--pages/patientInfo/components/summaryDischarge/index.wxml-->
+<view class="summary-discharge">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title"><text user-select='true'>详情</text></view>
+  </view>
+  <!-- <view class="main"> -->
+  <scroll-view scroll-y="true" style="height: 100%;flex: 1;overflow: hidden;">
+    <view class="main">
+      <view class="item">
+        <view class="key"><text user-select='true'>入院病区</text></view>
+        <view class="value"><text user-select='true'>{{detail.admissionWard || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>入院时间</text></view>
+        <view class="value"><text user-select='true'>{{detail.admissionDatetime || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>出院时间</text></view>
+        <view class="value"><text user-select='true'>{{detail.dischargeDatetime || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>住院天数</text></view>
+        <view class="value"><text user-select='true'>{{detail.admissionDays || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>入院诊断</text></view>
+        <view class="value"><text user-select='true'>{{detail.admittingDiagnosis || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>入院情况</text></view>
+        <view class="value"><text user-select='true'>{{detail.admissionSituation || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>住院治疗经过</text></view>
+        <view class="value"><text user-select='true'>{{detail.hospitalCourse || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>出院情况</text></view>
+        <view class="value"><text user-select='true'>{{detail.dischargeSituation || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>出院诊断</text></view>
+        <view class="value"><text user-select='true'>{{detail.dischargeDiagnosis || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>出院医嘱</text></view>
+        <view class="value">
+          <view><text user-select='true'>饮食及营养指导：{{detail.tipsDiet || ""}}</text></view>
+          <view><text user-select='true'>出院带药指导：{{detail.tipsDrugs || ""}}</text></view>
+          <view><text user-select='true'>生活方式指导：{{detail.tipsLifeway || ""}}</text></view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>随访指导</text></view>
+        <view class="value"><text user-select='true'>{{detail.tipsAcitivity || ""}}</text></view>
+      </view>
+      <view class="item">
+        <view class="key"><text user-select='true'>主诊医生</text></view>
+        <view class="value"><text user-select='true'>{{detail.chiefPhysician || ""}}</text></view>
+      </view>
+    </view>
+  </scroll-view>
+<!-- </view> -->
+</view>

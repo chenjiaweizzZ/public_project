@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <% htmlWebpackPlugin.options.cdnConfig.forEach(function(item){ if(item.css){ %>
+    <link href="<%= item.css %>" rel="stylesheet" />
+    <% }}) %>
+      <title></title>
+
+      <script>
+    // MtaH5.init({
+    //     "sid":'500729639', //必填，统计用的appid
+    //     "cid":'500729640',//如果开启自定义事件，此项目为必填，否则不填
+    //     "autoReport":1,//是否开启自动上报(1:init完成则上报一次,0:使用pgv方法才上报)
+    //     "senseHash":1, //hash锚点是否进入url统计
+    //     "senseQuery":0, //url参数是否进入url统计
+    //     "performanceMonitor":0,//是否开启性能监控
+    //     "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接
+    //   });
+      </script>
+
+</head>
+
+<body>
+  <script>
+    var url = location.href
+    var index = url.lastIndexOf('?')
+    var query = url.slice(index)
+    var path = ''
+    if (location.hash.indexOf('wjcontent') > -1) {
+      path = 'dcwj'
+      location.replace(location.origin + '/dist/wechat/#/' + path + query)
+    }
+    if (location.hash.indexOf('medication') > -1) {
+      path = 'yytx'
+      location.replace(location.origin + '/dist/wechat/#/' + path + query)
+    }
+    if (location.hash.indexOf('tjxj') > -1) {
+      path = 'tjxj'
+      location.replace(location.origin + '/dist/wechat/#/' + path + query)
+    }
+
+  </script>
+  <div id="app"></div>
+  <script src="./static/config.js?20240731"></script>
+  <% if( htmlWebpackPlugin.options.isExternalJs){htmlWebpackPlugin.options.cdnConfig.forEach(function(item){
+    if(item.js){ %>
+    <script type="text/javascript" src="<%= item.js %>"></script>
+    <% }})} %>
+      <!-- built files will be auto injected -->
+</body>
+
+</html>

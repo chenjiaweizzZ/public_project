@@ -1,0 +1,19 @@
+<view class="text-message"  bind:tap="goDetail">
+  <view class="content">
+    <view class="border">
+      <image wx:if="{{message.content.data.type == 14}}" src="../../../../../../../assets/images/satisfaction.png" mode="" />
+      <image wx:else="" src="../../../../../../../assets/images/file.png" mode="" />
+      <view class="satisfaction-top" wx:if="{{message.content.data.type == 14}}">
+        <view class="satisfaction-top1">{{patientName}}-开单信息</view>
+        <view class="satisfaction-top2"><van-icon name="warning-o" color="#FF0000;" />点击查看</view>
+      </view>
+      <view class="satisfaction" wx:else>{{message.content.data.name}}</view>
+      <view class="see">
+        <view class="see-icon">
+          <image class="icon1" style="width: 10rpx;height: 18rpx;" src="../../../../../../../assets/images/see.png" mode="" />
+          <image class="icon2" style="width: 10rpx;height: 18rpx;" src="../../../../../../../assets/images/see.png" mode="" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

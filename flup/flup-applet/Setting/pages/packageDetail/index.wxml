@@ -1,0 +1,6 @@
+<view class="package-detail">
+  <view class="main">
+    <web-view wx:if="{{webUrl}}" src="{{webUrl}}"></web-view>
+    <!-- <web-view src="https://premisd.zwjk.com/flup/web/pc/#/ceshi?token=302ed35ebf55718c1e7b60fc497fad999b9"/> -->
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<view class="team-income">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">团队收入</view>
+  </view>
+  <view class="tab_box" style="width: 100%">
+    <view class="tabs_v">
+      <block wx:for="{{tabs}}" wx:for-item="item" wx:key="index">
+        <view class="tab_v {{index<1?'tab_nature':'tab_course'}}" bindtap='changeCurrentTab_' data-index='{{index}}' data-current='{{index}}'>
+          <text class="tab_txt {{currentTab==index? 'tab_v_active' : ''}}">{{item.label}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="tabWrap">
+    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="width:100%;height:100%;">
+      <swiper-item>
+        <view class="sw1per-content">
+          <TeamIncomeMonth page="1" editLimit="{{BoolFalse}}" timeLimit="{{BoolTrue}}"></TeamIncomeMonth>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <TeamIncomeMonth page="2" editLimit="{{BoolTrue}}" timeLimit="{{BoolTrue}}"></TeamIncomeMonth>
+      </swiper-item>
+      <swiper-item>
+        <TeamIncomeMonth page="1" editLimit="{{BoolTrue}}" timeLimit="{{BoolFalse}}"></TeamIncomeMonth>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

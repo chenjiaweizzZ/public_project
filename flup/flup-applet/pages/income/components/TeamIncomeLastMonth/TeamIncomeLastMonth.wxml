@@ -1,0 +1,70 @@
+<wxs src="../../../../utils/utils.wxs" module="utils"></wxs>
+<view class="TeamIncomeLastMonth">
+  <view class="time-bored">
+    <view class="time-bored-left" bindtap="selecTime">{{ year }}年{{ month }}月</view>
+    <view class="time-bored-right">总收入{{utils.centToYuan(feeSum)}}元</view>
+  </view>
+  <view class="team-bored">
+    <van-collapse accordion value="{{ activeName }}" bind:change="onChange" bind:open="onOpen">
+      <van-collapse-item wx:for="{{ teamIncomeInfo }}" wx:for-index="idx" wx:key="idx" name="{{idx}}">
+        <view slot="title" class="coll-title">
+          <view class="coll-title-left">
+            <van-icon name="friends" color="#1AB255" size="24px" class="team-icon" />
+            <view class="team-name">{{item.groupName}}</view>
+          </view>
+          <view class="coll-title-right">¥{{utils.centToYuan(item.effectiveOrderFee)}}</view>
+        </view>
+        <view wx:if="{{item.team == 0}}" class="coll-loading">
+          <van-loading size="24px">加载中...</van-loading>
+        </view>
+        <view wx:else class="team-list">
+          <view wx:for="{{ item.team }}" wx:for-item="iten" class="coll-line" wx:for-index="idy" wx:key="idy">
+            <view class="coll-line-left">{{ iten.realName }}</view>
+            <view class="coll-line-middle">{{ utils.centToYuan(iten.amount) }}</view>
+            <view class="coll-line-right">{{ utils.calculatePercentage(iten.amount, item.effectiveOrderFee) }}</view>
+          </view>
+          <view wx:if="{{ !!!editLimit }}">
+            <view class="coll-button" wx:if="{{ item.distributionCount > 0 }}">
+              <view class="butt0n" bind:tap="editIncome" data-item="{{item}}">修改</view>
+            </view>
+            <view class="coll-button" wx:else>
+              <view bind:tap="editIncome" data-item="{{item}}" class="butt0n">收入分配</view>
+            </view>
+          </view>
+        </view>
+      </van-collapse-item>
+    </van-collapse>
+  </view>
+  <van-dialog use-title-slot use-slot show="{{ show2 }}" show-cancel-button bind:cancel="cancel" bind:confirm="confirm" confirm-button-color="#00982D" beforeClose="{{beforeClose}}">
+    <view slot="title" class="dia-title">
+      <view>{{ it3m.groupName }}</view>
+      <view>剩余金额:{{extraMoney}}元</view>
+    </view>
+    <view class="dia-box">
+      <view wx:for="{{member}}" class="dia-line" wx:for-index="idx" wx:key="idx">
+        <view class="dia-line-left">{{ item.realName }}</view>
+        <view class="dia-line-middle">
+          <!-- <van-stepper value="{{ item.amount }}"  bind:change="amountChange" showMinus="false" data-index="{{ idx }}" min="0" show-plus="false" wx:if="{{editType == 1}}"/> -->
+          <view class="dia-line-middle-ipt" wx:if="{{editType == 1}}">
+            <input value="{{ item.amount }}" border data-index="{{ idx }}" bindinput="amountChange" type="digit"/>
+          </view>
+          <view wx:else>{{ item.amount }}</view>
+        </view>
+        <view class="dia-line-right">
+          <view wx:if="{{editType == 2}}" class="dia-line-right-line">
+            <!-- <van-stepper value="{{ item.percent }}" bind:change="percentChange" data-index="{{ idx }}" min="0" /> -->
+            <view class="dia-line-middle-ipt" wx:if="{{editType == 2}}">
+            <input value="{{ item.percent  }}" border data-index="{{ idx }}" bindinput="percentChange" type="number"/>
+          </view>
+          </view>
+          <view wx:else>{{item.percent}}%</view>
+        </view>
+      </view>
+    </view>
+
+  </van-dialog>
+  <van-action-sheet description="请选择分配方式" show="{{ show }}" actions="{{ actions }}" bind:close="onClose" bind:select="onSelect" />
+  <van-popup show="{{ dateShow }}" round position="bottom">
+    <van-datetime-picker type="year-month" value="{{ date }}"  show-toolbar bind:cancel="dateOnCancel" bind:confirm="dateOnConfirm" title="选择日期" max-date="{{ maxDate }}"/>
+  </van-popup>
+</view>

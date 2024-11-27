@@ -1,0 +1,66 @@
+<view class="graphic-form">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">图文咨询</view>
+  </view>
+  <view class="graphic-form-content">
+    <view class="graphic-form-content-patient margin10">
+      <view class="graphic-form-content-patient-left">就诊人</view>
+      <view class="graphic-form-content-patient-right">{{ form.patientName }} {{ form.patientSex }}/{{ form.patientAge }}岁</view>
+    </view>
+    <view class="graphic-form-content-title">咨询目的</view>
+    <view class="graphic-form-content-container margin10">
+      <van-checkbox-group value="{{ purposeList }}" label-disabled direction="horizontal">
+        <van-checkbox name="1" shape="square" checked-color="#32AE57" icon-size="22px">病情咨询</van-checkbox>
+        <van-checkbox name="2" shape="square" checked-color="#32AE57" icon-size="22px">报告解读</van-checkbox>
+        <van-checkbox name="3" shape="square" checked-color="#32AE57" icon-size="22px">用药咨询</van-checkbox>
+        <van-checkbox name="0" shape="square" checked-color="#32AE57" icon-size="22px">其它</van-checkbox>
+      </van-checkbox-group>
+    </view>
+    <view class="graphic-form-content-title">病情描述</view>
+    <view class="graphic-form-content-desc margin10 padding10">{{ form.diseaseDescription }}</view>
+    <view class="graphic-form-content-title">病情图片</view>
+    <view class="graphic-form-content-images margin10">
+      <view class="graphic-form-content-image" wx:for="{{ imageList }}" wx:key="*this" wx:for-index="index">
+        <image data-src="{{item}}" data-imageList="{{imageList}}" src="{{item}}" bind:tap="previewImage" />
+      </view>
+    </view>
+    <view class="graphic-form-content-title">服药情况</view>
+    <view class="graphic-form-content-desc margin10 padding10">{{ form.medicineStatus }}</view>
+    <view class="graphic-form-content-title">补充内容</view>
+    <view class="graphic-form-content-desc margin10 padding10">{{ form.otherDescription }}</view>
+    <view class="graphic-form-content-title">想获得什么帮助</view>
+    <view class="graphic-form-content-desc margin10 padding10">{{ form.whatHelp }}</view>
+    <view class="graphic-form-content-title">线下医院是否就诊过</view>
+    <view class="graphic-form-content-container2 margin10 padding10">
+      <van-checkbox-group value="{{ form.hasOfflineClinic }}" label-disabled direction="horizontal">
+        <van-checkbox name="1" checked-color="#32AE57" shape="square" icon-size="22px">就诊过</van-checkbox>
+        <van-checkbox name="0" checked-color="#32AE57" shape="square" icon-size="22px">未就诊</van-checkbox>
+      </van-checkbox-group>
+      <view class="graphic-form-content-patient2">
+        <view class="graphic-form-content-patient-left">就诊医院</view>
+        <view class="graphic-form-content-patient-right">{{ form.visitingHospital || "" }}</view>
+      </view>
+      <view class="graphic-form-content-patient2">
+        <view class="graphic-form-content-patient-left">就诊结果</view>
+        <view class="graphic-form-content-patient-right">{{ form.diagnosticResults || "" }}</view>
+      </view>
+    </view>
+    <view class="graphic-form-content-title">是否有其他症状</view>
+    <view class="graphic-form-content-container margin10 padding10">
+      <van-checkbox-group value="{{ form.hasOfflineClinic }}" label-disabled direction="horizontal">
+        <van-checkbox name="1" checked-color="#32AE57" shape="square" icon-size="22px">有</van-checkbox>
+        <van-checkbox name="0" checked-color="#32AE57" shape="square" icon-size="22px">没有</van-checkbox>
+      </van-checkbox-group>
+    </view>
+    <view class="graphic-form-content-title">症状持续时间</view>
+    <view class="graphic-form-content-container margin10 padding10">
+      <van-checkbox-group value="{{ form.hasOfflineClinic }}" label-disabled direction="horizontal">
+        <van-checkbox name="0" checked-color="#32AE57" shape="square" icon-size="22px">近一周</van-checkbox>
+        <van-checkbox name="1" checked-color="#32AE57" shape="square" icon-size="22px">一个月</van-checkbox>
+        <van-checkbox name="2" checked-color="#32AE57" shape="square" icon-size="22px">几个月</van-checkbox>
+        <van-checkbox name="3" checked-color="#32AE57" shape="square" icon-size="22px">常年持续</van-checkbox>
+      </van-checkbox-group>
+    </view>
+  </view>
+</view>

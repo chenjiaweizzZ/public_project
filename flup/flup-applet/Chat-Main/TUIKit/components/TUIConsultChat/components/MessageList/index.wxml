@@ -1,0 +1,89 @@
+<view class="message-list">
+  <scroll-view class="message-list-container" scroll-y="true" scroll-into-view="{{jumpAim}}" scroll-into-view-alignment="end" refresher-enabled="{{true}}" bindrefresherrefresh="refresh" refresher-triggered="{{triggered}}" lower-threshold="200" throttle="{{false}}" bindscrolltolower="scrollHandler" bindscroll="onScroll">
+    <view class="t-message" id="{{message.ID}}" wx:for="{{messageList}}" wx:for-item="message" wx:key="index" data-index='{{index}}' bindtap="handleEditToggleAvatar">
+      <!-- 时间消息 -->
+      <TimeMessage currTime="{{message.time}}" prevTime="{{index > 0 ? messageList[index-1].time : 0}}"></TimeMessage>
+      <!-- 满意度消息 -->
+      <!-- <satisfactionMessage wx:if="{{message.type == 'TIMCustomElem'}}" message="{{message}}"></satisfactionMessage> -->
+      <!-- 自定义系统消息 -->
+      <view class="custom-message" wx:if="{{message.type == 'TIMCustomElem' && message.content.data.type == 4}}">{{message.content.data.text}}</view>
+      <view class="custom-message" wx:if="{{message.isRevoked}}">{{message.name}}撤回了一条消息</view>
+      <!-- 左边消息 -->
+      <view class="message-left" wx:if="{{!message.isSend && !message.isRevoked && (message.type=='TIMTextElem' || message.type=='TIMImageElem' || message.type == 'TIMCustomElem' ||message.type === 'TIMSoundElem' || message.type === 'TIMVideoFileElem') }}">
+        <view style="display: flex;flex-direction: column;">
+          <view wx:if="{{message.content.data.type != 11 && message.content.ext != 1}}" class="name">{{message.name}} （{{message.identity}}）</view>
+          <view style="display: flex; flex-direction: row;position: relative;">
+            <!-- 复制 -->
+            <view class="label-pop-left" wx:if="{{Show && messageID == message.ID}}">
+              <view class="triangle"></view>
+              <view class="copymessage" catchtap="copyMessage">
+                <text>复制</text>
+              </view>
+            </view>
+            <!-- 头像 -->
+            <image wx:if="{{message.type!='TIMCustomElem' || (message.type=='TIMCustomElem' && (message.content.data.type == 12 || message.content.data.type==6 )) }}" data-value="{{message}}" bind:tap="getMemberProfile" class="doctor-info-image-left" src="../../../../../../assets/images/head2.png"></image>
+            <view catch:longpress="handleLongPress" data-index='{{index}}' data-value='{{message}}'>
+              <!-- 文字消息 -->
+              <expressionMessage isMine="{{message.isSend}}" wx:if="{{message.type=='TIMTextElem'}}" message="{{message.content}}">
+              </expressionMessage>
+              <!-- 视频 -->
+              <VideoMessage wx:if="{{message.type=='TIMVideoFileElem'}}" message="{{message}}" messageList="{{messageList}}"></VideoMessage>
+              <!-- 图片消息 -->
+              <ImageMessage wx:if="{{message.type=='TIMImageElem'}}" class="image" imgUrl="{{message.bigImage}}" messageList="{{messageList}}"></ImageMessage>
+              <!-- 语音消息 -->
+              <AudioMessage class="my-class" wx:if="{{message.type === 'TIMSoundElem'}}" message="{{message}}" data-index='{{index}}' messageList="{{messageList}}" isMine="{{message.isSend}}" bind:closePlay="closePlay" />
+              <!-- 文件消息 -->
+              <fileMessage wx:if="{{message.type == 'TIMCustomElem' && message.content.data.type == 12}}" message="{{message}}" isMine="{{message.isSend}}"></fileMessage>
+              <!-- 套餐推荐 -->
+              <PackageRecommendations wx:if="{{message.type == 'TIMCustomElem' && message.content.data.type == 6 }}" message="{{message}}" isMine="{{message.isSend}}"></PackageRecommendations>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 右边消息 -->
+      <view class="message-right" wx:if="{{(message.isSend && !message.isRevoked && (message.type=='TIMTextElem' || message.type=='TIMImageElem' || message.type=='TIMVideoFileElem' ||message.type === 'TIMSoundElem'|| message.type === 'TIMCustomElem')) || message.content.data.type == 7}}">
+        <view style="display: flex;flex-direction: column;">
+          <view class="my-name">{{message.name}}</view>
+          <view class="message-item">
+            <!-- 复制 -->
+            <view class="label-pop-right" wx:if="{{Show && messageID == message.ID}}">
+              <view class="triangle"></view>
+              <view class="copymessage" catchtap="copyMessage" wx:if="{{message.type == 'TIMTextElem'}}">
+                <text>复制</text>
+                <text wx:if="{{identifier == message.fromAccount}}" class="division-line">|</text>
+              </view>
+              <view wx:if="{{identifier == message.fromAccount}}" class="copymessage" catchtap="BacktrackingMessage">
+                <text>撤回</text>
+              </view>
+            </view>
+            <!-- 头像 -->
+            <image wx:if="{{message.type == 'TIMCustomElem' && message.content.data.type == 7 }}" class="doctor-info-image-right" src="../../../../../../assets/images/xiaoya.png"></image>
+            <image wx:else class="doctor-info-image-right" src="../../../../../../assets/images/head.png"></image>
+            <!-- <image class="doctor-info-image-right" src="../../../../../../assets/images/head.png"></image> -->
+            <view catch:longpress="handleLongPress" data-index='{{index}}' data-value='{{message}}'>
+              <!-- 文字消息 -->
+              <expressionMessage isMine="{{message.isSend}}" wx:if="{{message.type=='TIMTextElem'}}" message="{{message.content}}">
+              </expressionMessage>
+              <!-- 图片消息 -->
+              <ImageMessage wx:if="{{message.type=='TIMImageElem'}}" imgUrl="{{message.bigImage}}" messageList="{{messageList}}"></ImageMessage>
+              <!-- 视频消息 -->
+              <VideoMessage wx:if="{{message.type=='TIMVideoFileElem'}}" message="{{message}}" messageList="{{messageList}}"></VideoMessage>
+              <!-- 语音消息 -->
+              <AudioMessage class="my-class" wx:if="{{message.type === 'TIMSoundElem'}}" message="{{message}}" data-index='{{index}}' messageList="{{messageList}}" isMine="{{message.isSend}}" bind:closePlay="closePlay" />
+              <!-- 套餐推荐 -->
+              <PackageRecommendations wx:if="{{message.type == 'TIMCustomElem' && message.content.data.type == 6 }}" message="{{message}}" isMine="{{message.isSend}}"></PackageRecommendations>
+              <!-- 机器人消息 -->
+              <robotMessage wx:if="{{message.type == 'TIMCustomElem' && message.content.data.type == 7 }}" message="{{message}}" isMine="{{message.isSend}}"></robotMessage>
+              <!-- 文件消息 -->
+              <fileMessage wx:if="{{message.type == 'TIMCustomElem' && message.content.data.type == 12}}" message="{{message}}" isMine="{{message.isSend}}"></fileMessage>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- <view class="end-consultation" bind:tap="endConsultation" wx:if="{{isReferral}}">
+    <image src="../../../../../../assets/images/end.png" mode="" />
+    结束咨询
+  </view> -->
+</view>

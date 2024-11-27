@@ -1,0 +1,7 @@
+@import './mixin.scss';
+input:disabled, input[disabled], textarea:disabled {
+    -webkit-text-fill-color: $wordColor !important;
+    -webkit-opacity: 1 !important;
+    opacity: 1!important;
+    color: $wordColor !important;
+}

@@ -1,0 +1,209 @@
+/* pages/joinGroup/joinGroup.wxss */
+.joinGroup{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f6f6f6;
+}
+
+.navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  /* background: linear-gradient(149deg, #3BC56E 16%, #36B765 75%); */
+  background: #fff;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.info {
+  height: 44px;
+  line-height: 44px;
+  padding: 0 12px;
+  display: flex;
+  background: linear-gradient(277deg, #32AE57 1%, #46CD6E 96%);
+  font-family: PingFang SC;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: right;
+  letter-spacing: 0.2px;
+  color: #FFFFFF;
+}
+.info .middle{
+  margin: 0 14px;
+}
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #111;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.main .content{
+  background: #fff;
+  padding: 10px 10px 0 10px;
+}
+.main .content .recordItem{
+  /* margin-bottom: 5px; */
+  font-family: PingFang SC;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  display: flex;
+  padding: 14px 0;
+  border-bottom: 1px solid #f6f6f6;
+}
+.recordItem .key{
+  color: #333333;
+  width: 30%;
+}
+.recordItem .key .require{
+  width: 8px;
+  height: 8px;
+  margin-left: 2px;
+  margin-bottom: 5px;
+}
+.recordItem .valid{
+  width:60%;
+}
+.recordItem .valid text{
+  font-size: 12px;
+}
+.recordItem .value{
+  color: #111111;
+  width: 70%;
+  align-items: center;
+  display: flex;
+  place-content: flex-end;
+}
+.recordItem .days{
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  width: 40%;
+}
+.recordItem .value .detail{
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+}
+.recordItem .days .less,.recordItem .days .more{
+  background: #FFFFFF;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid #CCCCCC;
+  text-align: center;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.recordItem .days .less{
+  margin-right: 10px;
+}
+.tui-cards-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+}
+
+.service-evaluation {
+  flex: 1;
+  height: 387px;
+  border-radius: 12px 12px 0px 0px;
+  background: #FFFFFF;
+  padding: 48rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.cross {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+.picker-list {
+  display: flex;
+  padding: 7px;
+  background-color: #fff;
+}
+
+.picker-item {
+  position: relative;
+  border-radius: 4px;
+  flex: 1;
+  height: 29px;
+  box-sizing: border-box;
+  border: 1px solid rgba(205, 205, 205, 0.8);
+  font-size: 15px;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  color: #111111;
+}
+.bottom{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 80px;
+  background: #fff;
+}
+.bottom-btn{
+  display: flex;
+  /* margin-top: 10px; */
+  padding: 10px;
+}
+.bottom-btn .cancel,.bottom-btn .submit{
+  width: 50%;
+  height: 42px;
+  border-radius: 100px;
+  opacity: 1;
+  box-sizing: border-box;
+  border: 1px solid #CDCDCD;
+  text-align: center;
+  line-height: 42px;
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 500;
+  /* line-height: 19px; */
+  letter-spacing: 0px;
+  color: #666666;
+  margin-right: 10px;
+}
+.bottom-btn .submit{
+  background: #32AE57;
+  color: #fff;
+  border: none;
+}

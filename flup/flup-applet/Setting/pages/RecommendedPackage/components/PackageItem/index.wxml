@@ -1,0 +1,16 @@
+<view class="package-item" bind:tap="goDetail">
+  <image src="{{packageItem.previewUrl}}" mode="" />
+  <view class="title">
+    <view class="packageName">{{packageItem.packageName}}</view>
+    <view class="packageDiscription">{{packageItem.packageDiscription}}</view>
+    <view class="floorPrice">
+      <view class="price">
+        <text class="symbol">¥</text><text class="money">{{packageItem.floorPrice}}</text>起
+      </view>
+      <view class="send" catch:tap="send">
+        发送
+      </view>
+    </view>
+  </view>
+
+</view>

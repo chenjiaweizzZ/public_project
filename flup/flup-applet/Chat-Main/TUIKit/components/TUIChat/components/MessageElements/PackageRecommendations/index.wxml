@@ -1,0 +1,8 @@
+<view class="package-item" bind:tap="goDetail">
+  <image src="{{packageItem.content.data.previewUrl}}" mode="" />
+  <view class="title">
+    <view class="packageName">{{packageItem.content.data.packageName}}</view>
+    <view class="packageDiscription">{{packageItem.content.data.packageDiscription}}</view>
+    <view class="floorPrice"><text class="symbol">¥</text><text class="money">{{packageItem.content.data.floorPrice}}</text>起</view>
+  </view>
+</view>

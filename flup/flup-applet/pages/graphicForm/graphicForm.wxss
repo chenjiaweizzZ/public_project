@@ -1,0 +1,153 @@
+/* pages/graphicForm/graphicForm.wxss */
+.graphic-form {
+  background: #F6F6F6;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F4F5F9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background: #FFFFFF;
+}
+
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #000000;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.graphic-form-content {
+  overflow: scroll;
+}
+
+.graphic-form-content-patient {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  background-color: #fff;
+  padding: 0px 14px;
+}
+
+.graphic-form-content-patient2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 34px;
+  background-color: #fff;
+}
+
+.graphic-form-content-title {
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  padding: 0px 14px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #111111;
+}
+
+.graphic-form-content-desc {
+  background-color: #fff;
+  color: #111111;
+  padding: 0px 14px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+.graphic-form-content-container {
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 14px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #111111;
+}
+
+.graphic-form-content-container2 {
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 14px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #111111;
+}
+
+.margin10 {
+  margin-bottom: 10px;
+}
+
+.padding10 {
+ padding-bottom: 10px;
+}
+
+.graphic-form-content-container .van-checkbox {
+  margin-bottom: 10px;
+}
+
+.graphic-form-content-patient-left {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #111111;
+}
+
+.graphic-form-content-patient-right {
+  font-size: 15px;
+  font-weight: normal;
+  text-align: right;
+  letter-spacing: 0.2px;
+  color: #111111;
+}
+
+.graphic-form-content-images {
+  background: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.graphic-form-content-image {
+  width: 230rpx;
+  height: 230rpx;
+  padding: 10rpx;
+}
+
+.graphic-form-content-image image {
+  width: 100%;
+  height: 100%;
+}

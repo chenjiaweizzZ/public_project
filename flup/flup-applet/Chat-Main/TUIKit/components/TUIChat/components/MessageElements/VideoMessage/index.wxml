@@ -1,0 +1,7 @@
+<view class="video-message" bindtap="previewImage">
+  <view class="image">
+    <image style="width: 100%;height: 100%;" src="../../../../../../../assets/images/play.png" mode="" />
+  </view>
+
+  <video class="video-box {{isMine?'my-video':''}}" controls="{{false}}" show-center-play-btn="{{false}}" src="{{message.videoUrl}}" poster="{{message.payload.thumbUrl}}" error="videoError" bindfullscreenchange="showVideoFullScreenChange" bind:longpress="handleLongPress"></video>
+</view>

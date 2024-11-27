@@ -1,0 +1,24 @@
+<!--pages/questionnaire/components/questionnaireTemplate/index.wxml-->
+<view class="questionnaire-template">
+  <view>{{description}}</view>
+  <view wx:for="{{questionList}}" wx:key="index" class="item">
+    <view class="key">
+      {{ index + 1}}、{{item.label}}
+    </view>
+    <view wx:if="{{isArray.ceshi(item.value)}}" class="image-list">
+      <image wx:for="{{item.value}}" wx:for-item="items" data-src="{{items}}" data-imageList="{{item.value}}" bind:tap="previewImage" src="{{items}}" />
+    </view>
+    <view wx:else="" class="value">
+      {{item.value}}
+    </view>
+  </view>
+  <image wx:if="{{showSave}}" class="image-message"  mode="aspectFill" src="{{imagelist}}" show-menu-by-longpress="{{true}}"/>
+</view>
+<wxs module="isArray">
+  module.exports.ceshi = function (value) {
+    if (value.constructor && value.constructor == 'Array') {
+      return true
+    }
+    return false
+  }
+</wxs>

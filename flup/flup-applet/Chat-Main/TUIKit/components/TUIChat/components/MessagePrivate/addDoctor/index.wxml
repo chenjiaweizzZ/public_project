@@ -1,0 +1,24 @@
+<!-- 转诊 -->
+<view class="tui-cards-container" catch:tap="handleClose" wx:if="{{displayTag}}">
+  <view class="service-evaluation" catch:tap="()=>{}">
+    <view class="header">
+      <text class="title">添加医生</text>
+      <image bind:tap="handleClose" src="../../../../../../../assets/images/close.png" mode=""/>
+    </view>
+    <van-search value="{{ value }}" bind:change="onChange" bind:search="onSearch" shape="round" placeholder="请输入搜索关键词" />
+    <view class="select-doctor">
+      <view class="sidebar">
+        <van-sidebar class="" active-key="{{ activeKey }}" bind:change="onChange1">
+          <van-sidebar-item wx:for="{{filterDataTree}}" wx:key="id" title="{{item.name}}"  />
+        </van-sidebar>
+      </view>
+      <view class="main">
+        <view class="item" wx:for="{{filterDataTree[activeKey].children}}" wx:key="id">
+          <view>{{item.name}}</view>
+          <van-checkbox disabled="{{item.disabled}}" value="{{item.checked}}" data-index="{{index}}" data-item="{{item}}" bind:change="onCheckedChange"></van-checkbox>
+        </view>
+      </view>
+    </view>
+    <van-button bind:tap="handleConfirm" type="primary" size="large" round >提交</van-button>
+  </view>
+</view>

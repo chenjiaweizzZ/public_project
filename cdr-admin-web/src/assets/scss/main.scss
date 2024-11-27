@@ -1,0 +1,124 @@
+body {
+  margin: 0px;
+  font-family: Microsoft YaHei !important;
+  font-size: 16px;
+  user-select: none;
+  background-color: #e5e5e5;
+  * {
+    box-sizing: border-box;
+  }
+}
+html,
+body,
+#app {
+  height: 100%;
+}
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+::-webkit-scrollbar-track-piece {
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 12px;
+  background-clip: padding-box;
+  background-color: #ccd4d4;
+  box-shadow: inset -1px -1px 0px #ccd4d4, inset 1px 1px 0px #ccd4d4;
+}
+.blue-line {
+  width: 4px;
+  height: 17px;
+  background: #0075ff;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.floatleft {
+  float: left;
+}
+.floatright {
+  float: right;
+}
+
+// 病历的全局样式 hcj
+.case-history-hcj {
+  &.case-history-card {
+    border: 1px solid #e6e6e6;
+    padding: 24px 46px;
+  }
+  .label {
+    font-size: 14px;
+    color: #475e79;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  .value {
+    color: #111111;
+    font-size: 14px;
+    flex-flow: 1;
+  }
+  .unit {
+    margin-bottom: 12px;
+  }
+  .divider {
+    border-top: 1px solid #666666;
+    margin-bottom: 8px;
+  }
+  .title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8px;
+    &.sub {
+      padding: 8px 0;
+    }
+  }
+  .case-content {
+    min-height: 100px;
+  }
+  .footer {
+    margin-top: 36px;
+    .footer-text {
+      margin-left: 40px;
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+    .footer-lable {
+      font-size: 14px;
+      margin-right: 10px;
+      color: #475e79;
+    }
+    .footer-value {
+      font-size: 14px;
+      color: #111111;
+    }
+  }
+}
+.case-history-pop {
+  max-height: 350px;
+  overflow: auto;
+  background-color: red;
+}
+.shujudialog {
+  // // max-height: 694px;
+  // height: 694px;
+  // overflow: auto;
+  .el-dialog__body {
+    height: 601px;
+    overflow: auto;
+  }
+}
+.wenbennotice {
+  max-height: 300px;
+  overflow: auto;
+}

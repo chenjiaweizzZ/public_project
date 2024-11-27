@@ -1,0 +1,20 @@
+<!-- 评估报告 -->
+<!-- <wxs src="../../../../utils/utils.wxs" module="utils"></wxs> -->
+<view class="ncdReport">
+  <view class="reportList" wx:if="{{funcsList.length > 0}}">
+    <view class="reportUl">
+      <view class="reportLi" :class="{ choose: !index }" wx:for="{{funcsList}}" data-value="{{item}}" bind:tap="goToDetail">
+        <view class="p">
+          <image src="../../../../assets/images/report.png" />
+          <text selectable="true">{{ item.riskResult }}</text>
+          <text selectable="true" class="span" wx:if="{{index == 0}}">最新</text>
+        </view>
+        <text selectable="true">{{ item.doctor || "" }} {{ item.createTime }}</text>
+        <image class="detail" src="../../../../assets/images/jr.png" />
+      </view>
+    </view>
+  </view>
+  <view class="nodata" wx:else>
+    <image src="../../../../assets/images/noData.png" class="nodata-img"></image>
+  </view>
+</view>

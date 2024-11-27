@@ -1,0 +1,21 @@
+<wxs src="../../utils/utils.wxs" module="utils"></wxs>
+<view class="my-income">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">个人收入</view>
+  </view>
+  <view class="time-bored">
+    <view class="time-bored-left" bindtap="selecTime">{{ year }}年{{ month }}月</view>
+    <view class="time-bored-right">总收入{{utils.centToYuan(feeSum)}}元</view>
+  </view>
+  <view class="income-list">
+    <view wx:for="{{myIncomeList}}" wx:for-index="idx" wx:key="idx" class="income-item">
+        <view class="income-item-left"><van-icon name="friends" color="#1AB255" size="24px" class="team-icon" /></view>
+        <view class="income-item-middle">{{item.groupName}}</view>
+        <view class="income-item-right">¥{{utils.centToYuan(item.effectiveOrderFee)}}</view>
+    </view>
+  </view>
+  <van-popup show="{{ dateShow }}" round position="bottom">
+    <van-datetime-picker type="year-month" value="{{ date }}"  show-toolbar bind:cancel="dateOnCancel" bind:confirm="dateOnConfirm" title="选择日期" max-date="{{ maxDate }}"/>
+  </van-popup>
+</view>

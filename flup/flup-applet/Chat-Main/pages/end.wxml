@@ -1,0 +1,1 @@
+<TUIEndChat id="TUIKit" patientId="{{patientId}}" sourceId="{{sourceId}}" conversationID="{{currentConversationID}}" patientName="{{patientName}}" consultId="{{consultId}}" unreadCount="{{unreadCount}}" type="{{type}}"></TUIEndChat>

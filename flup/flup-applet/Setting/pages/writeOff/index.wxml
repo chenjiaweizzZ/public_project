@@ -1,0 +1,163 @@
+<view class="recommended-package">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../../assets/images/back.png" />
+    <view class="conversation-title">权益详情</view>
+  </view>
+  <view class="mains">
+    <view class="equity-information">
+      <view class="information-name"><text user-select='true'>{{consultPackageName}}</text></view>
+      <view class="equity-project-list">
+        <view class="header">
+          <view class="name"><text user-select='true'>使用权益/总权益</text></view>
+          <view class="image" wx:if="{{status == 1 || status == 2 || status == 3 || status == 8 || status == 9}}" bind:tap="Edit">
+            <image src="../../../assets/images/edit.png" mode="" />
+          </view>
+        </view>
+        <view class="project-list">
+          <view wx:if="{{platOrderVerifyItemsList && platOrderVerifyItemsList.length > 0}}" class="item" wx:for="{{platOrderVerifyItemsList}}" wx:key="verifyItemId">
+            <view class="title">
+              <view class="number">
+                <text class="text" user-select='true'>{{item.verifiedTimes}}</text><text user-select='true'>/{{item.totalTimes}}次</text>
+              </view>
+              <view><text user-select='true'>{{item.verifyItemName}}</text></view>
+              <view class="tips" wx:if="{{item.verifyItemCode == 'XSZX'}}" bind:tap="seeTip">
+                <image src="../../../assets/images/tips.svg" mode="" />
+              </view>
+            </view>
+            <view wx:if="{{(status == 1 || status == 2 || status == 3 || status == 8 || status == 9) && item.verifiedTimes < item.totalTimes}}" class="write-off" bind:tap="writeOff" data-index="{{index}}"><text user-select='true'>核销</text></view>
+          </view>
+          <view wx:if="{{!platOrderVerifyItemsList || platOrderVerifyItemsList.length < 1}}" class="nodata">
+            <text user-select='true'>暂无相关数据</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="operation-list">
+      <view class="ceshi" style="top: {{height1}}px;height:{{height}}px"></view>
+      <view wx:for="{{platOrderVerifyLogsList}}" wx:key="logId" class="items">
+        <image src="../../../assets/images/u-bg.png" mode="" />
+        <view class="item">
+          <view class="item-list">
+            <view wx:if="{{item.operateType == 1}}" class="write-off"><text user-select='true'>核销</text></view>
+            <view wx:else class="adjustment"><text user-select='true'>调整</text></view>
+            <view class="content"><text user-select='true'>{{item.operateContents}}</text></view>
+          </view>
+          <view wx:if="{{item.remark}}" class="remark">
+            <text user-select='true'>备注：{{item.remark}}</text>
+          </view>
+          <view class="time">
+            <text user-select='true'>{{item.verifyTime || item.operateTime}}</text><text user-select='true'>{{item.operatorUserName}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="delay-list">
+      <view class="delay"><text user-select='true' class="green"></text>延期记录</view>
+      <view wx:if="{{delayList && delayList.length > 0}}">
+        <view wx:for="{{delayList}}" wx:key="logId" class="items">
+          <image src="../../../assets/images/delay.png" mode="" />
+          <view class="content"><text user-select='true' class="name">{{item.operatorUserName}}</text><text user-select='true'>{{item.operateContents}}</text></view>
+          <view class="time">
+            <text user-select='true'>{{item.verifyTime || item.operateTime}}</text>
+          </view>
+        </view>
+    </view>
+    <view wx:else=""><text user-select='true'>暂无相关数据</text></view>
+    <view class="bottom">
+      <view bind:tap="toDelay" class="btn-delay">一键延期</view>
+    </view>
+  </view>
+    <view class="bottom">
+      <view bind:tap="toDelay" class="btn-delay">一键延期</view>
+    </view>
+  </view>
+  <van-popup show="{{ show }}" round closeable position="bottom" custom-style="height: 498px;background: linear-gradient(0deg, #F9F9F9 64%, #E6FFEE 100%);box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.02);" bind:close="onClose">
+    <view class="popup-content">
+      <view class="title">核销项目</view>
+      <view class="main">
+        <view class="header">
+          <view style="flex: 1;" class="item">项目</view>
+          <view style="width: 190rpx;flex-shrink: 0;" class="item">已使用/总数</view>
+          <view style="width: 240rpx;flex-shrink: 0;text-align: right;" class="item">核销次数</view>
+        </view>
+        <view class="list-item" wx:for="{{form.platOrderVerifyItemsList}}" wx:key="verifyItemId">
+          <view style="flex: 1;margin-right: 20rpx;" class="item">{{item.verifyItemName}}</view>
+          <view style="width: 190rpx;flex-shrink: 0;" class="item"><text style="{{item.times!=0? 'color:red;':''}}">{{item.verifiedTimes + form.times}}</text>/{{item.totalTimes}}</view>
+          <view style="width: 240rpx;flex-shrink: 0;justify-content: flex-end;" class="item">
+            <view class="operation" data-value="{{item}}" data-index="{{index}}" bind:tap="reduce">-</view>
+            <input value="{{form.times}}" type="number" data-value="{{item}}" data-index="{{index}}" bindblur="onBlur" type="text" />
+            <view class="operation add" data-value="{{item}}" data-index="{{index}}" bind:tap="Add">+</view>
+          </view>
+        </view>
+        <view class="time">
+          <view class="name">核销时间</view>
+          <view class="value" bind:tap="selectTime">{{form.time}}</view>
+        </view>
+        <view class="textarea">
+          <textarea value="{{form.remark}}" bindinput="onInput4" placeholder="请输入备注"></textarea>
+        </view>
+      </view>
+      <view class="content-footer">
+        <view class="close" bind:tap="onClose">取消</view>
+        <view class="confirm" bind:tap="Determine">确定</view>
+      </view>
+    </view>
+  </van-popup>
+  <van-popup show="{{ show2 }}" round closeable position="bottom" custom-style="height: 498px;background: linear-gradient(0deg, #F9F9F9 64%, #E6FFEE 100%);box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.02);" bind:close="onClose2">
+    <view class="popup-content">
+      <view class="title">调整项目</view>
+      <view class="main">
+        <view class="header">
+          <view style="flex: 1;" class="item">项目</view>
+          <view style="width: 190rpx;flex-shrink: 0;" class="item">已使用/总数</view>
+          <view style="width: 240rpx;flex-shrink: 0;text-align: right;margin-right: 60rpx;" class="item">调整总数</view>
+        </view>
+        <view class="list-item" wx:for="{{form.platOrderVerifyItemsList}}" wx:key="index">
+          <view style="flex: 1; margin-right: 20rpx;overflow: hidden;" class="item">
+            <view style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" wx:if="{{!item.isEdit}}">{{item.verifyItemName}}</view>
+            <view wx:else class="select" data-index="{{index}}" bind:tap="onSelect">{{item.verifyItemName || "请选择"}}</view>
+          </view>
+          <view style="width: 190rpx;flex-shrink: 0;" class="item">{{item.verifiedTimes}}/<text style="{{item.times!=0? 'color:red;':''}}">{{item.totalTimes + item.times}}</text></view>
+          <view style="width: 300rpx;flex-shrink: 0;justify-content: flex-end;" class="item">
+            <view class="operation" data-value="{{item}}" data-index="{{index}}" bind:tap="reduce2">-</view>
+            <input value="{{item.times}}" type="number" data-value="{{item}}" data-index="{{index}}" bindblur="onBlur2" type="text" />
+            <view class="operation add" data-value="{{item}}" data-index="{{index}}" bind:tap="Add2">+</view>
+            <view class="delete" data-value="{{item}}" data-index="{{index}}" wx:if="{{item.isEdit}}" bind:tap="Delete">删除</view>
+          </view>
+        </view>
+        <view class="add1">
+          <view bind:tap="AddLine">+</view>
+          新增一行
+        </view>
+        <view class="textarea">
+          <textarea value="{{form.remark}}" bindinput="onInput4" placeholder="请输入备注"></textarea>
+        </view>
+      </view>
+      <view class="content-footer">
+        <view class="close" bind:tap="onClose2">取消</view>
+        <view class="confirm" bind:tap="Determine2">确定</view>
+      </view>
+    </view>
+  </van-popup>
+  <van-popup show="{{ display }}" round position="bottom" custom-style="height: 498px;" bind:close="onCancel">
+    <van-datetime-picker type="date" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{maxDate}}" formatter="{{ formatter }}" bind:input="onInput3" bind:cancel="onCancel" bind:confirm="onConfirm" />
+  </van-popup>
+  <van-popup show="{{ display2 }}" round position="bottom" custom-style="height: 498px;" bind:close="handleClose">
+    <van-picker show-toolbar title="请选择" value-key="dict_name" style="flex: 1;" columns="{{ dictList }}" bind:change="onChange" bind:cancel="handleClose" bind:confirm="onReferral" />
+  </van-popup>
+  <van-dialog message="{{tipMessage}}" show="{{ show3 }}" confirm-button-color="#32AE57" />
+  <van-popup show="{{ isDelay }}" round closeable custom-style="width:300px;height: 170px;" bind:close="delayCancel">
+    <view class="delay-content">
+      <view class="title">延期天数</view>
+      <view class="content-main">
+        <view class="operation"  bind:tap="delayDayReduce">-</view>
+        <input value="{{delayDays}}" type="number" data-value="{{item}}" data-index="{{index}}" bindblur="onBlur" type="text" />
+        <view class="operation add" data-value="{{item}}" data-index="{{index}}" bind:tap="delayDayAdd">+</view>
+      </view>
+      <view class="delay-content-footer">
+        <view class="close" bind:tap="delayCancel">取消</view>
+        <view class="confirm" bind:tap="delaySubmit">确定</view>
+      </view>
+    </view>
+  </van-popup>
+</view>

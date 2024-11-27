@@ -1,0 +1,9 @@
+<!--pages/planDetail/planDetail.wxml-->
+<!-- 随访详情 -->
+<!-- <wxs src="../../../../utils/utils.wxs" module="utils"></wxs> -->
+
+<view class="planDetail">
+  <view class="main">
+    <web-view wx:if="{{webUrl}}" src="{{webUrl}}" bindmessage="message"></web-view>
+  </view>
+</view>

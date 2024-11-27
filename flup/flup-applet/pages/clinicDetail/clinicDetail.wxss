@@ -1,0 +1,70 @@
+/* pages/clinicDetail/clinicDetail.wxss */
+.clinicDetail{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #F4F5F9;
+}
+.navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background-color: #ffffff;
+}
+
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #666;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.recordtDetail{
+  padding: 10px 14px;
+}
+.recordItem{
+  margin-bottom: 5px;
+}
+.recordItem .key{
+  color: #999999;
+  font-size: 14px;
+}
+.recordLi{
+  display: flex;
+  font-size: 14px;
+}
+.name{
+  width: 35%;
+} 
+.result{
+  width: 15%;
+}
+.state{
+  width: 10%;
+}
+.unit{
+  width: 15%;
+}
+.range{
+  width: 25%;
+}

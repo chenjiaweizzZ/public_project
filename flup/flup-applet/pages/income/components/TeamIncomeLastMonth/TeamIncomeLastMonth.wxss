@@ -1,0 +1,171 @@
+.TeamIncomeLastMonth {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  height: calc(100%);
+}
+
+.time-bored {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  align-items: center;
+  height: 40px;
+}
+
+.team-bored {
+  overflow: scroll;
+  flex: 1;
+}
+
+.coll-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.coll-title .coll-title-left {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0px;
+  color: #111111;
+  display: flex;
+  align-items: center;
+}
+
+.coll-title-left .team-icon {
+  position: relative;
+  top: 1px;
+}
+
+.coll-title-left .team-name {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0px;
+  color: #111111;
+  margin-left: 10px;
+}
+
+.team-list {
+  background: #F6FCF8;
+}
+
+
+
+.time-bored .time-bored-left {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #111111;
+}
+
+
+.time-bored .time-bored-right {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  text-align: right;
+  letter-spacing: 0px;
+  color: #111111;
+}
+
+.time-bored .time-bored-right {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #666666;
+}
+
+.coll-loading {
+  display: flex;
+  justify-content: center;
+}
+
+.coll-button .butt0n {
+  background: linear-gradient(131deg, #FF9035 25%, #FF7B35 76%);
+  border-radius: 100px;
+  width: 77px;
+  height: 26px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.coll-line {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 46px;
+  border-bottom: #D9D9D9 1px solid;
+}
+
+.coll-line-left {
+  flex: 1;
+  text-align: center;
+}
+
+.coll-line-middle {
+  flex: 1;
+  text-align: center;
+}
+
+.coll-line-right {
+  flex: 1;
+  text-align: center;
+}
+
+.coll-button {
+  height: 54px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dia-box {
+  max-height: 60vh;
+  overflow: scroll;
+}
+
+.dia-line {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 46px;
+  border-bottom: #D9D9D9 1px solid;
+}
+
+.dia-line-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.dia-line-middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.dia-line-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+
+.dia-title {
+  display: flex;
+  justify-content: space-around;
+}

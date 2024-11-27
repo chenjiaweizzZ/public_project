@@ -1,0 +1,25 @@
+<!-- 聊天室 -->
+<view class="container enter">
+  <!-- 自定义header -->
+  <view class="tui-navigatorbar">
+    <image class="tui-navigatorbar-back" bind:tap="goBack" src="../../../../assets/images/back.png" />
+    <view class="conversation-title">{{patientName|| "聊天室"}}</view>
+  </view>
+  <!-- 群相关信息 -->
+  <view class="group-profile" wx:if="{{isShow}}">
+    <TUIGroup class="group" id="TUIGroup" consultId="{{consultId}}" conversation="{{conversation}}" bind:getGroupMemberList="$getGroupMemberList" bind:getMessageList="$getMessageList"></TUIGroup>
+  </view>
+  <!-- 聊天信息 -->
+  <view class="list-box">
+    <scroll-view class="message-list" bindtap="triggerClose" scroll-y="true">
+      <MessageList id="MessageList" isShowEndConsultationObj="{{isShowEndConsultationObj}}" patientId="{{patientId}}" patientName="{{patientName}}" sourceId="{{sourceId}}" filterateObj="{{filterateObj}}" consultId="{{consultId}}" groupMemberList="{{GroupMemberList}}" conversation="{{conversation}}" unreadCount="{{unreadCount}}" type="{{type}}" chatContainerHeight="{{chatContainerHeight}}" bind:resendMessage="resendMessage" bind:typing="typing" bind:handleNewGroupProfile="handleNewGroupProfile" bind:getConsultDetailsById="getConsultDetailsById"></MessageList>
+    </scroll-view>
+  </view>
+  <!-- 输入框 需根据条件判断是否显示 -->
+  <view class="input-area" wx-if="{{isShowInput && isCurrentUser}}">
+    <view class="message-input" style="{{viewData.style}}" wx:if="{{showChat}}">
+      <MessageInput id="MessageInput" isOpenAi="{{isOpenAi}}" type="{{type}}" patientId="{{patientId}}" patientName="{{patientName}}" patientCardNo="{{patientCardNo}}" patientPhone="{{patientPhone}}" sourceId="{{sourceId}}" isShowConsult="{{isShowConsult}}" groupMemberList="{{GroupMemberList}}" PersonalManagerList="{{PersonalManagerList}}" consultId="{{consultId}}" conversation="{{conversation}}" bind:sendMessage="sendMessage" bind:downKeysBoards="downKeysBoards" bind:pullKeysBoards="pullKeysBoards" bind:showMessageErrorImage="showMessageErrorImage" bind:inputHeightChange="inputHeightChange" bind:getGroupUserInfoList="$getGroupUserInfoList" bind:getConsultDetailsById="getConsultDetailsById"></MessageInput>
+    </view>
+  </view>
+    <image class="turn-me-img"  bindtap="contactPatient" src="../../../../assets/images/turnme.png" wx-if="{{!isShowInput && is_health_admin == 0}}"/>
+</view>

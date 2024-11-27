@@ -1,0 +1,3 @@
+<view class="message-timestamp" wx:if="{{timestampShowFlag}}">
+  {{ timestampShowContent }}
+</view>

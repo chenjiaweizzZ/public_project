@@ -1,0 +1,8 @@
+/* Chat-Main/pages/index.wxss */
+.van-sidebar-item--selected {
+  border-color: #32AE57 !important;
+}
+
+.van-sidebar {
+  width: 100px !important;
+}

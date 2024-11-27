@@ -1,0 +1,6 @@
+
+<view class="ncdReportDetail">
+  <view class="main">
+    <web-view style="width: 100%;height: 100%;" src="{{ncdSrc}}"></web-view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+/* Chat-Main/TUIKit/components/TUIChat/components/MessageElements/TimeMessage/index.wxss */
+.message-timestamp {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: 0.2px;
+  padding: 14rpx 0;
+  color: #999999;
+}

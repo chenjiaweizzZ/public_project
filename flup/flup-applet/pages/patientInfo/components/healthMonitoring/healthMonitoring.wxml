@@ -1,0 +1,14 @@
+<!-- 健康监测 -->
+<!-- <wxs src="../../../../utils/utils.wxs" module="utils"></wxs> -->
+<view class="healthMonitoring">
+  <view class="funcsList">
+    <view class="funcsLi" wx:for="{{funcsList}}" data-value="{{item}}" bind:tap="goToDetail"  wx:key="index">
+      <view class="p">
+        <image src="{{item.icon}}"/>
+        <text selectable="true">{{ item.componentDescription }}</text>
+      </view>
+      <view ><text selectable="true">{{item.componentValue?item.componentValue+item.unit:'-'}}</text></view>
+      <view class="text"><text selectable="true">最近测量</text></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+.data-cofig-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 10px;
+  // padding-top: 10px;
+  .item-title {
+    color: #3b5370;
+    min-width: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 14px;
+  }
+  .item-config {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    .item-config-child {
+      padding-right: 10px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      .themeColor {
+        width: 240px;
+        .block {
+          margin-right: 4px;
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border-radius: 2px;
+          vertical-align: sub;
+        }
+      }
+    }
+  }
+}

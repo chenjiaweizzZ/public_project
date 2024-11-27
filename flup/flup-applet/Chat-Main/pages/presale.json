@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "TUIConsultChat": "../TUIKit/components/TUIConsultChat/index"
+  },
+  "navigationStyle": "custom"
+}

@@ -1,0 +1,15 @@
+{
+  "component": true,
+  "usingComponents": {
+    "TimeMessage": "../TUIChat/components/MessageElements/TimeMessage/index",
+    "ImageMessage": "./components/ImageMessage/index",
+    "expressionMessage": "./components/expressionMessage/index",
+    "planMessage": "../TUIChat/components/MessageElements/planMessage",
+    "questionnaireMessage": "../TUIChat/components/MessageElements/questionnaireMessage",
+    "PackageRecommendations": "../TUIChat/components/MessageElements/PackageRecommendations/index",
+    "satisfactionMessage": "../TUIChat/components/MessageElements/satisfactionMessage/index",
+    "robotMessage": "../TUIChat/components/MessageElements/robotMessage/index",
+    "VideoMessage": "../TUIChat/components/MessageElements/VideoMessage/index",
+    "fileMessage": "../TUIChat/components/MessageElements/fileMessage/index"
+  }
+}

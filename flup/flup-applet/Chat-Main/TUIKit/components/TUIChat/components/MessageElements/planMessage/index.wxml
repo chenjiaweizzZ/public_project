@@ -1,0 +1,9 @@
+<view class="text-message {{isMine?'my-text':''}}" bind:tap="goDetail">
+  <view class="header">
+    <view class="title">{{message.content.data.taskType}}</view>
+    <image wx:if="{{message.content.data.taskType == '健康宣教' || message.content.data.taskType == '调查问卷'}}" src="../../../../../../../assets/images/right.png" mode="" />
+  </view>
+  <view class="plan-message">
+    <view style="word-break: break-all;">{{message.content.data.planContent}}</view>
+  </view>
+</view>

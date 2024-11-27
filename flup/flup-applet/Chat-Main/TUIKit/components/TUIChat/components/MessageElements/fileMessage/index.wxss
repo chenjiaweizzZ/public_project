@@ -1,0 +1,27 @@
+.file-message {
+  width: 468rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  display: flex;
+  font-size: 14px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.my-text {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.file-message image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.file-message .my-image {
+  margin-right: 0;
+}

@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Referral": "../MessagePrivate/Referral/index",
+    "addManager": "../MessagePrivate/addManager/index",
+    "Emoji": "../MessageElements/Emoji/index",
+    "CommonWords": "../MessagePrivate/CommonWords/index",
+    "aiAssistant": "../MessagePrivate/aiAssistant/index",
+    "addDoctor": "../MessagePrivate/addDoctor/index"
+  }
+}

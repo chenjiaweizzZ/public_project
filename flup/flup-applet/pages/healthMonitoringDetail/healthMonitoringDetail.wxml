@@ -1,0 +1,127 @@
+<!--pages/healthMonitoringDetail/healthMonitoringDetail.wxml-->
+<view class="healthMonitoringDetail">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title">患者信息</view>
+  </view>
+  <view class="main">
+    <view class="info">
+      <view>{{patientName}}</view>
+      <view class="middle">{{sex}}</view>
+      <view>{{age}}岁</view>
+    </view>
+    <view class="tab_box" style="width: 100%">
+      <view class="tabs_v">
+        <block wx:for="{{tabs}}" wx:for-item="item" wx:key="index">
+          <view class="tab_v {{index<1?'tab_nature':'tab_course'}}" bindtap='changeCurrentTab_' data-index='{{index}}' data-current='{{index}}'>
+            <text class="tab_txt {{currentTab==index? 'tab_v_active' : ''}}">{{item.componentDescription}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- tab 容器 -->
+    <view class="tabWrap">
+      <view class="current">
+        <text class="short"></text>
+        最近一次{{tabs[currentTab].componentDescription}}记录
+        <view class="value" wx:if="{{tabs[currentTab].componentValue!=0}}">{{tabs[currentTab].componentValue}}
+          <text class="unit">{{tabs[currentTab].unit}}</text>
+        </view>
+        <text class="value" wx:else>-</text>
+      </view>
+      <swiper class="" current="{{currentTab}}" duration="300" bindchange="swiperTab" style="width:100%;height:100%;">
+        <!-- 页面1 -->
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas0" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <!-- 页面2 -->
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas1" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas2" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;overflow-y: hidden;">
+          <view class="main-content" style="overflow-y: auto;height: 100%;">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas3" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;overflow-y: hidden;">
+          <view class="main-content" style="overflow-y: auto;height: 100%;">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas4" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas5" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas6" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas7" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas8" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas9" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item style="width:100%;height:100%;top: 1px;">
+          <view class="main-content">
+            <view class="current"><text class="short"></text>健康趋势</view>
+            <view class="echarts">
+              <canvas canvas-id="lineCanvas10" disable-scroll="true" class="canvas"></canvas>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+</view>

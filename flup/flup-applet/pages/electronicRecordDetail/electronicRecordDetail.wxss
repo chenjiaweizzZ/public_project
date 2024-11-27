@@ -1,0 +1,104 @@
+/* pages/electronicRecordDetail/electronicRecordDetail.wxss */
+.electronicRecordDetail{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #F4F5F9;
+}
+.navigatorbar {
+  position: relative;
+  top: 0;
+  width: 750rpx;
+  height: 172rpx;
+  flex-shrink: 0;
+  background-color: #ffffff;
+}
+
+.navigatorbar-back {
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 40rpx;
+  bottom: 20rpx;
+}
+
+.conversation-title {
+  position: absolute;
+  width: 350rpx;
+  height: 88rpx;
+  line-height: 56rpx;
+  font-size: 36rpx;
+  color: #666;
+  bottom: 0;
+  left: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.reportDetail{
+  flex: 1;
+  display: flex;
+  background: #fff;
+  border-top: 1px solid #f6f6f6;
+  overflow: hidden;
+}
+.recordItem{
+  margin-bottom: 5px;
+  font-family: PingFang SC;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+}
+.recordItem .key{
+  color: #333333;
+}
+.info .key{
+  width: 50%;
+}
+.recordItem .value{
+  line-break: anywhere;
+  color: #111111;
+}
+.info{
+  display: flex;
+  margin-bottom: 10px;
+}
+.info .value{
+  width: 50%;
+  text-align: right;
+}
+.recordLi{
+  display: flex;
+  font-size: 14px;
+}
+.name{
+  width: 35%;
+} 
+.result{
+  width: 15%;
+}
+.state{
+  width: 10%;
+}
+.unit{
+  width: 15%;
+}
+.range{
+  width: 25%;
+}
+.read{
+  border: 1px solid #32AE57;
+  width: 80px;
+  height: 28px;
+  margin: 10px 0;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 4px;
+  color:#32AE57;
+  font-size: 14px;
+}

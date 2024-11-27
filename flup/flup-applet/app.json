@@ -1,0 +1,99 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/patientInfo/PatientInfo",
+    "pages/login/login",
+    "pages/personal/personal",
+    "pages/healthFileFuncDetail/healthFileFuncDetail",
+    "pages/electronicRecordDetail/electronicRecordDetail",
+    "pages/planDetail/planDetail",
+    "pages/ncdReportDetail/ncdReportDetail",
+    "pages/clinicDetail/clinicDetail",
+    "pages/questionnaire/questionnaire",
+    "pages/healthMonitoringDetail/healthMonitoringDetail",
+    "pages/questionnaireDetail/index",
+    "pages/planAdd/planAdd",
+    "pages/customMessageDetail/index",
+    "pages/planContent/index",
+    "pages/bulletinBoard/index",
+    "pages/summaryDischargeDetail/index",
+    "pages/referralExamine/referralExamine",
+    "pages/referralDetail/referralDetail",
+    "pages/myWebView/myWebView",
+    "pages/graphicForm/graphicForm",
+    "pages/joinGroup/joinGroup",
+    "pages/income/teamIncome",
+    "pages/income/myIncome"
+  ],
+  "window": {
+    "backgroundColor": "#888",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "橄榄卓医",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": true,
+    "selectedColor": "#dd8c00",
+    "color": "#000000",
+    "backgroundColor": "#f7f7f7",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "服务列表",
+        "iconPath": "./assets/images/home.png",
+        "selectedIconPath": "./assets/images/home-light.png"
+      },
+      {
+        "pagePath": "pages/bulletinBoard/index",
+        "text": "看板",
+        "iconPath": "./assets/images/bulletinboard.png",
+        "selectedIconPath": "./assets/images/bulletinboard-light.png"
+      },
+      {
+        "pagePath": "pages/referralExamine/referralExamine",
+        "text": "双向转诊",
+        "iconPath": "./assets/images/referral.png",
+        "selectedIconPath": "./assets/images/referral-light.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "./assets/images/personal.png",
+        "selectedIconPath": "./assets/images/personal-light.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "Chat-Main",
+      "name": "Chat-Main",
+      "pages": [
+        "pages/index",
+        "pages/end",
+        "pages/presale",
+        "pages/graphic",
+        "pages/graphicEnd"
+      ],
+      "independent": false
+    },
+    {
+      "root": "Setting",
+      "name": "Setting",
+      "pages": [
+        "pages/CLSetting/index",
+        "pages/RecommendedPackage/RecommendedPackage",
+        "pages/packageDetail/index",
+        "pages/writeOff/index",
+        "pages/room/room",
+        "pages/accept/accept"
+      ],
+      "independent": false
+    }
+  ],
+  "usingComponents": {
+    "tabBar": "custom-tab-bar/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

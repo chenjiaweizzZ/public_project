@@ -1,0 +1,5 @@
+<view class="package-detail">
+  <view class="main">
+    <web-view wx:if="{{webUrl}}" src="{{webUrl}}" bindmessage="postMessage"></web-view>
+  </view>
+</view>

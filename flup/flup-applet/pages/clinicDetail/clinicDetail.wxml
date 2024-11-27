@@ -1,0 +1,55 @@
+<!--pages/clinicDetail/clinicDetail.wxml-->
+<wxs src="../../utils/utils.wxs" module="utils"></wxs>
+<view class="clinicDetail">
+  <view class="navigatorbar">
+    <image class="navigatorbar-back" bindtap="goBack" src="../../assets/images/back.png" />
+    <view class="conversation-title"><text selectable="true">{{title}}</text></view>
+  </view>
+  <view class="recordtDetail">
+    <view class="recordItem">
+      <view class="key"><text selectable="true">姓名</text></view>
+      <view class="value"><text selectable="true">{{recordDetail.patientName}}</text></view>
+      </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">性别</text></view>
+      <view class="value"><text selectable="true">{{recordDetail.sex}}</text></view>
+    </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">年龄</text></view>
+      <!-- <view class="value">{{recordDetail.age}}岁</view> -->
+      <view class="value"><text selectable="true">{{utils.caculateAge(recordDetail.dateOfBirth,recordDetail.medicalDate)}}岁</text></view>
+    </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">出生日期</text></view>
+      <view class="value"><text selectable="true">{{utils.my_slice(recordDetail.dateOfBirth)}}</text></view>
+    </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">诊断</text></view>
+      <view class="value"><text selectable="true">{{recordDetail.clinicalDiagnosis}}</text></view>
+    </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">检查</text></view>
+      <view class="value"><text selectable="true">{{recordDetail.examNames}}</text></view>
+    </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">检验</text></view>
+      <view class="value"><text selectable="true">{{recordDetail.labNames}}</text></view>
+    </view>
+    <!-- <view class="recordItem">
+      <view class="key">处方</view>
+      <view class="value"></view>
+    </view> -->
+    <view class="recordItem">
+      <view class="key"><text selectable="true">医生</text></view>
+      <view class="value"><text selectable="true">{{recordDetail.medicalDoctor}}</text></view>
+    </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">科室</text></view>
+      <view class="value"><text selectable="true">{{recordDetail.medicalDept}}</text></view>
+    </view>
+    <view class="recordItem">
+      <view class="key"><text selectable="true">时间</text></view>
+      <view class="value"><text selectable="true">{{utils.my_slice(recordDetail.medicalDate)}}</text></view>
+    </view>
+  </view>
+</view>
